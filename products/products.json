@@ -6,6 +6,13 @@
       "brand": "Fore",
       "image": "/img/matchaearl.jpg",
       "description": "matcha earl jasmine"
+    },
+    {
+      "name": "Dirty Matchapresso",
+      "price": 19000,
+      "brand": "Fore",
+      "image": "/img/dirty-matchapresso.jpg",
+      "description": "Dirty Matchapresso"
     }
   ]
 }
