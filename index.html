@@ -94,6 +94,58 @@
         padding: 20px;
     }
 
+    /* Fix Coloumn */
+    /* ====== GRID PRODUK ====== */
+#productList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Laptop / Desktop / TV = 2 kolom */
+@media (min-width: 768px) {
+    #productList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ====== CARD PRODUK ====== */
+.product-card {
+    background: #111;
+    padding: 15px;
+    border-radius: 14px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Gambar produk lebih kecil & tidak pecah */
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Judul & harga */
+.product-card div {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Tombol keranjang */
+.add-btn {
+    background: #27ffae;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 12px;
+    color: #000;
+    font-weight: bold;
+}
+
+
     .brand-card {
         padding: 20px;
         background: #1e1e1e;
@@ -489,4 +541,5 @@ ${listTxt}`
 
 </body>
 </html>
+
 
