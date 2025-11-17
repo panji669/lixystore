@@ -1,11 +1,11 @@
 {
   "items": [
     {
-      "image": "/img/dirty-matchapresso.jpg",
+      "name": "Matcha Earl Jasmine",
       "price": 19000,
-      "name": "Dirty Matchapresso",
       "brand": "Fore",
-      "description": "Dirty Matchapresso"
+      "image": "/img/matchaearl.jpg",
+      "description": "matcha earl jasmine"
     }
   ]
 }
