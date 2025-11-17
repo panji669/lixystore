@@ -1,67 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>LIXY Admin Panel</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin Panel — LIXY Store</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- CSS bawaan Netlify CMS (biar tampilannya rapi) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.css"
+    />
 
-  <style>
-    body {
-      margin: 0;
-      background: #121212;
-      font-family: "Poppins", sans-serif;
-      color: white;
-    }
-
-    .topbar {
-      background: #1E1E1E;
-      padding: 16px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #2a2a2a;
-    }
-
-    .topbar h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    .topbar a {
-      color: #39ffb4;
-      text-decoration: none;
-      font-size: 14px;
-      background: #232323;
-      padding: 8px 12px;
-      border-radius: 8px;
-    }
-
-    /* tempat CMS akan dirender */
-    #nc-root {
-      height: calc(100vh - 60px);
-    }
-  </style>
-</head>
-<body>
-
-<div class="topbar">
-  <h1>Admin Panel — LIXY Store</h1>
-  <a href="../">⬅ Kembali ke Store</a>
-</div>
-
-<div id="nc-root"></div>
-
-<!-- wajib: manual init -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  window.CMS_MANUAL_INIT = true;
-</script>
-<script src="https://unpkg.com/netlify-cms-app@2.15.72/dist/netlify-cms.js"></script>
-<script>
-  CMS.init();
-</script>
-
-</body>
+    <!-- Netlify Identity (buat login) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Script utama Netlify CMS, auto init sendiri -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  </body>
 </html>
-
