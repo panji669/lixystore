@@ -15,7 +15,6 @@
         color: #f2f2f2;
     }
 
-    /* Splash */
     #splash, #namePage, #brandPage, #productPage, #cartPage {
         display: none;
     }
@@ -30,7 +29,6 @@
         padding: 20px;
     }
 
-    /* Logo bulat */
     .logo {
         width: 150px;
         height: 150px;
@@ -56,7 +54,7 @@
         margin-top: 20px;
         transition: 0.2s;
     }
-    button:hover { opacity: 0.8; }
+    button:hover { opacity: 0.85; }
 
     input {
         padding: 12px;
@@ -66,7 +64,6 @@
         margin-top: 10px;
     }
 
-    /* Header */
     header {
         padding: 15px 20px;
         background: #1E1E1E;
@@ -86,105 +83,98 @@
         cursor: pointer;
     }
 
-/* ===== BRAND PAGE GRID ===== */
-.brand-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    padding: 20px;
-}
-
-@media (min-width: 900px) {
+    /* ===== BRAND PAGE ===== */
     .brand-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.brand-item {
-    background: #223F2E;  /* <--- ganti warna kotak brand */
-    padding: 14px 18px;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 0 12px rgba(0,0,0,0.45);
-    transition: 0.2s;
-    border: 1px solid rgba(255,255,255,0.08); /* garis halus supaya tidak nyatu */
-}
-
-.brand-item:hover {
-    background: #2A2A2A; /* Hover lebih terang biar beda */
-    transform: scale(1.05);
-}
-
-
-/* CONTAINER LIST */
-#productList {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 10px;
-}
-
-/* 2 kolom di laptop */
-@media (min-width: 900px) {
-    #productList {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 20px;
     }
-}
 
-/* CARD LIST MODEL */
-.product-card {
-    display: flex;
-    background: #111;
-    border-radius: 14px;
-    padding: 12px;
-    color: white;
-    align-items: center;
-    gap: 12px;
-    min-height: 120px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+    @media (min-width: 900px) {
+        .brand-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 
-/* GAMBAR KIRI */
-.product-card img {
-    width: 110px;
-    height: 110px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-}
+    .brand-item {
+        background: #1F1F1F;
+        padding: 14px 18px;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        transition: 0.2s;
+    }
+    .brand-item:hover {
+        background: #292929;
+        transform: scale(1.05);
+    }
 
-/* TEKS KANAN */
-.product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-}
+    /* ===== PRODUK LIST VIEW ===== */
+    #productList {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+    @media (min-width: 900px) {
+        #productList {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 
-.product-info h3 {
-    font-size: 17px;
-    margin: 0;
-}
+    .product-card {
+        display: flex;
+        background: #111;
+        border-radius: 14px;
+        padding: 12px;
+        color: white;
+        align-items: center;
+        gap: 12px;
+        min-height: 110px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
 
-.product-info small {
-    font-size: 14px;
-    opacity: 0.8;
-}
+    .product-card img {
+        width: 110px;
+        height: 110px;
+        border-radius: 10px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
 
-/* TOMBOL */
-.add-btn {
-    background: #27ffae;
-    padding: 6px 12px;
-    border-radius: 6px;
-    color: black;
-    font-weight: bold;
-    margin-top: 6px;
-    width: fit-content;
-}
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .product-info h3 {
+        font-size: 17px;
+        margin: 0 0 4px 0;
+    }
+
+    .product-info small {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    .add-btn {
+        background: #27ffae;
+        padding: 6px 12px;
+        border-radius: 6px;
+        color: black;
+        font-weight: bold;
+        margin-top: 6px;
+        width: fit-content;
+        cursor: pointer;
+    }
 
     .search {
         padding: 10px;
@@ -197,7 +187,6 @@
         display: block;
     }
 
-    /* Cart badge */
     .badge {
         background: #ff4444;
         padding: 2px 7px;
@@ -208,7 +197,6 @@
         right: 10px;
     }
 
-    /* Cart items */
     .cart-item {
         background: #1e1e1e;
         padding: 12px;
@@ -228,7 +216,6 @@
         font-weight: bold;
     }
 
-    /* Popup */
     #popup {
         display: none;
         position: fixed;
@@ -255,7 +242,7 @@
 
 <!-- Splash -->
 <div id="splash" class="center">
-    <div class="logo"><img src="img/logo.png"></div>
+    <div class="logo"><img src="img/logo.png" alt="LIXY logo"></div>
     <h2>LIXY STORE</h2>
     <button onclick="goName()">Mulai</button>
 </div>
@@ -270,25 +257,26 @@
 <!-- Brand -->
 <div id="brandPage">
     <header>
-        <img src="img/logo.png" onclick="reloadBrand()">
+        <img src="img/logo.png" onclick="reloadBrand()" alt="logo">
         <div id="helloUser"></div>
         <div onclick="openCart()" style="cursor:pointer;">
             🛒 <span id="badge" class="badge" style="display:none;">0</span>
         </div>
     </header>
 
-<div id="brandList" class="brand-grid">
-    <div class="brand-item" onclick="openBrand('Fore')">Fore</div>
-    <div class="brand-item" onclick="openBrand('Kopi Kenangan')">Kopi Kenangan</div>
-    <div class="brand-item" onclick="openBrand('Janji Jiwa')">Janji Jiwa</div>
-    <div class="brand-item" onclick="openBrand('Tomoro')">Tomoro</div>
-    <div class="brand-item" onclick="openBrand('Chagee')">Chagee</div>
+    <div id="brandList" class="brand-grid">
+        <div class="brand-item" onclick="openBrand('Fore')">Fore</div>
+        <div class="brand-item" onclick="openBrand('Kopi Kenangan')">Kopi Kenangan</div>
+        <div class="brand-item" onclick="openBrand('Janji Jiwa')">Janji Jiwa</div>
+        <div class="brand-item" onclick="openBrand('Tomoro')">Tomoro</div>
+        <div class="brand-item" onclick="openBrand('Chagee')">Chagee</div>
+    </div>
 </div>
 
 <!-- Produk -->
 <div id="productPage">
     <header>
-        <img src="img/logo.png" onclick="backBrand()">
+        <img src="img/logo.png" onclick="backBrand()" alt="logo">
         <div id="helloUser2"></div>
         <div onclick="openCart()" style="cursor:pointer;">
             🛒 <span id="badge2" class="badge" style="display:none;">0</span>
@@ -296,14 +284,13 @@
     </header>
 
     <input class="search" placeholder="Cari minuman..." onkeyup="filterProducts(this.value)">
-
-    <div id="productList" class="product-grid"></div>
+    <div id="productList"></div>
 </div>
 
 <!-- Cart -->
 <div id="cartPage">
     <header>
-        <img src="img/logo.png" onclick="backProduct()">
+        <img src="img/logo.png" onclick="backProduct()" alt="logo">
         <div id="helloUser3"></div>
     </header>
 
@@ -342,7 +329,7 @@ function saveName() {
     if (name === "") return alert("Nama tidak boleh kosong");
     localStorage.setItem("buyerName", name);
 
-    helloUser.innerText = "Belanja Yuk, " + name;
+    helloUser.innerText  = "Belanja Yuk, " + name;
     helloUser2.innerText = "Belanja Yuk, " + name;
     helloUser3.innerText = "Belanja Yuk, " + name;
 
@@ -352,49 +339,52 @@ function saveName() {
 
 function reloadBrand() {
     productPage.style.display = "none";
-    brandPage.style.display = "block";
+    cartPage.style.display    = "none";
+    brandPage.style.display   = "block";
 }
 
 function backBrand() {
     productPage.style.display = "none";
-    brandPage.style.display = "block";
+    brandPage.style.display   = "block";
 }
 
-/* --------------- FETCH PRODUCTS (FROM JSON BATCH) --------------- */
+/* --------------- FETCH PRODUCTS (JSON BATCH) --------------- */
 let allProducts = [];
 let currentBrand = "";
 
 async function openBrand(b) {
     currentBrand = b;
-    brandPage.style.display = "none";
+    brandPage.style.display   = "none";
+    cartPage.style.display    = "none";
     productPage.style.display = "block";
 
     await loadProducts();
 }
 
 async function loadProducts() {
-    productList.innerHTML = "Loading...";
+    const productListEl = document.getElementById("productList");
+    productListEl.innerHTML = "Loading...";
 
     try {
-        const res = await fetch("products/products.json");
-        const data = await res.json();
+        const res   = await fetch("products/products.json");
+        const data  = await res.json();
         const items = data.items || [];
 
-        // simpan semua produk untuk brand yang dipilih
         allProducts = items.filter(p => p.brand === currentBrand);
         renderProducts(allProducts);
     } catch (e) {
         console.error(e);
-        productList.innerHTML = "Gagal memuat produk.";
+        productListEl.innerHTML = "Gagal memuat produk.";
     }
 }
 
 function renderProducts(list) {
-    productList.innerHTML = "";
+    const productListEl = document.getElementById("productList");
+    productListEl.innerHTML = "";
     list.forEach((p, i) => {
-        productList.innerHTML += `
+        productListEl.innerHTML += `
             <div class="product-card">
-                <img src="${p.image}">
+                <img src="${p.image}" alt="${p.name}">
                 <div class="product-info">
                     <h3>${p.name}</h3>
                     <small>Rp ${Number(p.price).toLocaleString()}</small>
@@ -412,48 +402,49 @@ function filterProducts(q) {
 }
 
 /* --------------- CART SYSTEM --------------- */
-
 let cart = [];
 
 function addCart(i) {
-    let item = allProducts[i];
+    let item  = allProducts[i];
     let exist = cart.find(c => c.name === item.name && c.brand === item.brand);
 
     if (exist) exist.qty++;
-    else cart.push({...item, qty:1});
+    else cart.push({...item, qty: 1});
 
     updateBadge();
 }
 
 function updateBadge() {
-    let qty = cart.reduce((a,b)=>a+b.qty,0);
+    let qty = cart.reduce((a,b)=>a + b.qty,0);
 
     if (qty === 0) {
-        badge.style.display = "none";
+        badge.style.display  = "none";
         badge2.style.display = "none";
     } else {
-        badge.innerText = qty;
+        badge.innerText  = qty;
         badge2.innerText = qty;
-        badge.style.display = "inline-block";
+        badge.style.display  = "inline-block";
         badge2.style.display = "inline-block";
     }
 }
 
 function openCart() {
     productPage.style.display = "none";
-    cartPage.style.display = "block";
+    brandPage.style.display   = "none";
+    cartPage.style.display    = "block";
     loadCart();
 }
 
 function backProduct() {
-    cartPage.style.display = "none";
+    cartPage.style.display    = "none";
     productPage.style.display = "block";
 }
 
 function loadCart() {
-    cartItems.innerHTML = "";
+    const cartItemsEl = document.getElementById("cartItems");
+    cartItemsEl.innerHTML = "";
     cart.forEach((c, i) => {
-        cartItems.innerHTML += `
+        cartItemsEl.innerHTML += `
             <div class="cart-item">
                 <div>
                     <strong>${c.name}</strong><br>
@@ -486,15 +477,14 @@ function updateTotal() {
 }
 
 /* --------------- CHECKOUT --------------- */
-
 function openPopup() {
-    let name = localStorage.getItem("buyerName");
+    let name   = localStorage.getItem("buyerName") || "-";
     let outlet = outletName.value.trim();
     if (outlet === "") return alert("Outlet harus diisi!");
 
     let listTxt = cart.map(c => `${c.qty}x ${c.name} - Rp ${(c.qty*c.price).toLocaleString()}`).join("\n");
 
-    popupText.innerText = 
+    popupText.innerText =
 `Nama: ${name}
 Outlet: ${outlet}
 
@@ -509,31 +499,21 @@ function closePopup() {
 }
 
 function sendWA() {
-    let name = localStorage.getItem("buyerName");
+    let name   = localStorage.getItem("buyerName") || "-";
     let outlet = outletName.value;
 
     let listTxt = cart.map(c => `${c.qty}x ${c.name} - Rp ${(c.qty*c.price).toLocaleString()}`).join("%0A");
 
-    let msg = 
+    let msg =
 `Nama: ${name}
 Outlet: ${outlet}
 
 Pesanan:
-${listTxt}`
-    .replace(/\n/g,"%0A");
+${listTxt}`.replace(/\n/g,"%0A");
 
-    window.location.href = 
-    `https://wa.me/6281290306599?text=${msg}`;
+    window.location.href = `https://wa.me/6281290306599?text=${msg}`;
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
