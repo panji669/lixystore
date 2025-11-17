@@ -322,7 +322,7 @@ function backBrand() {
     brandPage.style.display = "block";
 }
 
-/* --------------- FETCH PRODUCTS (FROM MARKDOWN) --------------- */
+/* --------------- FETCH PRODUCTS (FROM JSON BATCH) --------------- */
 let allProducts = [];
 let currentBrand = "";
 
@@ -337,35 +337,18 @@ async function openBrand(b) {
 async function loadProducts() {
     productList.innerHTML = "Loading...";
 
-    const files = await fetch("products/")
-        .then(res => res.text());
+    try {
+        const res = await fetch("products/products.json");
+        const data = await res.json();
+        const items = data.items || [];
 
-    const mdFiles = [...files.matchAll(/href="(.*?\.md)"/g)].map(x => x[1]);
-
-    allProducts = [];
-    
-    for (let f of mdFiles) {
-        let md = await fetch("products/" + f).then(r => r.text());
-        
-        let data = parseMD(md);
-        if (data.brand === currentBrand) allProducts.push(data);
+        // simpan semua produk untuk brand yang dipilih
+        allProducts = items.filter(p => p.brand === currentBrand);
+        renderProducts(allProducts);
+    } catch (e) {
+        console.error(e);
+        productList.innerHTML = "Gagal memuat produk.";
     }
-
-    renderProducts(allProducts);
-}
-
-function parseMD(md) {
-    let obj = {};
-    md.split("\n").forEach(line => {
-        let [key, ...rest] = line.split(":");
-        if (!key || rest.length === 0) return;
-        obj[key.trim()] = rest.join(":").trim();
-    });
-
-    // convert number
-    obj.price = Number(obj.price);
-
-    return obj;
 }
 
 function renderProducts(list) {
@@ -375,7 +358,7 @@ function renderProducts(list) {
             <div class="product-card">
                 <img src="${p.image}">
                 <div>${p.name}</div>
-                <small>Rp ${p.price.toLocaleString()}</small><br>
+                <small>Rp ${Number(p.price).toLocaleString()}</small><br>
                 <span class="add-btn" onclick="addCart(${i})">+ Keranjang</span>
             </div>
         `;
@@ -394,7 +377,7 @@ let cart = [];
 
 function addCart(i) {
     let item = allProducts[i];
-    let exist = cart.find(c => c.name === item.name);
+    let exist = cart.find(c => c.name === item.name && c.brand === item.brand);
 
     if (exist) exist.qty++;
     else cart.push({...item, qty:1});
@@ -502,8 +485,8 @@ ${listTxt}`
     window.location.href = 
     `https://wa.me/6281290306599?text=${msg}`;
 }
-
 </script>
 
 </body>
 </html>
+
