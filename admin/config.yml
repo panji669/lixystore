@@ -8,12 +8,15 @@ public_folder: "/img"
 collections:
   - name: "products"
     label: "Produk"
-    folder: "products"
-    create: true
-    slug: "{{slug}}"
+    file: "products/products.json"
+    format: "json"
     fields:
-      - { label: "Nama", name: "name", widget: "string" }
-      - { label: "Harga", name: "price", widget: "number" }
-      - { label: "Brand", name: "brand", widget: "select", options: ["Fore", "Kopi Kenangan", "Janji Jiwa", "Tomoro", "Chagee"] }
-      - { label: "Gambar", name: "image", widget: "image" }
-      - { label: "Deskripsi", name: "description", widget: "text" }
+      - label: "Daftar Produk"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Nama", name: "name", widget: "string" }
+          - { label: "Harga", name: "price", widget: "number" }
+          - { label: "Brand", name: "brand", widget: "select", options: ["Fore", "Kopi Kenangan", "Janji Jiwa", "Tomoro", "Chagee"] }
+          - { label: "Gambar", name: "image", widget: "image" }
+          - { label: "Deskripsi", name: "description", widget: "text" }
