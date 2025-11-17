@@ -372,9 +372,11 @@ function renderProducts(list) {
         productList.innerHTML += `
             <div class="product-card">
                 <img src="${p.image}">
-                <div>${p.name}</div>
-                <small>Rp ${Number(p.price).toLocaleString()}</small><br>
-                <span class="add-btn" onclick="addCart(${i})">+ Keranjang</span>
+                <div class="product-info">
+                    <h3>${p.name}</h3>
+                    <small>Rp ${Number(p.price).toLocaleString()}</small>
+                    <div class="add-btn" onclick="addCart(${i})">+ Keranjang</div>
+                </div>
             </div>
         `;
     });
@@ -504,6 +506,7 @@ ${listTxt}`
 
 </body>
 </html>
+
 
 
 
