@@ -101,7 +101,7 @@
 }
 
 .brand-item {
-    background: #111;
+    background: #1E1E1E;  /* <--- ganti warna kotak brand */
     padding: 14px 18px;
     border-radius: 12px;
     text-align: center;
@@ -109,14 +109,16 @@
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 12px rgba(0,0,0,0.45);
     transition: 0.2s;
+    border: 1px solid rgba(255,255,255,0.08); /* garis halus supaya tidak nyatu */
 }
 
 .brand-item:hover {
-    background: #222;
+    background: #2A2A2A; /* Hover lebih terang biar beda */
     transform: scale(1.05);
 }
+
 
 /* CONTAINER LIST */
 #productList {
@@ -527,6 +529,7 @@ ${listTxt}`
 
 </body>
 </html>
+
 
 
 
