@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>LIXY Admin Panel</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      font-family: "Poppins", sans-serif;
+      color: white;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      background: #1E1E1E;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 25px;
+      box-sizing: border-box;
+      border-right: 1px solid #2a2a2a;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+      background: #272727;
+      font-size: 14px;
+    }
+
+    .sidebar a:hover {
+      background: #39ffb4;
+      color: black;
+    }
+
+    /* Main CMS container */
+    .main {
+      margin-left: 240px;
+      padding: 20px;
+      height: 100vh;
+      background: #181818;
+    }
+
+    .main h1 {
+      margin: 0;
+      padding-bottom: 20px;
+      font-size: 22px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>☕ LIXY CMS</h2>
+  <a href="../">⬅ Kembali ke Store</a>
+  <a href="#/collections/products">📦 Produk</a>
+</div>
+
+<div class="main">
+  <h1>Admin Panel — LIXY Store</h1>
+  <!-- Netlify CMS will load here -->
+  <div id="cms-root"></div>
+</div>
+
+<!-- Load CMS -->
+<script src="https://unpkg.com/netlify-cms-app@2.15.72/dist/netlify-cms.js"></script>
+
+</body>
+</html>
