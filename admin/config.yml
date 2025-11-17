@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: panji669/lixystore
+  name: git-gateway
   branch: main
 
 media_folder: "img"
