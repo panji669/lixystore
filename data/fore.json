@@ -646,7 +646,7 @@
     },
     {
       "id": "fore-choco-late-blend",
-      "name": "ChocoLate Blend",
+      "name": "Choco Late Blend",
       "price": 19000,
       "image": "/img/chocolateblend173.jpg",
       "description": "",
@@ -1200,7 +1200,7 @@
       "price": 19000,
       "image": "/img/cempedak-80.jpg",
       "description": "",
-      "category": "Coffee",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
@@ -1266,7 +1266,7 @@
       "price": 19000,
       "image": "/img/Choco Melt Muffin.png",
       "description": "",
-      "category": "Chocolate",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
@@ -1310,7 +1310,7 @@
       "price": 19000,
       "image": "/img/klapetart Thumbnail.png",
       "description": "",
-      "category": "Coffee",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
@@ -1354,7 +1354,7 @@
       "price": 19000,
       "image": "/img/painauchocolat2403.jpg",
       "description": "",
-      "category": "Chocolate",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
@@ -1416,11 +1416,11 @@
     },
     {
       "id": "fore-strawberry-matcha-cake-zoomed",
-      "name": "Strawberry Matcha Cake Zoomed ()",
+      "name": "Strawberry Matcha Cake Zoomed",
       "price": 19000,
       "image": "/img/Strawberry Matcha Cake Zoomed (1).png",
       "description": "",
-      "category": "Matcha",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
@@ -1442,7 +1442,7 @@
       "price": 19000,
       "image": "/img/thumbbbb.jpg",
       "description": "",
-      "category": "Chocolate",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
