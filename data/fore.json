@@ -29,6 +29,28 @@
       }
     },
     {
+      "id": "fore-matcha-butter-salt-cream",
+      "name": "Matcha butter salt cream",
+      "price": 19000,
+      "image": "/img/matcha butter salt cream.jpg",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
       "id": "fore-dirty-matchapresso",
       "name": "Dirty Matchapresso",
       "price": 19000,
