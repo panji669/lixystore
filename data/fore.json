@@ -7,52 +7,11 @@
   ],
   "products": [
     {
-      "id": "fore-001",
-      "name": "Sample Fore Drink 1",
+      "id": "fore-matcha-earl-jasmine",
+      "name": "Matcha Earl Jasmine",
       "price": 19000,
-      "image": "img/fore/sample-1.webp",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-002",
-      "name": "Sample Fore Drink 2",
-      "price": 20000,
-      "image": "img/fore/sample-2.webp",
-      "category": "Milk Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-003",
-      "name": "Sample Fore Drink 3",
-      "price": 21000,
-      "image": "img/fore/sample-3.webp",
+      "image": "/img/matchaearl.jpg",
+      "description": "matcha earl jasmine",
       "category": "Matcha",
       "variants": {
         "temperature": [
@@ -70,10 +29,33 @@
       }
     },
     {
-      "id": "fore-004",
-      "name": "Sample Fore Drink 4",
-      "price": 22000,
-      "image": "img/fore/sample-4.webp",
+      "id": "fore-dirty-matchapresso",
+      "name": "Dirty Matchapresso",
+      "price": 19000,
+      "image": "/img/dirty-matchapresso.jpg",
+      "description": "Dirty Matchapresso",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-almond-choco",
+      "name": "Almond Choco",
+      "price": 19000,
+      "image": "/img/almondchocoiced173.jpg",
+      "description": "",
       "category": "Chocolate",
       "variants": {
         "temperature": [
@@ -91,11 +73,1398 @@
       }
     },
     {
-      "id": "fore-005",
-      "name": "Sample Fore Drink 5",
-      "price": 23000,
-      "image": "img/fore/sample-5.webp",
-      "category": "Refresh",
+      "id": "fore-americano",
+      "name": "Americano",
+      "price": 19000,
+      "image": "/img/Americano Iced.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-aren-latte",
+      "name": "Aren Latte",
+      "price": 19000,
+      "image": "/img/Aren Latte Ice.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-bumi-latte",
+      "name": "Bumi Latte",
+      "price": 19000,
+      "image": "/img/Bumi Latte w Badge.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-buttercream-latte",
+      "name": "Buttercream Latte ()",
+      "price": 19000,
+      "image": "/img/Buttercream Latte (1).jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-buttercream-tiramisu-latte",
+      "name": "Buttercream Tiramisu Latte",
+      "price": 19000,
+      "image": "/img/Buttercream Tiramisu Latte.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-butterscotch-milk-crumble",
+      "name": "Butterscotch Milk Crumble",
+      "price": 19000,
+      "image": "/img/butterscotchjuni.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-butterscoth-sea-salt-latte",
+      "name": "Butterscoth Sea Salt Latte",
+      "price": 19000,
+      "image": "/img/Butterscoth Iced.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-cafe-latte",
+      "name": "Cafe Latte",
+      "price": 19000,
+      "image": "/img/Cafe Latte Iced.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-capucino",
+      "name": "Capucino",
+      "price": 19000,
+      "image": "/img/Capucino Iced (1).jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-caramel-praline-macchiato",
+      "name": "Caramel Praline Macchiato",
+      "price": 19000,
+      "image": "/img/Caramel Praline Macchiato Iced (1).jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-choco-caramel-cloud",
+      "name": "Choco Caramel Cloud",
+      "price": 19000,
+      "image": "/img/choco caramel cloud.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-classic-milo",
+      "name": "Classic Milo",
+      "price": 19000,
+      "image": "/img/classicmiloiced173.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-coco-peach-fusion",
+      "name": "Coco Peach Fusion",
+      "price": 19000,
+      "image": "/img/Coco Peach Fusion (3).jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-creme-caramel-tea",
+      "name": "Creme Caramel Tea",
+      "price": 19000,
+      "image": "/img/cremecaramelteaiced173.jpg",
+      "description": "",
+      "category": "Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-double-iced-shaken-latte",
+      "name": "Double Iced Shaken Latte",
+      "price": 19000,
+      "image": "/img/Double Iced Shaken Latte (1).jpg",
+      "description": "",
+      "category": "Blended",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-english-breakfast-iced",
+      "name": "English breakfast ICED",
+      "price": 19000,
+      "image": "/img/englishbreakfasticed173.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-espresso",
+      "name": "Espresso",
+      "price": 19000,
+      "image": "/img/espresso173.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-green-tea-jasmine-iced",
+      "name": "Green Tea Jasmine ICED",
+      "price": 19000,
+      "image": "/img/greenteajasmineiced173.jpg",
+      "description": "",
+      "category": "Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-green-tea-mint-iced",
+      "name": "Green Tea Mint ICED",
+      "price": 19000,
+      "image": "/img/greenteaminticed173.jpg",
+      "description": "",
+      "category": "Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-hibiscus-lychee",
+      "name": "Hibiscus Lychee",
+      "price": 19000,
+      "image": "/img/hibiscuslychee173.jpg",
+      "description": "",
+      "category": "Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-kopi-dari-tani",
+      "name": "Kopi Dari Tani",
+      "price": 19000,
+      "image": "/img/Kopi dari Tani w Badge.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-kopi-gembira",
+      "name": "Kopi Gembira",
+      "price": 19000,
+      "image": "/img/KopiGembira_Thumbnail2.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-manuka-americano-iced",
+      "name": "Manuka Americano ICED",
+      "price": 19000,
+      "image": "/img/Manuka Americano Iced.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-caramel-praline-coffee-blend",
+      "name": "Caramel Praline Coffee Blend",
+      "price": 19000,
+      "image": "/img/caramelpralinecoffee173.jpg",
+      "description": "",
+      "category": "Blended",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-matcha-blended",
+      "name": "Matcha Blended",
+      "price": 19000,
+      "image": "/img/matchablended173.jpg",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-strawberry-ice-blended",
+      "name": "Strawberry Ice Blended",
+      "price": 19000,
+      "image": "/img/strawberryblend173.jpg",
+      "description": "",
+      "category": "Blended",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-choco-late-blend",
+      "name": "Choco Late Blend",
+      "price": 19000,
+      "image": "/img/chocolateblend173.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-matcha-green-tea-latte",
+      "name": "Matcha Green Tea Latte",
+      "price": 19000,
+      "image": "/img/matchagreentealatte173.jpg",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-nutty-oat-latte-iced",
+      "name": "Nutty Oat Latte ICED",
+      "price": 19000,
+      "image": "/img/Nutty Oat Latte Iced.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-pandan-latte",
+      "name": "Pandan Latte",
+      "price": 19000,
+      "image": "/img/Pandan Latte Iced.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-pure-chamomile",
+      "name": "Pure Chamomile",
+      "price": 19000,
+      "image": "/img/purechamomileiced173.jpg",
+      "description": "",
+      "category": "Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-sunny-citrus",
+      "name": "Sunny Citrus",
+      "price": 19000,
+      "image": "/img/sunnycitrus173.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-triple-peach-americano",
+      "name": "Triple Peach Americano ()",
+      "price": 19000,
+      "image": "/img/Triple Peach Americano (1).jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-vanila-o-crumbs",
+      "name": "Vanila O'crumbs",
+      "price": 19000,
+      "image": "/img/vanila o'crumbs.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-nutty-oat-1-liter",
+      "name": "Nutty Oat 1 Liter",
+      "price": 19000,
+      "image": "/img/1L-nutty-oat.jpeg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-aren-latte-1liter",
+      "name": "Aren Latte 1Liter",
+      "price": 19000,
+      "image": "/img/ArenLatte1L3006.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-bumi-latte-1-liter",
+      "name": "Bumi Latte 1 Liter",
+      "price": 19000,
+      "image": "/img/Bumi Latte - RTD.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-butterscotch-1-liter",
+      "name": "Butterscotch 1 Liter",
+      "price": 19000,
+      "image": "/img/butterscotchssl1l1402.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-caramel-praline-macchiato-1-liter",
+      "name": "Caramel Praline Macchiato 1 Liter",
+      "price": 19000,
+      "image": "/img/CaramelPralineMacchiato1L3006.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-cocopeach-1-liter",
+      "name": "Cocopeach 1 Liter",
+      "price": 19000,
+      "image": "/img/cocopeach.jpeg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-kopi-gembira-1-liter",
+      "name": "Kopi Gembira 1 Liter",
+      "price": 19000,
+      "image": "/img/Gembira RTD.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-kopi-dari-tani-1-liter",
+      "name": "Kopi Dari Tani 1 Liter",
+      "price": 19000,
+      "image": "/img/Kopi dari Tani - RTD.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-latter-1-liter",
+      "name": "Latter 1 Liter",
+      "price": 19000,
+      "image": "/img/latte1L3006.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-matcha-1-liter",
+      "name": "Matcha 1 Liter",
+      "price": 19000,
+      "image": "/img/matcha1L3006.jpg",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-pandan-latte-1-liter",
+      "name": "Pandan Latte 1 Liter",
+      "price": 19000,
+      "image": "/img/pandanlatte1L3006.jpg",
+      "description": "",
+      "category": "RTD 1L",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-almond-choco-1-liter",
+      "name": "Almond Choco 1 Liter",
+      "price": 19000,
+      "image": "/img/RTD.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-dark-chocolate-1-liter",
+      "name": "Dark Chocolate 1 Liter",
+      "price": 19000,
+      "image": "/img/WhatsApp Image 2025-02-01 at 00.48.06.jpeg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-almond-croissant",
+      "name": "Almond Croissant",
+      "price": 19000,
+      "image": "/img/Almond Croissant -1.jpg",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-blueberry-cheese-muffin",
+      "name": "Blueberry Cheese Muffin",
+      "price": 19000,
+      "image": "/img/Blueberry Cheese Muffin.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-butter-croissant",
+      "name": "Butter Croissant",
+      "price": 19000,
+      "image": "/img/Butter Croissant _-80.jpg",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-cakalang-quiche",
+      "name": "Cakalang Quiche",
+      "price": 19000,
+      "image": "/img/Cakalang Quiche.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-cempedak",
+      "name": "Cempedak",
+      "price": 19000,
+      "image": "/img/cempedak-80.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-cheesy-tuna-sandwich",
+      "name": "Cheesy Tuna Sandwich",
+      "price": 19000,
+      "image": "/img/Cheesy Tuna Sandwich.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-chicken-teriyaki-sandwich",
+      "name": "Chicken Teriyaki Sandwich",
+      "price": 19000,
+      "image": "/img/Chicken Teriyaki Sandwich.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-choco-melt-muffin",
+      "name": "Choco Melt Muffin",
+      "price": 19000,
+      "image": "/img/Choco Melt Muffin.png",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-creamy-beef-mentai-sandwich",
+      "name": "Creamy Beef Mentai Sandwich",
+      "price": 19000,
+      "image": "/img/Creamy Beef Mentai Sandwich.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-klapetart-thumbnail",
+      "name": "Klapetart Thumbnail",
+      "price": 19000,
+      "image": "/img/klapetart Thumbnail.png",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-mushroom-truffle-sandwich",
+      "name": "Mushroom Truffle Sandwich",
+      "price": 19000,
+      "image": "/img/Mushroom Truffle Sandwich.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-painau-choco-lat2403",
+      "name": "Painau Choco Lat2403",
+      "price": 19000,
+      "image": "/img/painauchocolat2403.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-smoked-beef-cheese-sandwich",
+      "name": "Smoked Beef & Cheese Sandwich",
+      "price": 19000,
+      "image": "/img/Smoked Beef & Cheese Sandwich.png",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-smoked-beef-cheese-croissant",
+      "name": "Smoked Beef Cheese Croissant",
+      "price": 19000,
+      "image": "/img/Smoked Beef _ Cheese Croissant.jpg",
+      "description": "",
+      "category": "Food",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-strawberry-matcha-cake-zoomed",
+      "name": "Strawberry Matcha Cake Zoomed ()",
+      "price": 19000,
+      "image": "/img/Strawberry Matcha Cake Zoomed (1).png",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-banana-chocolate-cake",
+      "name": "Banana Chocolate Cake",
+      "price": 19000,
+      "image": "/img/thumbbbb.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-triple-cheese-danish",
+      "name": "Triple Cheese Danish",
+      "price": 19000,
+      "image": "/img/Triple Cheese Danish.jpg",
+      "description": "",
+      "category": "Food",
       "variants": {
         "temperature": [
           "Iced",
