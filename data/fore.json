@@ -646,11 +646,11 @@
     },
     {
       "id": "fore-choco-late-blend",
-      "name": "Choco Late Blend",
+      "name": "ChocoLate Blend",
       "price": 19000,
       "image": "/img/chocolateblend173.jpg",
       "description": "",
-      "category": "Chocolate",
+      "category": "Chocolate","Blended",
       "variants": {
         "temperature": [
           "Iced",
