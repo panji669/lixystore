@@ -1,0 +1,114 @@
+{
+  "brand": "Chagee",
+  "outlets": [
+    "Chagee Cilegon",
+    "Chagee Serang"
+  ],
+  "products": [
+    {
+      "id": "chagee-001",
+      "name": "Sample Chagee Drink 1",
+      "price": 19000,
+      "image": "img/chagee/sample-1.webp",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "chagee-002",
+      "name": "Sample Chagee Drink 2",
+      "price": 20000,
+      "image": "img/chagee/sample-2.webp",
+      "category": "Milk Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "chagee-003",
+      "name": "Sample Chagee Drink 3",
+      "price": 21000,
+      "image": "img/chagee/sample-3.webp",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "chagee-004",
+      "name": "Sample Chagee Drink 4",
+      "price": 22000,
+      "image": "img/chagee/sample-4.webp",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "chagee-005",
+      "name": "Sample Chagee Drink 5",
+      "price": 23000,
+      "image": "img/chagee/sample-5.webp",
+      "category": "Refresh",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    }
+  ]
+}

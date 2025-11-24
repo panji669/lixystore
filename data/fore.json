@@ -1,0 +1,115 @@
+{
+  "brand": "Fore",
+  "outlets": [
+    "Fore Cilegon",
+    "Fore Serang",
+    "Fore Anyer"
+  ],
+  "products": [
+    {
+      "id": "fore-001",
+      "name": "Sample Fore Drink 1",
+      "price": 19000,
+      "image": "img/fore/sample-1.webp",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-002",
+      "name": "Sample Fore Drink 2",
+      "price": 20000,
+      "image": "img/fore/sample-2.webp",
+      "category": "Milk Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-003",
+      "name": "Sample Fore Drink 3",
+      "price": 21000,
+      "image": "img/fore/sample-3.webp",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-004",
+      "name": "Sample Fore Drink 4",
+      "price": 22000,
+      "image": "img/fore/sample-4.webp",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-005",
+      "name": "Sample Fore Drink 5",
+      "price": 23000,
+      "image": "img/fore/sample-5.webp",
+      "category": "Refresh",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    }
+  ]
+}

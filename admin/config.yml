@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: "products"
+    label: "Produk"
+    files:
+      - file: "products/products.json"
+        label: "Daftar Produk"
+        name: "products"
+        fields:
+          - label: "Daftar Produk"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Nama", name: "name", widget: "string" }
+              - { label: "Harga", name: "price", widget: "number" }
+              - { label: "Brand", name: "brand", widget: "select", options: ["Fore", "Kopi Kenangan", "Janji Jiwa", "Tomoro", "Chagee"] }
+              - { label: "Gambar", name: "image", widget: "image" }
+              - { label: "Deskripsi", name: "description", widget: "text" }
