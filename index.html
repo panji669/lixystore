@@ -1,433 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LIXY Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-    body {
-        margin: 0;
-        background: #121212;
-        font-family: Poppins, sans-serif;
-        color: #f2f2f2;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>LIXY Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0c0e11; --bg2:#12151b;
+      --card:#151922; --card2:#1b2232;
+      --text:#e8ecf3; --muted:#9aa3b2;
+      --accent:#f28b20; --accent2:#ffb35b;
+      --danger:#ff6464; --ok:#39d98a;
+      --radius:16px; --radius2:22px;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --glass:rgba(255,255,255,.05);
+      --line:rgba(255,255,255,.08);
     }
-
-    #splash, #namePage, #brandPage, #productPage, #cartPage {
-        display: none;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Poppins,sans-serif; color:var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #1b2030 0%, transparent 50%),
+        radial-gradient(800px 500px at 110% 0%, #1c1622 0%, transparent 60%),
+        var(--bg);
     }
+    button{font-family:inherit; color:inherit; cursor:pointer}
+    .hidden{display:none!important}
 
-    .center {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
+    /* Layout */
+    .page{max-width:1100px; margin:0 auto; padding:18px 16px 120px; animation:fade .25s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-    .logo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-bottom: 20px;
-        border: 3px solid #fff;
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      background:linear-gradient(180deg, rgba(10,12,16,.95), rgba(10,12,16,.6));
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
     }
-    .logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 16px; max-width:1100px; margin:0 auto;
     }
-
-    button {
-        padding: 12px 20px;
-        background: #39ffb4;
-        border: none;
-        border-radius: 8px;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 20px;
-        transition: 0.2s;
+    .logo{display:flex; align-items:center; gap:10px}
+    .logo-badge{
+      width:38px;height:38px;border-radius:50%;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#fff,#d7d7d7);
+      color:#111;font-weight:800;letter-spacing:1px;
+      box-shadow:0 6px 16px rgba(0,0,0,.5);
+      user-select:none;
     }
-    button:hover { opacity: 0.85; }
-
-    input {
-        padding: 12px;
-        width: 80%;
-        border-radius: 8px;
-        border: none;
-        margin-top: 10px;
+    .title{font-weight:700; letter-spacing:.3px}
+    .back-btn{
+      border:none; background:transparent; color:var(--muted);
+      font-weight:600; display:flex; align-items:center; gap:6px;
     }
-
-    header {
-        padding: 15px 20px;
-        background: #1E1E1E;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 50;
+    .cart-btn{
+      border:none; background:var(--glass);
+      padding:10px 12px;border-radius:12px;border:1px solid var(--line);
+      display:flex;align-items:center;gap:8px; position:relative;
+    }
+    .cart-badge{
+      position:absolute; top:-6px; right:-6px;
+      background:var(--accent); color:#111;
+      font-size:12px; font-weight:800;
+      width:22px;height:22px;border-radius:50%;
+      display:grid; place-items:center; border:2px solid var(--bg);
     }
 
-    header img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        cursor: pointer;
+    /* Splash */
+    #splash{
+      height:100vh; display:grid; place-items:center; text-align:center; padding:24px;
+    }
+    .splash-card{
+      padding:28px 22px; border-radius:24px; background:var(--glass); border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      width:min(460px,100%);
+    }
+    .splash-title{font-size:28px;font-weight:800;margin:8px 0 6px}
+    .splash-sub{color:var(--muted);font-size:14px;margin:0}
+    .progress{
+      height:8px;background:var(--card);border-radius:999px;overflow:hidden;margin-top:16px;border:1px solid var(--line)
+    }
+    .bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .1s}
+
+    /* Name Page */
+    .center-card{
+      max-width:520px;margin:40px auto 0;background:var(--glass);
+      border:1px solid var(--line); border-radius:20px; padding:18px; box-shadow:var(--shadow);
+    }
+    .center-card h2{margin:0 0 10px;font-size:22px}
+    .input{
+      width:100%; padding:12px 14px; border-radius:12px;
+      border:1px solid var(--line); background:var(--card);
+      color:var(--text); outline:none;
+    }
+    .btn{
+      border:none; background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#111; font-weight:800; padding:12px 14px; border-radius:12px; width:100%;
+      margin-top:12px; box-shadow:0 8px 18px rgba(242,139,32,.25);
+    }
+    .btn.secondary{
+      background:var(--card2); color:var(--text); border:1px solid var(--line); box-shadow:none;
     }
 
-    /* search bar tetap di atas saat scroll */
-    .search-wrap {
-        position: sticky;
-        top: 70px;
-        z-index: 40;
-        padding: 10px 12px;
-        background: #121212;
-        border-bottom: 1px solid #222;
+    /* Brand page */
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+    .brand-card{
+      background:var(--glass); border:1px solid var(--line); border-radius:18px; padding:14px;
+      display:flex; flex-direction:column; gap:8px; box-shadow:var(--shadow);
+      transition:transform .15s ease, border-color .15s ease;
+      text-align:left;
+    }
+    .brand-card:hover{transform:translateY(-2px); border-color:rgba(242,139,32,.6)}
+    .brand-name{font-weight:700}
+    .brand-desc{font-size:12px;color:var(--muted)}
+
+    /* Product page */
+    .search-wrap{
+      position:sticky; top:60px; z-index:15;
+      background:linear-gradient(180deg, rgba(12,14,17,.95), rgba(12,14,17,.7));
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--line);
+      padding:10px 0 8px;
+      margin:0 -16px 10px;
+    }
+    .search-inner{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;gap:8px}
+    .search{
+      flex:1; padding:12px 14px; border-radius:12px; border:1px solid var(--line);
+      background:var(--card); color:var(--text); outline:none;
+    }
+    .cat-row{
+      display:flex; gap:8px; overflow-x:auto; padding:8px 16px 0;
+      scrollbar-width:none;
+    }
+    .cat-row::-webkit-scrollbar{display:none}
+    .chip{
+      border:1px solid var(--line); background:var(--glass); color:var(--text);
+      padding:7px 12px; border-radius:999px; font-size:12px; font-weight:600; white-space:nowrap;
+    }
+    .chip.active{background:rgba(242,139,32,.15); border-color:rgba(242,139,32,.6)}
+
+    .product-grid{
+      display:grid; gap:12px;
+      grid-template-columns:repeat(2,1fr);
+    }
+    @media(max-width:640px){.product-grid{grid-template-columns:1fr}}
+
+    .product-card{
+      background:linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--line); border-radius:18px; padding:10px;
+      box-shadow:var(--shadow);
+      display:flex; gap:10px; align-items:center;
+      transition:transform .15s ease;
+    }
+    .product-card:hover{transform:translateY(-1px)}
+    .thumb{
+      width:92px;height:92px;border-radius:14px; background:#0a0a0a; overflow:hidden; flex:none; border:1px solid var(--line);
+      display:grid;place-items:center;
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .p-info{flex:1; min-width:0}
+    .p-name{font-weight:700; font-size:14px; margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .p-desc{font-size:12px;color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .p-price{font-weight:800; margin-top:6px}
+    .add-btn{
+      border:none; background:rgba(242,139,32,.15); color:var(--accent);
+      font-weight:800; padding:9px 10px; border-radius:12px; border:1px solid rgba(242,139,32,.35);
+      flex:none;
     }
 
-    .search {
-        padding: 10px 12px;
-        width: 100%;
-        border-radius: 10px;
-        border: none;
-        background: #1f1f1f;
-        color: #fff;
-        display: block;
-        font-size: 15px;
-        outline: none;
+    /* Floating cart bar */
+    .float-cart{
+      position:fixed; left:0; right:0; bottom:0; z-index:30;
+      background:linear-gradient(180deg, rgba(12,14,17,.1), rgba(12,14,17,.98));
+      border-top:1px solid var(--line);
+      padding:10px 12px;
+    }
+    .float-inner{
+      max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:10px;
+      background:var(--glass); border:1px solid var(--line); border-radius:14px; padding:10px 12px; box-shadow:var(--shadow);
+    }
+    .float-left{font-size:13px}
+    .float-total{font-weight:800}
+    .float-btn{
+      border:none; background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#111; font-weight:900; padding:10px 14px; border-radius:12px;
     }
 
-    /* ===== BRAND PAGE ===== */
-    .brand-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        padding: 20px;
+    /* Cart page */
+    .cart-item{
+      background:var(--glass); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px;
+      display:flex; gap:10px; align-items:center;
     }
+    .cart-thumb{width:70px;height:70px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+    .cart-thumb img{width:100%;height:100%;object-fit:cover}
+    .cart-info{flex:1;min-width:0}
+    .cart-name{font-weight:700;font-size:14px}
+    .cart-variant{font-size:12px;color:var(--muted)}
+    .qty-row{display:flex;align-items:center;gap:6px;margin-top:4px}
+    .qty-btn{
+      width:28px;height:28px;border-radius:8px;border:1px solid var(--line);
+      background:var(--card); font-weight:900;
+    }
+    .qty-num{min-width:22px;text-align:center;font-weight:700}
+    .remove-btn{border:none;background:transparent;color:var(--danger);font-weight:700}
 
-    @media (min-width: 900px) {
-        .brand-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
+    .summary{
+      background:var(--glass); border:1px solid var(--line); border-radius:16px; padding:12px; margin-top:12px;
     }
+    .summary-row{display:flex;justify-content:space-between;font-size:14px;margin:6px 0}
+    .summary-total{font-weight:900;font-size:16px}
 
-    .brand-item {
-        background: #1F1F1F;
-        padding: 14px 18px;
-        border-radius: 12px;
-        text-align: center;
-        color: white;
-        font-size: 18px;
-        font-weight: 600;
-        cursor: pointer;
-        border: 1px solid rgba(255,255,255,0.12);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        transition: 0.2s;
+    select, textarea{
+      width:100%; background:var(--card); color:var(--text);
+      border:1px solid var(--line); border-radius:12px; padding:10px 12px; outline:none;
+      font-family:inherit;
     }
-    .brand-item:hover {
-        background: #292929;
-        transform: scale(1.05);
-    }
+    textarea{min-height:70px; resize:vertical}
 
-    /* ===== PRODUK LIST VIEW ===== */
-    #productList {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 10px;
+    /* Modal */
+    .modal{
+      position:fixed; inset:0; background:rgba(0,0,0,.6);
+      display:none; place-items:center; z-index:50; padding:16px;
     }
-    @media (min-width: 900px) {
-        #productList {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    .modal.show{display:grid}
+    .modal-card{
+      width:min(520px,100%); background:var(--bg2); border:1px solid var(--line);
+      border-radius:18px; padding:14px; box-shadow:var(--shadow);
     }
+    .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+    .modal-title{font-weight:800}
+    .close-x{border:none;background:transparent;color:var(--muted);font-size:20px}
+    .variant-block{margin-top:10px}
+    .variant-title{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .variant-row{display:flex;gap:8px;flex-wrap:wrap}
+    .variant-btn{
+      border:1px solid var(--line); background:var(--glass); color:var(--text);
+      padding:7px 10px; border-radius:999px; font-size:12px; font-weight:700;
+    }
+    .variant-btn.active{background:rgba(242,139,32,.15);border-color:rgba(242,139,32,.6)}
 
-    .product-card {
-        display: flex;
-        background: #111;
-        border-radius: 14px;
-        padding: 12px;
-        color: white;
-        align-items: center;
-        gap: 12px;
-        min-height: 110px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    .loading{
+      padding:30px 16px; text-align:center; color:var(--muted); font-weight:600;
     }
-
-    .product-card img {
-        width: 110px;
-        height: 110px;
-        border-radius: 10px;
-        object-fit: cover;
-        flex-shrink: 0;
-    }
-
-    .product-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex: 1;
-    }
-
-    .product-info h3 {
-        font-size: 17px;
-        margin: 0 0 4px 0;
-    }
-
-    .product-info small {
-        font-size: 14px;
-        opacity: 0.8;
-    }
-
-    .add-btn {
-        background: #27ffae;
-        padding: 6px 12px;
-        border-radius: 6px;
-        color: black;
-        font-weight: bold;
-        margin-top: 6px;
-        width: fit-content;
-        cursor: pointer;
-    }
-
-    .badge {
-        background: #ff4444;
-        padding: 2px 7px;
-        border-radius: 50%;
-        font-size: 12px;
-        position: relative;
-        top: -10px;
-        right: 10px;
-    }
-
-    .cart-item {
-        background: #1e1e1e;
-        padding: 12px;
-        margin: 12px;
-        border-radius: 10px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .qty-btn {
-        padding: 5px 10px;
-        background: #39ffb4;
-        border-radius: 5px;
-        color: black;
-        cursor: pointer;
-        margin: 0 5px;
-        font-weight: bold;
-    }
-
-    /* POPUP CHECKOUT */
-    #popup {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.7);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        z-index: 100;
-    }
-
-    #popup .inner {
-        background: #1e1e1e;
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 400px;
-        width: 100%;
-    }
-
-    /* POPUP PILIH OPSI */
-    #optionPopup{
-        display:none; 
-        position:fixed;
-        top:0; left:0;
-        width:100%; height:100%;
-        background:rgba(0,0,0,0.65);
-        justify-content:center;
-        align-items:center;
-        padding:20px;
-        z-index: 99;
-    }
-    #optionPopup .inner-opt{
-        background:#1e1e1e;
-        padding:20px;
-        border-radius:12px;
-        max-width:350px;
-        width:100%;
-        color:white;
-    }
-    #optionPopup select{
-        width:100%;
-        padding:10px;
-        margin:8px 0;
-        border-radius:8px;
-        border:none;
-        background:#2a2a2a;
-        color:white;
-        outline:none;
-    }
-</style>
+  </style>
 </head>
-
 <body>
 
-<!-- Splash -->
-<div id="splash" class="center">
-    <div class="logo"><img src="img/lglixystore.png" alt="LIXY logo"></div>
-    <h2>LIXY STORE</h2>
-    <button onclick="goName()">Mulai</button>
-</div>
-
-<!-- Input Nama -->
-<div id="namePage" class="center">
-    <h2>Masukkan Nama Kamu</h2>
-    <input id="buyerName" placeholder="Nama lengkap">
-    <button onclick="saveName()">Lanjut</button>
-</div>
-
-<!-- Brand -->
-<div id="brandPage">
-    <header>
-        <img src="img/lglixystore.png" onclick="reloadBrand()" alt="logo">
-        <div id="helloUser"></div>
-        <div onclick="openCart()" style="cursor:pointer;">
-            🛒 <span id="badge" class="badge" style="display:none;">0</span>
+  <!-- SPLASH -->
+  <section id="splash">
+    <div class="splash-card">
+      <div class="logo" style="justify-content:center">
+        <div class="logo-badge">LX</div>
+        <div>
+          <div class="splash-title">LIXY Store</div>
+          <p class="splash-sub">coffee & tea marketplace</p>
         </div>
-    </header>
-
-    <div id="brandList" class="brand-grid">
-        <div class="brand-item" onclick="openBrand('fore')">Fore</div>
-        <div class="brand-item" onclick="openBrand('kenangan')">Kopi Kenangan</div>
-        <div class="brand-item" onclick="openBrand('janjijiwa')">Janji Jiwa</div>
-        <div class="brand-item" onclick="openBrand('tomoro')">Tomoro</div>
-        <div class="brand-item" onclick="openBrand('chagee')">Chagee</div>
+      </div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <p class="splash-sub" style="margin-top:10px">loading app…</p>
     </div>
-</div>
+  </section>
 
-<!-- Produk -->
-<div id="productPage">
-    <header>
-        <img src="img/lglixystore.png" onclick="backBrand()" alt="logo">
-        <div id="helloUser2"></div>
-        <div onclick="openCart()" style="cursor:pointer;">
-            🛒 <span id="badge2" class="badge" style="display:none;">0</span>
+  <!-- TOPBAR -->
+  <header class="topbar hidden" id="topbar">
+    <div class="topbar-inner">
+      <button class="back-btn" id="backBtn" onclick="goBack()">
+        ← <span id="backText">Back</span>
+      </button>
+      <div class="logo">
+        <div class="logo-badge">LX</div>
+        <div class="title" id="pageTitle">LIXY Store</div>
+      </div>
+      <button class="cart-btn" onclick="openCart()">
+        🛒 Cart
+        <div class="cart-badge" id="cartBadge">0</div>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAME PAGE -->
+  <section class="page hidden" id="namePage">
+    <div class="center-card">
+      <h2>Masukin nama dulu ya</h2>
+      <input class="input" id="nameInput" placeholder="Nama kamu..." maxlength="24"/>
+      <button class="btn" onclick="saveName()">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- BRAND PAGE -->
+  <section class="page hidden" id="brandPage">
+    <h2>Pilih Brand</h2>
+    <p style="color:var(--muted);margin-top:-4px">Menu bakal ke-load cuma dari brand yang kamu pilih.</p>
+    <div class="grid" style="margin-top:10px">
+      <button class="brand-card" data-key="fore">
+        <div class="brand-name">Fore</div>
+        <div class="brand-desc">coffee • matcha • tea</div>
+      </button>
+      <button class="brand-card" data-key="kenangan">
+        <div class="brand-name">Kopi Kenangan</div>
+        <div class="brand-desc">signature coffee</div>
+      </button>
+      <button class="brand-card" data-key="janjijiwa">
+        <div class="brand-name">Janji Jiwa</div>
+        <div class="brand-desc">coffee • toast series</div>
+      </button>
+      <button class="brand-card" data-key="tomoro">
+        <div class="brand-name">Tomoro</div>
+        <div class="brand-desc">coffee • refresher</div>
+      </button>
+      <button class="brand-card" data-key="chagee">
+        <div class="brand-name">Chagee</div>
+        <div class="brand-desc">milk tea • premium tea</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- PRODUCT PAGE -->
+  <section class="page hidden" id="productPage">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <div>
+        <h2 id="brandTitle" style="margin-bottom:2px">Brand</h2>
+        <div style="color:var(--muted);font-size:12px">
+          Hi, <span id="userNameLabel">User</span> 👋
         </div>
-    </header>
+      </div>
+      <button class="btn secondary" style="width:auto" onclick="goTo('brandPage')">Ganti Brand</button>
+    </div>
 
+    <!-- Sticky Search + Categories -->
     <div class="search-wrap">
-        <input class="search" placeholder="Cari minuman..." onkeyup="filterProducts(this.value)">
+      <div class="search-inner">
+        <input id="searchInput" class="search" placeholder="Cari menu..." />
+      </div>
+      <div class="cat-row" id="catWrap"></div>
     </div>
 
-    <div id="productList"></div>
-</div>
+    <!-- Product List -->
+    <div id="productList" class="product-grid"></div>
+  </section>
 
-<!-- Cart -->
-<div id="cartPage">
-    <header>
-        <img src="img/lglixystore.png" onclick="backProduct()" alt="logo">
-        <div id="helloUser3"></div>
-    </header>
+  <!-- CART PAGE -->
+  <section class="page hidden" id="cartPage">
+    <h2>Keranjang</h2>
+    <div id="cartList" style="margin-top:10px"></div>
 
-    <div id="cartItems"></div>
+    <div class="summary">
+      <div class="summary-row">
+        <div>Outlet</div>
+        <div style="width:65%">
+          <select id="outletSelect"></select>
+        </div>
+      </div>
 
-    <div style="padding:20px;">
-        <input id="outletName" placeholder="Outlet mana?" style="width:100%;padding:12px;border-radius:10px;">
-        <h3>Total: <span id="totalPrice">Rp 0</span></h3>
-        <button onclick="openPopup()">Checkout</button>
+      <div class="summary-row" style="align-items:flex-start">
+        <div>Catatan</div>
+        <div style="width:65%">
+          <textarea id="cartNotes" placeholder="Opsional..."></textarea>
+        </div>
+      </div>
+
+      <div class="summary-row summary-total">
+        <div>Total</div>
+        <div id="cartTotal">Rp 0</div>
+      </div>
+
+      <button class="btn" onclick="checkoutWA()">Checkout via WhatsApp</button>
+      <button class="btn secondary" onclick="goTo('productPage')">Tambah Menu</button>
     </div>
-</div>
+  </section>
 
-<!-- POPUP CHECKOUT -->
-<div id="popup">
-    <div class="inner">
-        <h3>Konfirmasi Pesanan</h3>
-        <pre id="popupText" style="white-space: pre-wrap;"></pre>
-        <button onclick="sendWA()">Benar</button>
-        <button onclick="closePopup()" style="background:#ff4444;">Tidak</button>
+  <!-- FLOATING CART -->
+  <div class="float-cart hidden" id="floatCart">
+    <div class="float-inner">
+      <div class="float-left">
+        <div><b id="floatCount">0</b> item</div>
+        <div class="float-total" id="floatTotal">Rp 0</div>
+      </div>
+      <button class="float-btn" onclick="openCart()">Lihat Cart</button>
     </div>
-</div>
+  </div>
 
-<!-- POPUP PILIHAN PRODUK -->
-<div id="optionPopup">
-    <div class="inner-opt">
-        <h3 style="margin-top:0;">Pilih Opsi Minuman</h3>
+  <!-- VARIANT MODAL -->
+  <div class="modal" id="variantModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="modalProductName">Produk</div>
+          <div style="color:var(--muted);font-size:12px" id="modalProductPrice">Rp 0</div>
+        </div>
+        <button class="close-x" onclick="closeVariant()">✕</button>
+      </div>
 
-        <label>Kamu Mau Ice/Hot?:</label>
-        <select id="optTemp">
-            <option value="Iced">Iced</option>
-            <option value="Hot">Hot</option>
-        </select>
+      <div class="variant-block">
+        <div class="variant-title">Temperature</div>
+        <div class="variant-row" id="tempRow"></div>
+      </div>
+      <div class="variant-block">
+        <div class="variant-title">Sugar</div>
+        <div class="variant-row" id="sugarRow"></div>
+      </div>
+      <div class="variant-block">
+        <div class="variant-title">Size</div>
+        <div class="variant-row" id="sizeRow"></div>
+      </div>
 
-        <label>Gula:</label>
-        <select id="optSugar">
-            <option value="Normal">Normal</option>
-            <option value="Less Sugar">Less Sugar</option>
-        </select>
-
-        <label>Ukuran:</label>
-        <select id="optSize">
-            <option value="Small">Small</option>
-            <option value="Large">Large</option>
-        </select>
-
-        <button onclick="confirmOptions()">Tambah ke Keranjang</button>
-        <button onclick="closeOptionPopup()" style="background:#ff4444;margin-top:10px;">Batal</button>
+      <button class="btn" onclick="confirmAdd()">Add to Cart</button>
     </div>
-</div>
+  </div>
 
 <script>
-/* --------------- PAGE LOGIC --------------- */
-window.onload = () => {
-    document.getElementById("splash").style.display = "flex";
-};
-
-function goName() {
-    splash.style.display = "none";
-    namePage.style.display = "flex";
-}
-
-function saveName() {
-    let name = buyerName.value.trim();
-    if (name === "") return alert("Nama tidak boleh kosong");
-    localStorage.setItem("buyerName", name);
-
-    helloUser.innerText  = "Belanja Yuk, " + name;
-    helloUser2.innerText = "Belanja Yuk, " + name;
-    helloUser3.innerText = "Belanja Yuk, " + name;
-
-    namePage.style.display = "none";
-    brandPage.style.display = "block";
-}
-
-function reloadBrand() {
-    productPage.style.display = "none";
-    cartPage.style.display    = "none";
-    brandPage.style.display   = "block";
-}
-
-function backBrand() {
-    productPage.style.display = "none";
-    brandPage.style.display   = "block";
-}
-
-/* --------------- FETCH PRODUCTS (JSON BATCH) --------------- */
-let allProducts = [];
-let currentBrand = "";
-
-
+/* =========================
+   STATE
+========================= */
 const BRAND_MAP = {
   fore: "data/fore.json",
   kenangan: "data/kenangan.json",
@@ -436,242 +428,472 @@ const BRAND_MAP = {
   chagee: "data/chagee.json"
 };
 
-async function loadBrand(brandKey) {
-  const productListEl = document.getElementById("productList");
-  productListEl.innerHTML = `
-    <div class="loading">
-      <div class="spinner"></div>
-      <p>Loading menu...</p>
-    </div>
-  `;
+let userName = localStorage.getItem("lixy_name") || "";
+let historyStack = [];
+let currentBrandKey = null;
+let currentBrandData = null;
+let allProducts = []; // current brand products
 
-  // memory cache skip: if same brand already loaded
-  if (currentBrandKey === brandKey && currentBrandData) {
-    allProducts = currentBrandData.products;
-    renderProducts(allProducts);
-    return;
-  }
+let cart = JSON.parse(localStorage.getItem("lixy_cart") || "[]");
 
-  const cacheKey = "brand_" + brandKey;
-  const cached = localStorage.getItem(cacheKey);
-  if (cached) {
-    const data = JSON.parse(cached);
-    currentBrandData = data;
-    currentBrandKey = brandKey;
-    currentBrand = data.brand || brandKey;
+let activeCategory = "All";
+let searchQuery = "";
 
-    allProducts = (data.products || []).map(p => ({
-      ...p,
-      brand: currentBrand,
-      brandKey
-    }));
+/* modal temp */
+let modalProduct = null;
+let pick = {
+  temperature: null,
+  sugar: null,
+  size: null
+};
 
-    renderProducts(allProducts);
-    return;
-  }
-
-  try {
-    const url = BRAND_MAP[brandKey];
-    const res = await fetch(url, { cache: "force-cache" });
-    if (!res.ok) throw new Error("Fetch fail " + brandKey);
-
-    const data = await res.json();
-    currentBrandData = data;
-    currentBrandKey = brandKey;
-    currentBrand = data.brand || brandKey;
-
-    allProducts = (data.products || []).map(p => ({
-      ...p,
-      brand: currentBrand,
-      brandKey
-    }));
-
-    localStorage.setItem(cacheKey, JSON.stringify(data));
-    renderProducts(allProducts);
-  } catch (err) {
-    console.error(err);
-    productListEl.innerHTML = "Gagal memuat produk brand ini.";
-  }
-}
-async function openBrand(b) {
-    currentBrandKey = b;
-    brandPage.style.display = "none";
-    productPage.style.display = "block";
-    await loadBrand(b);
+/* =========================
+   INIT
+========================= */
+const pages = ["namePage","brandPage","productPage","cartPage"];
+function showOnly(pageId){
+  pages.forEach(p=>document.getElementById(p).classList.add("hidden"));
+  document.getElementById(pageId).classList.remove("hidden");
+  document.getElementById("topbar").classList.toggle("hidden", pageId==="namePage");
+  setTitle(pageId);
 }
 
-
-function renderProducts(list) {
-    const productListEl = document.getElementById("productList");
-    productListEl.innerHTML = "";
-    list.forEach((p, i) => {
-        productListEl.innerHTML += `
-            <div class="product-card">
-                <img loading="lazy" decoding="async" src="${p.image}" alt="${p.name}">
-                <div class="product-info">
-                    <h3>${p.name}</h3>
-                    <small>Rp ${Number(p.price).toLocaleString()}</small>
-                    <div class="add-btn" onclick="addCart(${i})">+ Keranjang</div>
-                </div>
-            </div>
-        `;
-    });
+function setTitle(pageId){
+  const t = document.getElementById("pageTitle");
+  const bt = document.getElementById("backText");
+  if(pageId==="brandPage"){ t.textContent="Pilih Brand"; bt.textContent="Back"; }
+  if(pageId==="productPage"){ t.textContent=currentBrandData?.brand || "Produk"; bt.textContent="Brand"; }
+  if(pageId==="cartPage"){ t.textContent="Keranjang"; bt.textContent="Produk"; }
 }
 
-function filterProducts(q) {
-    q = q.toLowerCase();
-    let filtered = allProducts.filter(x => x.name.toLowerCase().includes(q));
-    renderProducts(filtered);
+function goTo(pageId){
+  const current = pages.find(p=>!document.getElementById(p).classList.contains("hidden"));
+  if(current) historyStack.push(current);
+  showOnly(pageId);
 }
 
-/* --------------- CART + OPTION SYSTEM --------------- */
-let cart = [];
-let selectedProductIndex = null;
-
-function addCart(i) {
-    selectedProductIndex = i;
-    openOptionPopup();
+function goBack(){
+  const prev = historyStack.pop();
+  if(prev) showOnly(prev);
 }
 
-function openOptionPopup() {
-    optionPopup.style.display = "flex";
+function openCart(){
+  renderCart();
+  goTo("cartPage");
 }
 
-function closeOptionPopup() {
-    optionPopup.style.display = "none";
-}
-
-function confirmOptions() {
-    let temp = document.getElementById("optTemp").value;
-    let sugar = document.getElementById("optSugar").value;
-
-    let item = allProducts[selectedProductIndex];
-
-    let exist = cart.find(c =>
-        c.name === item.name &&
-        c.brand === item.brand &&
-        c.temp === temp &&
-        c.sugar === sugar
-    );
-
-    if (exist) exist.qty++;
-    else cart.push({
-        ...item,
-        qty: 1,
-        temp: temp,
-        sugar: sugar
-    });
-
-    optionPopup.style.display = "none";
-    updateBadge();
-}
-
-function updateBadge() {
-    let qty = cart.reduce((a,b)=>a + b.qty,0);
-
-    if (qty === 0) {
-        badge.style.display  = "none";
-        badge2.style.display = "none";
-    } else {
-        badge.innerText  = qty;
-        badge2.innerText = qty;
-        badge.style.display  = "inline-block";
-        badge2.style.display = "inline-block";
+/* splash */
+(function splash(){
+  const bar = document.getElementById("bar");
+  let w=0;
+  const timer=setInterval(()=>{
+    w+=7; bar.style.width=w+"%";
+    if(w>=100){
+      clearInterval(timer);
+      document.getElementById("splash").classList.add("hidden");
+      if(userName){
+        document.getElementById("userNameLabel").textContent=userName;
+        showOnly("brandPage");
+      }else showOnly("namePage");
+      bindBrandButtons();
+      bindSearch();
+      updateCartUI();
     }
+  },80);
+})();
+
+/* =========================
+   NAME
+========================= */
+function saveName(){
+  const v = document.getElementById("nameInput").value.trim();
+  if(!v){ alert("isi nama dulu"); return; }
+  userName=v;
+  localStorage.setItem("lixy_name", v);
+  document.getElementById("userNameLabel").textContent=v;
+  goTo("brandPage");
 }
 
-function openCart() {
-    productPage.style.display = "none";
-    brandPage.style.display   = "none";
-    cartPage.style.display    = "block";
-    loadCart();
-}
-
-function backProduct() {
-    cartPage.style.display    = "none";
-    productPage.style.display = "block";
-}
-
-function loadCart() {
-    const cartItemsEl = document.getElementById("cartItems");
-    cartItemsEl.innerHTML = "";
-    cart.forEach((c, i) => {
-        cartItemsEl.innerHTML += `
-            <div class="cart-item">
-                <div>
-                    <strong>${c.name}</strong><br>
-                    <small>${c.temp} • ${c.sugar}</small><br>
-                    Rp ${(c.price * c.qty).toLocaleString()}
-                </div>
-                <div>
-                    <span class="qty-btn" onclick="decQty(${i})">-</span>
-                    ${c.qty}
-                    <span class="qty-btn" onclick="incQty(${i})">+</span>
-                </div>
-            </div>
-        `;
+/* =========================
+   BRAND LOAD
+========================= */
+function bindBrandButtons(){
+  document.querySelectorAll(".brand-card").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const key = btn.dataset.key;
+      goTo("productPage");
+      loadBrand(key);
     });
-
-    updateTotal();
+  });
 }
 
-function incQty(i){ cart[i].qty++; loadCart(); updateBadge(); }
+async function loadBrand(brandKey){
+  currentBrandKey = brandKey;
+  const listEl = document.getElementById("productList");
+  listEl.innerHTML = `<div class="loading">Loading menu...</div>`;
+
+  const cacheKey = "brand_"+brandKey;
+  const cached = localStorage.getItem(cacheKey);
+  if(cached){
+    currentBrandData = JSON.parse(cached);
+    allProducts = currentBrandData.products || [];
+    afterBrandLoaded();
+    return;
+  }
+
+  const url = BRAND_MAP[brandKey];
+  if(!url){
+    listEl.innerHTML = `<div class="loading">Brand key salah: ${brandKey}</div>`;
+    return;
+  }
+
+  try{
+    const res = await fetch(url, { cache:"no-store" });
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const raw = await res.json();
+    const data = normalizeBrandData(raw, brandKey);
+
+    currentBrandData = data;
+    allProducts = data.products || [];
+    localStorage.setItem(cacheKey, JSON.stringify(data));
+
+    afterBrandLoaded();
+
+  }catch(err){
+    console.error(err);
+    listEl.innerHTML = `
+      <div class="loading">
+        Gagal load ${brandKey}. <br>
+        Pastikan file <b>/data/${brandKey}.json</b> ada & jalankan via Live Server.
+      </div>`;
+  }
+}
+
+function afterBrandLoaded(){
+  document.getElementById("brandTitle").textContent = currentBrandData.brand || currentBrandKey;
+  setTitle("productPage");
+
+  activeCategory="All";
+  searchQuery="";
+  document.getElementById("searchInput").value="";
+
+  renderCategories(allProducts);
+  renderProducts(allProducts);
+  fillOutletOptions();
+
+  updateCartUI();
+}
+
+/* normalize schema items/products */
+function normalizeBrandData(raw, brandKey){
+  // schema baru
+  if(raw && Array.isArray(raw.products)){
+    const brandName = raw.brand || brandKey;
+    return {
+      brand: brandName,
+      outlets: raw.outlets || [],
+      products: raw.products.map(p => ({
+        ...p,
+        brand: brandName,
+        brandKey,
+        id: p.id || makeId(brandKey, p.name),
+        category: p.category || guessCategory(p.name),
+        variants: p.variants || defaultVariants(),
+        image: cleanImg(p.image || "")
+      }))
+    };
+  }
+  // schema lama (punya Fore)
+  if(raw && Array.isArray(raw.items)){
+    const brandName = raw.brand || raw.items[0]?.brand || brandKey;
+    return {
+      brand: brandName,
+      outlets: raw.outlets || [],
+      products: raw.items.map((it, idx)=>({
+        id: makeId(brandKey, it.name || ("item-"+idx)),
+        name: it.name || "Untitled",
+        price: Number(it.price)||0,
+        image: cleanImg(it.image || ""),
+        description: it.description || "",
+        category: guessCategory(it.name),
+        variants: defaultVariants(),
+        brand: brandName,
+        brandKey
+      }))
+    };
+  }
+  return { brand: brandKey, outlets: [], products: [] };
+}
+
+function defaultVariants(){
+  return {
+    temperature:["Iced","Hot"],
+    sugar:["Normal","Less Sugar"],
+    size:["Small","Large"]
+  };
+}
+function makeId(brandKey,name){
+  return (brandKey+"-"+name).toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
+}
+function guessCategory(name=""){
+  const n=name.toLowerCase();
+  if(n.includes("matcha")) return "Matcha";
+  if(n.includes("tea")||n.includes("earl")||n.includes("jasmine")||n.includes("hibiscus")||n.includes("oolong")) return "Tea";
+  if(n.includes("choco")||n.includes("milo")||n.includes("chocolate")) return "Chocolate";
+  if(n.includes("croissant")||n.includes("muffin")||n.includes("sandwich")||n.includes("cake")||n.includes("danish")||n.includes("quiche")) return "Food";
+  if(n.includes("blend")||n.includes("frappe")||n.includes("shaken")) return "Blended";
+  return "Coffee";
+}
+function cleanImg(path=""){
+  return path? encodeURI(path) : "";
+}
+
+/* =========================
+   CATEGORIES + SEARCH
+========================= */
+function renderCategories(products){
+  const wrap = document.getElementById("catWrap");
+  const cats = ["All", ...new Set(products.map(p=>p.category||"Other"))];
+  wrap.innerHTML = cats.map(c=>`<button class="chip ${c==="All"?"active":""}" data-cat="${c}">${c}</button>`).join("");
+  wrap.querySelectorAll(".chip").forEach(btn=>{
+    btn.onclick=()=>{
+      wrap.querySelectorAll(".chip").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      activeCategory = btn.dataset.cat;
+      applyFilters();
+    };
+  });
+}
+
+function bindSearch(){
+  const input = document.getElementById("searchInput");
+  const debounced = debounce((v)=>{
+    searchQuery=v.toLowerCase().trim();
+    applyFilters();
+  },200);
+  input.addEventListener("input",(e)=>debounced(e.target.value));
+}
+
+function debounce(fn,delay=250){
+  let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args),delay); };
+}
+
+function applyFilters(){
+  let filtered = allProducts;
+  if(activeCategory!=="All"){
+    filtered = filtered.filter(p=>p.category===activeCategory);
+  }
+  if(searchQuery){
+    filtered = filtered.filter(p=>
+      (p.name||"").toLowerCase().includes(searchQuery) ||
+      (p.description||"").toLowerCase().includes(searchQuery)
+    );
+  }
+  renderProducts(filtered);
+}
+
+/* =========================
+   PRODUCTS RENDER
+========================= */
+function renderProducts(products){
+  const listEl = document.getElementById("productList");
+  if(!products.length){
+    listEl.innerHTML = `<div class="loading">Menu kosong.</div>`;
+    return;
+  }
+  listEl.innerHTML = products.map(p=>`
+    <div class="product-card">
+      <div class="thumb">
+        <img loading="lazy" decoding="async" src="${p.image}" alt="${escapeHtml(p.name)}"
+          onerror="this.src=''; this.parentNode.style.background='#111'; this.parentNode.innerHTML='🧋'">
+      </div>
+      <div class="p-info">
+        <div class="p-name">${escapeHtml(p.name)}</div>
+        <div class="p-desc">${escapeHtml(p.description||p.category||'')}</div>
+        <div class="p-price">${toRp(p.price)}</div>
+      </div>
+      <button class="add-btn" onclick="openVariant('${p.id}')">Add</button>
+    </div>
+  `).join("");
+}
+
+function escapeHtml(s=""){
+  return s.replace(/[&<>'"]/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;" }[c]));
+}
+
+/* =========================
+   VARIANT MODAL
+========================= */
+function openVariant(id){
+  modalProduct = allProducts.find(x=>x.id===id);
+  if(!modalProduct) return;
+
+  document.getElementById("modalProductName").textContent = modalProduct.name;
+  document.getElementById("modalProductPrice").textContent = toRp(modalProduct.price);
+
+  pick.temperature = modalProduct.variants.temperature?.[0] || "Iced";
+  pick.sugar       = modalProduct.variants.sugar?.[0] || "Normal";
+  pick.size        = modalProduct.variants.size?.[0] || "Small";
+
+  renderVariantRow("tempRow", modalProduct.variants.temperature, "temperature");
+  renderVariantRow("sugarRow", modalProduct.variants.sugar, "sugar");
+  renderVariantRow("sizeRow", modalProduct.variants.size, "size");
+
+  document.getElementById("variantModal").classList.add("show");
+}
+
+function renderVariantRow(rowId, options=[], key){
+  const row = document.getElementById(rowId);
+  row.innerHTML = options.map(opt=>`
+    <button class="variant-btn ${pick[key]===opt?"active":""}" onclick="pickVariant('${key}','${opt}', '${rowId}')">${opt}</button>
+  `).join("");
+}
+
+function pickVariant(key, val, rowId){
+  pick[key]=val;
+  document.getElementById(rowId).querySelectorAll(".variant-btn").forEach(b=>{
+    b.classList.toggle("active", b.textContent===val);
+  });
+}
+
+function closeVariant(){
+  document.getElementById("variantModal").classList.remove("show");
+}
+
+function confirmAdd(){
+  if(!modalProduct) return;
+  const key = modalProduct.id+"|"+pick.temperature+"|"+pick.sugar+"|"+pick.size;
+
+  const found = cart.find(i=>i.key===key);
+  if(found){
+    found.qty += 1;
+  }else{
+    cart.push({
+      key,
+      id: modalProduct.id,
+      name: modalProduct.name,
+      price: modalProduct.price,
+      image: modalProduct.image,
+      brand: modalProduct.brand,
+      brandKey: modalProduct.brandKey,
+      category: modalProduct.category,
+      temperature: pick.temperature,
+      sugar: pick.sugar,
+      size: pick.size,
+      qty: 1
+    });
+  }
+  persistCart();
+  updateCartUI();
+  closeVariant();
+}
+
+/* =========================
+   CART
+========================= */
+function persistCart(){
+  localStorage.setItem("lixy_cart", JSON.stringify(cart));
+}
+
+function updateCartUI(){
+  const count = cart.reduce((a,b)=>a+b.qty,0);
+  document.getElementById("cartBadge").textContent = count;
+  document.getElementById("floatCount").textContent = count;
+
+  const total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+  document.getElementById("floatTotal").textContent = toRp(total);
+
+  document.getElementById("floatCart").classList.toggle("hidden", count===0);
+}
+
+function renderCart(){
+  const list = document.getElementById("cartList");
+  if(cart.length===0){
+    list.innerHTML = `<div class="loading">Cart masih kosong.</div>`;
+    document.getElementById("cartTotal").textContent = "Rp 0";
+    fillOutletOptions();
+    return;
+  }
+
+  list.innerHTML = cart.map((it,idx)=>`
+    <div class="cart-item">
+      <div class="cart-thumb">
+        <img loading="lazy" decoding="async" src="${it.image}" alt="${escapeHtml(it.name)}"
+          onerror="this.src=''; this.parentNode.style.background='#111'; this.parentNode.innerHTML='🧋'">
+      </div>
+      <div class="cart-info">
+        <div class="cart-name">${escapeHtml(it.name)}</div>
+        <div class="cart-variant">
+          ${it.brand} • ${it.temperature}, ${it.sugar}, ${it.size}
+        </div>
+        <div class="qty-row">
+          <button class="qty-btn" onclick="decQty(${idx})">−</button>
+          <div class="qty-num">${it.qty}</div>
+          <button class="qty-btn" onclick="incQty(${idx})">+</button>
+          <button class="remove-btn" onclick="removeItem(${idx})">hapus</button>
+        </div>
+      </div>
+      <div style="font-weight:800">${toRp(it.price*it.qty)}</div>
+    </div>
+  `).join("");
+
+  const total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+  document.getElementById("cartTotal").textContent = toRp(total);
+
+  fillOutletOptions();
+}
+
+function incQty(i){ cart[i].qty++; persistCart(); renderCart(); updateCartUI(); }
 function decQty(i){
-    if (cart[i].qty > 1) cart[i].qty--;
-    else cart.splice(i,1);
+  cart[i].qty--;
+  if(cart[i].qty<=0) cart.splice(i,1);
+  persistCart(); renderCart(); updateCartUI();
+}
+function removeItem(i){ cart.splice(i,1); persistCart(); renderCart(); updateCartUI(); }
 
-    loadCart();
-    updateBadge();
+/* outlet options based on selected brand (prefer current brand) */
+function fillOutletOptions(){
+  const sel = document.getElementById("outletSelect");
+  const outlets = currentBrandData?.outlets?.length
+    ? currentBrandData.outlets
+    : ["LIXY Cilegon","LIXY Serang","LIXY Anyer"];
+
+  const saved = localStorage.getItem("lixy_outlet") || outlets[0];
+  sel.innerHTML = outlets.map(o=>`<option ${o===saved?"selected":""}>${o}</option>`).join("");
+  sel.onchange=()=>localStorage.setItem("lixy_outlet", sel.value);
 }
 
-function updateTotal() {
-    let total = cart.reduce((a,b)=>a + (b.qty*b.price),0);
-    totalPrice.innerText = "Rp " + total.toLocaleString();
+/* =========================
+   CHECKOUT WHATSAPP
+========================= */
+function checkoutWA(){
+  if(cart.length===0){ alert("Cart masih kosong"); return; }
+  const outlet = document.getElementById("outletSelect").value;
+  const notes  = document.getElementById("cartNotes").value.trim();
+
+  let text = `Halo, saya ${userName}%0AOutlet: ${outlet}%0A%0AOrder:%0A`;
+  cart.forEach((it, idx)=>{
+    const lineTotal = it.price*it.qty;
+    text += `${idx+1}. ${it.name} (${it.temperature}, ${it.sugar}, ${it.size}) x${it.qty} = ${toRp(lineTotal)}%0A`;
+  });
+  const total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+  text += `%0ATotal: ${toRp(total)}%0A`;
+  if(notes) text += `%0ACatatan: ${encodeURIComponent(notes)}%0A`;
+
+  // nomer WA kamu ganti disini (format 62...)
+  const phone = "6281234567890";
+  const url = `https://wa.me/${phone}?text=${text}`;
+  window.open(url, "_blank");
 }
 
-/* --------------- CHECKOUT --------------- */
-function openPopup() {
-    let name   = localStorage.getItem("buyerName") || "-";
-    let outlet = outletName.value.trim();
-    if (outlet === "") return alert("Outlet harus diisi!");
-
-    let listTxt = cart.map(c =>
-        `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}) - Rp ${(c.qty*c.price).toLocaleString()}`
-    ).join("\n");
-
-    popupText.innerText =
-`Nama: ${name}
-Outlet: ${outlet}
-
-Pesanan:
-${listTxt}`;
-
-    popup.style.display = "flex";
-}
-
-function closePopup() {
-    popup.style.display = "none";
-}
-
-function sendWA() {
-    let name   = localStorage.getItem("buyerName") || "-";
-    let outlet = outletName.value;
-
-    let listTxt = cart.map(c =>
-        `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}) - Rp ${(c.qty*c.price).toLocaleString()}`
-    ).join("%0A");
-
-    let msg =
-`Nama: ${name}
-Outlet: ${outlet}
-
-Pesanan:
-${listTxt}`.replace(/\n/g,"%0A");
-
-    window.location.href = `https://wa.me/6281290306599?text=${msg}`;
+/* =========================
+   HELPERS
+========================= */
+function toRp(n){
+  n = Number(n)||0;
+  return "Rp " + n.toLocaleString("id-ID");
 }
 </script>
-
 </body>
 </html>
-
