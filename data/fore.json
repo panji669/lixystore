@@ -650,7 +650,7 @@
       "price": 19000,
       "image": "/img/chocolateblend173.jpg",
       "description": "",
-      "category": "Chocolate, Blended",
+      "category": ["Chocolate", "Blended"],
       "variants": {
         "temperature": [
           "Iced",
