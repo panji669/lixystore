@@ -99,7 +99,8 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
 .chip.active{background:var(--accent);border-color:var(--accent);color:#000;}
 
 /* PRODUCT LIST */
-#productList{padding:20px;}
+#productList{padding:20px;display:grid;grid-template-columns:1fr;gap:12px;}
+@media(min-width:900px){#productList{grid-template-columns:repeat(2,1fr);}}
 .product-card{
   background:var(--card);border-radius:var(--radius);padding:12px;border:1px solid var(--line);
   transition:.2s;display:flex;gap:12px;
@@ -164,6 +165,27 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
   width:100%;padding:10px;margin:6px 0;border-radius:10px;border:1px solid var(--line);
   background:var(--card);color:#fff;
 }
+
+
+/* LOADING OVERLAY */
+#loadingOverlay{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:rgba(15,15,15,.85);
+  backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;flex-direction:column;gap:10px;
+}
+#loadingOverlay .spinner{
+  width:58px;height:58px;border-radius:50%;
+  border:4px solid var(--line);
+  border-top-color:var(--accent);
+  animation:spin 1s linear infinite;
+  box-shadow:0 0 18px rgba(57,255,180,.35);
+}
+#loadingOverlay .loading-text{
+  color:var(--muted);font-weight:600;font-size:14px;letter-spacing:.3px;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
 
 </style>
 </head>
@@ -293,6 +315,13 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
   </div>
 </div>
 
+
+<div id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Loading menu...</div>
+</div>
+
+
 <script>
 /* UTIL */
 function rupiah(n){return "Rp "+n.toLocaleString("id-ID");}
@@ -301,6 +330,12 @@ function hashJSON(obj){
 }
 function save(k,v){localStorage.setItem(k,JSON.stringify(v));}
 function load(k,d=null){let v=localStorage.getItem(k);return v?JSON.parse(v):d;}
+
+function showLoading(on){
+  const ol = document.getElementById("loadingOverlay");
+  if(!ol) return;
+  ol.style.display = on ? "flex" : "none";
+}
 
 let CURRENT_BRAND=null,CURRENT_PRODUCTS=[],CURRENT_OUTLETS=[],CART=load("cart",[]),USERNAME=load("username","");
 let LIVE_VERSION=null,LIVE_HASH=null,OPT_PRODUCT=null;
@@ -327,6 +362,7 @@ function backProduct(){cartPage.classList.add("hidden");productPage.classList.re
 /* LOAD BRAND */
 async function loadBrand(b,force=false){
   try{
+    showLoading(true);
     let res=await fetch(`data/${b}.json?x=`+Date.now());
     let data=await res.json();
     let norm=normalizeBrand(data);
