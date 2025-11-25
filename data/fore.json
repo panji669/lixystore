@@ -1,6 +1,6 @@
 {
   "brand": "Fore",
-  "version": 3,
+  "version": 4,
   "outlets": [
     "Fore Cilegon",
     "Fore Serang",
@@ -55,7 +55,7 @@
       "id": "fore-matcha-butter-salt-cream",
       "name": "Matcha butter salt cream",
       "price": 19000,
-      "image": "/img/matcha buttersaltcream.jpg",
+      "image": "/img/matchabuttersaltcream.jpg",
       "description": "",
       "category": "Matcha",
       "variants": {
