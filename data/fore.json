@@ -1,6 +1,6 @@
 {
   "brand": "Fore",
-  "version": 4,
+  "version": 5,
   "outlets": [
     "Fore Cilegon",
     "Fore Serang",
@@ -628,28 +628,6 @@
       "name": "Matcha Blended",
       "price": 19000,
       "image": "/img/matchablended173.jpg",
-      "description": "",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-matcha-butter-salt-cream",
-      "name": "Matcha butter salt cream",
-      "price": 19000,
-      "image": "/img/matcha butter salt cream.jpg",
       "description": "",
       "category": "Matcha",
       "variants": {
