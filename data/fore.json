@@ -55,7 +55,7 @@
       "id": "fore-matcha-butter-salt-cream",
       "name": "Matcha butter salt cream",
       "price": 19000,
-      "image": "/img/matchabuttersalt.jpg",
+      "image": "img/matchabuttersalt.jpg",
       "description": "",
       "category": "Matcha",
       "variants": {
