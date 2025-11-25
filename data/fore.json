@@ -1,6 +1,6 @@
 {
   "brand": "Fore",
-  "version": 3,
+  "version": 2,
   "outlets": [
     "Fore Cilegon",
     "Fore Serang",
@@ -30,11 +30,11 @@
       }
     },
     {
-      "id": "fore-matcha-butter-salt-cream",
-      "name": "Matcha butter salt cream",
+      "id": "fore-dirty-matchapresso",
+      "name": "Dirty Matchapresso",
       "price": 19000,
-      "image": "/img/matcha butter salt cream.jpg",
-      "description": "",
+      "image": "/img/dirty-matchapresso.jpg",
+      "description": "Dirty Matchapresso",
       "category": "Matcha",
       "variants": {
         "temperature": [
@@ -52,11 +52,11 @@
       }
     },
     {
-      "id": "fore-dirty-matchapresso",
-      "name": "Dirty Matchapresso",
+      "id": "fore-matcha-butter-salt-cream",
+      "name": "Matcha butter salt cream",
       "price": 19000,
-      "image": "/img/dirty-matchapresso.jpg",
-      "description": "Dirty Matchapresso",
+      "image": "/img/matcha butter salt cream.jpg",
+      "description": "",
       "category": "Matcha",
       "variants": {
         "temperature": [
@@ -120,7 +120,7 @@
     {
       "id": "fore-aren-latte",
       "name": "Aren Latte",
-      "price": 19000,
+      "price": 18000,
       "image": "/img/Aren Latte Ice.jpg",
       "description": "",
       "category": "Coffee",
@@ -186,7 +186,7 @@
     {
       "id": "fore-buttercream-tiramisu-latte",
       "name": "Buttercream Tiramisu Latte",
-      "price": 19000,
+      "price": 20000,
       "image": "/img/Buttercream Tiramisu Latte.jpg",
       "description": "",
       "category": "Coffee",
@@ -230,7 +230,7 @@
     {
       "id": "fore-butterscoth-sea-salt-latte",
       "name": "Butterscoth Sea Salt Latte",
-      "price": 19000,
+      "price": 20000,
       "image": "/img/Butterscoth Iced.jpg",
       "description": "",
       "category": "Coffee",
@@ -450,7 +450,7 @@
     {
       "id": "fore-espresso",
       "name": "Espresso",
-      "price": 19000,
+      "price": 13000,
       "image": "/img/espresso173.jpg",
       "description": "",
       "category": "Coffee",
@@ -538,7 +538,7 @@
     {
       "id": "fore-kopi-dari-tani",
       "name": "Kopi Dari Tani",
-      "price": 19000,
+      "price": 16000,
       "image": "/img/Kopi dari Tani w Badge.jpg",
       "description": "",
       "category": "Coffee",
@@ -604,7 +604,7 @@
     {
       "id": "fore-caramel-praline-coffee-blend",
       "name": "Caramel Praline Coffee Blend",
-      "price": 19000,
+      "price": 20000,
       "image": "/img/caramelpralinecoffee173.jpg",
       "description": "",
       "category": "Blended",
@@ -628,6 +628,28 @@
       "name": "Matcha Blended",
       "price": 19000,
       "image": "/img/matchablended173.jpg",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "fore-matcha-butter-salt-cream",
+      "name": "Matcha butter salt cream",
+      "price": 19000,
+      "image": "/img/matcha butter salt cream.jpg",
       "description": "",
       "category": "Matcha",
       "variants": {
@@ -714,7 +736,7 @@
     {
       "id": "fore-nutty-oat-latte-iced",
       "name": "Nutty Oat Latte ICED",
-      "price": 19000,
+      "price": 24000,
       "image": "/img/Nutty Oat Latte Iced.jpg",
       "description": "",
       "category": "Coffee",
