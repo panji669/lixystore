@@ -1,1529 +1,709 @@
-{
-  "brand": "Fore",
-  "version": 4,
-  "outlets": [
-    "Fore Cilegon",
-    "Fore Serang",
-    "Fore Anyer"
-  ],
-  "products": [
-    {
-      "id": "fore-matcha-earl-jasmine",
-      "name": "Matcha Earl Jasmine",
-      "price": 19000,
-      "image": "/img/matchaearl.jpg",
-      "description": "matcha earl jasmine",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-dirty-matchapresso",
-      "name": "Dirty Matchapresso",
-      "price": 19000,
-      "image": "/img/dirty-matchapresso.jpg",
-      "description": "Dirty Matchapresso",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-matcha-butter-salt-cream",
-      "name": "Matcha butter salt cream",
-      "price": 19000,
-      "image": "/img/matchabuttersalt.jpg",
-      "description": "",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-almond-choco",
-      "name": "Almond Choco",
-      "price": 19000,
-      "image": "/img/almondchocoiced173.jpg",
-      "description": "",
-      "category": "Chocolate",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-americano",
-      "name": "Americano",
-      "price": 19000,
-      "image": "/img/Americano Iced.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-aren-latte",
-      "name": "Aren Latte",
-      "price": 18000,
-      "image": "/img/Aren Latte Ice.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-bumi-latte",
-      "name": "Bumi Latte",
-      "price": 19000,
-      "image": "/img/Bumi Latte w Badge.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-buttercream-latte",
-      "name": "Buttercream Latte ()",
-      "price": 19000,
-      "image": "/img/Buttercream Latte (1).jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-buttercream-tiramisu-latte",
-      "name": "Buttercream Tiramisu Latte",
-      "price": 20000,
-      "image": "/img/Buttercream Tiramisu Latte.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-butterscotch-milk-crumble",
-      "name": "Butterscotch Milk Crumble",
-      "price": 19000,
-      "image": "/img/butterscotchjuni.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-butterscoth-sea-salt-latte",
-      "name": "Butterscoth Sea Salt Latte",
-      "price": 20000,
-      "image": "/img/Butterscoth Iced.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-cafe-latte",
-      "name": "Cafe Latte",
-      "price": 19000,
-      "image": "/img/Cafe Latte Iced.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-capucino",
-      "name": "Capucino",
-      "price": 19000,
-      "image": "/img/Capucino Iced (1).jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-caramel-praline-macchiato",
-      "name": "Caramel Praline Macchiato",
-      "price": 19000,
-      "image": "/img/Caramel Praline Macchiato Iced (1).jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-choco-caramel-cloud",
-      "name": "Choco Caramel Cloud",
-      "price": 19000,
-      "image": "/img/choco caramel cloud.jpg",
-      "description": "",
-      "category": "Chocolate",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-classic-milo",
-      "name": "Classic Milo",
-      "price": 19000,
-      "image": "/img/classicmiloiced173.jpg",
-      "description": "",
-      "category": "Chocolate",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-coco-peach-fusion",
-      "name": "Coco Peach Fusion",
-      "price": 19000,
-      "image": "/img/Coco Peach Fusion (3).jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-creme-caramel-tea",
-      "name": "Creme Caramel Tea",
-      "price": 19000,
-      "image": "/img/cremecaramelteaiced173.jpg",
-      "description": "",
-      "category": "Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-double-iced-shaken-latte",
-      "name": "Double Iced Shaken Latte",
-      "price": 19000,
-      "image": "/img/Double Iced Shaken Latte (1).jpg",
-      "description": "",
-      "category": "Blended",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-english-breakfast-iced",
-      "name": "English breakfast ICED",
-      "price": 19000,
-      "image": "/img/englishbreakfasticed173.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-espresso",
-      "name": "Espresso",
-      "price": 13000,
-      "image": "/img/espresso173.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-green-tea-jasmine-iced",
-      "name": "Green Tea Jasmine ICED",
-      "price": 19000,
-      "image": "/img/greenteajasmineiced173.jpg",
-      "description": "",
-      "category": "Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-green-tea-mint-iced",
-      "name": "Green Tea Mint ICED",
-      "price": 19000,
-      "image": "/img/greenteaminticed173.jpg",
-      "description": "",
-      "category": "Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-hibiscus-lychee",
-      "name": "Hibiscus Lychee",
-      "price": 19000,
-      "image": "/img/hibiscuslychee173.jpg",
-      "description": "",
-      "category": "Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-kopi-dari-tani",
-      "name": "Kopi Dari Tani",
-      "price": 16000,
-      "image": "/img/Kopi dari Tani w Badge.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-kopi-gembira",
-      "name": "Kopi Gembira",
-      "price": 19000,
-      "image": "/img/KopiGembira_Thumbnail2.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-manuka-americano-iced",
-      "name": "Manuka Americano ICED",
-      "price": 19000,
-      "image": "/img/Manuka Americano Iced.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-caramel-praline-coffee-blend",
-      "name": "Caramel Praline Coffee Blend",
-      "price": 20000,
-      "image": "/img/caramelpralinecoffee173.jpg",
-      "description": "",
-      "category": "Blended",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-matcha-blended",
-      "name": "Matcha Blended",
-      "price": 19000,
-      "image": "/img/matchablended173.jpg",
-      "description": "",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-matcha-butter-salt-cream",
-      "name": "Matcha butter salt cream",
-      "price": 19000,
-      "image": "/img/matcha butter salt cream.jpg",
-      "description": "",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-strawberry-ice-blended",
-      "name": "Strawberry Ice Blended",
-      "price": 19000,
-      "image": "/img/strawberryblend173.jpg",
-      "description": "",
-      "category": "Blended",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-choco-late-blend",
-      "name": "Choco Late Blend",
-      "price": 19000,
-      "image": "/img/chocolateblend173.jpg",
-      "description": "",
-      "category": "Blended",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-matcha-green-tea-latte",
-      "name": "Matcha Green Tea Latte",
-      "price": 19000,
-      "image": "/img/matchagreentealatte173.jpg",
-      "description": "",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-nutty-oat-latte-iced",
-      "name": "Nutty Oat Latte ICED",
-      "price": 24000,
-      "image": "/img/Nutty Oat Latte Iced.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-pandan-latte",
-      "name": "Pandan Latte",
-      "price": 19000,
-      "image": "/img/Pandan Latte Iced.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-pure-chamomile",
-      "name": "Pure Chamomile",
-      "price": 19000,
-      "image": "/img/purechamomileiced173.jpg",
-      "description": "",
-      "category": "Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-sunny-citrus",
-      "name": "Sunny Citrus",
-      "price": 19000,
-      "image": "/img/sunnycitrus173.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-triple-peach-americano",
-      "name": "Triple Peach Americano ()",
-      "price": 19000,
-      "image": "/img/Triple Peach Americano (1).jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-vanila-o-crumbs",
-      "name": "Vanila O'crumbs",
-      "price": 19000,
-      "image": "/img/vanila o'crumbs.jpg",
-      "description": "",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-nutty-oat-1-liter",
-      "name": "Nutty Oat 1 Liter",
-      "price": 19000,
-      "image": "/img/1L-nutty-oat.jpeg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-aren-latte-1liter",
-      "name": "Aren Latte 1Liter",
-      "price": 19000,
-      "image": "/img/ArenLatte1L3006.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-bumi-latte-1-liter",
-      "name": "Bumi Latte 1 Liter",
-      "price": 19000,
-      "image": "/img/Bumi Latte - RTD.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-butterscotch-1-liter",
-      "name": "Butterscotch 1 Liter",
-      "price": 19000,
-      "image": "/img/butterscotchssl1l1402.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-caramel-praline-macchiato-1-liter",
-      "name": "Caramel Praline Macchiato 1 Liter",
-      "price": 19000,
-      "image": "/img/CaramelPralineMacchiato1L3006.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-cocopeach-1-liter",
-      "name": "Cocopeach 1 Liter",
-      "price": 19000,
-      "image": "/img/cocopeach.jpeg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-kopi-gembira-1-liter",
-      "name": "Kopi Gembira 1 Liter",
-      "price": 19000,
-      "image": "/img/Gembira RTD.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-kopi-dari-tani-1-liter",
-      "name": "Kopi Dari Tani 1 Liter",
-      "price": 19000,
-      "image": "/img/Kopi dari Tani - RTD.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-latter-1-liter",
-      "name": "Latter 1 Liter",
-      "price": 19000,
-      "image": "/img/latte1L3006.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-matcha-1-liter",
-      "name": "Matcha 1 Liter",
-      "price": 19000,
-      "image": "/img/matcha1L3006.jpg",
-      "description": "",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-pandan-latte-1-liter",
-      "name": "Pandan Latte 1 Liter",
-      "price": 19000,
-      "image": "/img/pandanlatte1L3006.jpg",
-      "description": "",
-      "category": "RTD 1L",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-almond-choco-1-liter",
-      "name": "Almond Choco 1 Liter",
-      "price": 19000,
-      "image": "/img/RTD.jpg",
-      "description": "",
-      "category": "Chocolate",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-dark-chocolate-1-liter",
-      "name": "Dark Chocolate 1 Liter",
-      "price": 19000,
-      "image": "/img/WhatsApp Image 2025-02-01 at 00.48.06.jpeg",
-      "description": "",
-      "category": "Chocolate",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-almond-croissant",
-      "name": "Almond Croissant",
-      "price": 19000,
-      "image": "/img/Almond Croissant -1.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-blueberry-cheese-muffin",
-      "name": "Blueberry Cheese Muffin",
-      "price": 19000,
-      "image": "/img/Blueberry Cheese Muffin.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-butter-croissant",
-      "name": "Butter Croissant",
-      "price": 19000,
-      "image": "/img/Butter Croissant _-80.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-cakalang-quiche",
-      "name": "Cakalang Quiche",
-      "price": 19000,
-      "image": "/img/Cakalang Quiche.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-cempedak",
-      "name": "Cempedak",
-      "price": 19000,
-      "image": "/img/cempedak-80.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-cheesy-tuna-sandwich",
-      "name": "Cheesy Tuna Sandwich",
-      "price": 19000,
-      "image": "/img/Cheesy Tuna Sandwich.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-chicken-teriyaki-sandwich",
-      "name": "Chicken Teriyaki Sandwich",
-      "price": 19000,
-      "image": "/img/Chicken Teriyaki Sandwich.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-choco-melt-muffin",
-      "name": "Choco Melt Muffin",
-      "price": 19000,
-      "image": "/img/Choco Melt Muffin.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-creamy-beef-mentai-sandwich",
-      "name": "Creamy Beef Mentai Sandwich",
-      "price": 19000,
-      "image": "/img/Creamy Beef Mentai Sandwich.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-klapetart-thumbnail",
-      "name": "Klapetart Thumbnail",
-      "price": 19000,
-      "image": "/img/klapetart Thumbnail.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-mushroom-truffle-sandwich",
-      "name": "Mushroom Truffle Sandwich",
-      "price": 19000,
-      "image": "/img/Mushroom Truffle Sandwich.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-painau-choco-lat2403",
-      "name": "Painau Choco Lat2403",
-      "price": 19000,
-      "image": "/img/painauchocolat2403.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-smoked-beef-cheese-sandwich",
-      "name": "Smoked Beef & Cheese Sandwich",
-      "price": 19000,
-      "image": "/img/Smoked Beef & Cheese Sandwich.png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-smoked-beef-cheese-croissant",
-      "name": "Smoked Beef Cheese Croissant",
-      "price": 19000,
-      "image": "/img/Smoked Beef _ Cheese Croissant.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-strawberry-matcha-cake-zoomed",
-      "name": "Strawberry Matcha Cake Zoomed",
-      "price": 19000,
-      "image": "/img/Strawberry Matcha Cake Zoomed (1).png",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-banana-chocolate-cake",
-      "name": "Banana Chocolate Cake",
-      "price": 19000,
-      "image": "/img/thumbbbb.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "fore-triple-cheese-danish",
-      "name": "Triple Cheese Danish",
-      "price": 19000,
-      "image": "/img/Triple Cheese Danish.jpg",
-      "description": "",
-      "category": "Food",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    }
-  ]
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LIXY Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  body{
+    margin:0;
+    background:#121212;
+    font-family:Poppins,sans-serif;
+    color:#f2f2f2;
+  }
+
+  #splash,#namePage,#brandPage,#productPage,#cartPage{display:none;}
+
+  .center{
+    height:100vh; display:flex; flex-direction:column;
+    justify-content:center; align-items:center; text-align:center; padding:20px;
+  }
+  .logo{
+    width:150px; height:150px; border-radius:50%; overflow:hidden;
+    margin-bottom:16px; border:3px solid #fff;
+  }
+  .logo img{width:100%;height:100%;object-fit:cover;}
+
+  button{
+    padding:12px 20px; background:#39ffb4; border:none; border-radius:8px;
+    color:#000; font-weight:700; cursor:pointer; margin-top:16px; transition:.2s;
+  }
+  button:hover{opacity:.85;}
+  .btn-secondary{
+    background:#1f1f1f; color:#fff; border:1px solid #2a2a2a;
+  }
+
+  input, textarea, select{
+    padding:12px; width:80%; border-radius:8px; border:none; margin-top:10px;
+    outline:none; font-family:inherit;
+  }
+
+  header{
+    padding:14px 16px; background:#1E1E1E; display:flex;
+    justify-content:space-between; align-items:center; position:sticky; top:0; z-index:50;
+    border-bottom:1px solid #222;
+  }
+  header img{
+    width:40px;height:40px;border-radius:50%;object-fit:cover;cursor:pointer;
+  }
+  .badge{
+    background:#ff4444; padding:2px 7px; border-radius:999px;
+    font-size:12px; font-weight:700; margin-left:6px; display:none;
+  }
+
+  /* search bar sticky */
+  .search-wrap{
+    position:sticky; top:68px; z-index:40; padding:10px 12px; background:#121212;
+    border-bottom:1px solid #222;
+  }
+  .search{
+    padding:10px 12px; width:100%; border-radius:10px; border:none;
+    background:#1f1f1f; color:#fff; font-size:15px;
+  }
+
+  /* brand grid */
+  .brand-grid{
+    display:grid; grid-template-columns:repeat(2,1fr);
+    gap:16px; padding:20px;
+  }
+  @media(min-width:900px){
+    .brand-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  .brand-item{
+    background:#1f1f1f; border:1px solid #2a2a2a; border-radius:12px;
+    padding:18px; text-align:center; font-weight:700; font-size:18px;
+    cursor:pointer; transition:.15s ease;
+  }
+  .brand-item:hover{border-color:#39ffb4; transform:translateY(-2px);}
+
+  /* category chips */
+  .chips{
+    display:flex; gap:8px; padding:10px 12px; overflow-x:auto; white-space:nowrap;
+    border-bottom:1px solid #222;
+  }
+  .chip{
+    flex:0 0 auto; padding:7px 12px; border-radius:999px;
+    background:#1f1f1f; border:1px solid #2a2a2a; color:#eee;
+    font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .chip.active{
+    background:#39ffb4; color:#000; border-color:#39ffb4;
+  }
+
+  /* product list (style lama kecil) */
+  #productList{padding:10px 12px;}
+  .product-card{
+    display:flex; gap:12px; align-items:center;
+    background:#1f1f1f; border:1px solid #2a2a2a; border-radius:10px;
+    padding:8px; margin-bottom:10px;
+  }
+  .product-card img{
+    width:90px;height:90px;border-radius:8px;object-fit:cover; background:#111;
+    flex-shrink:0;
+  }
+  .product-info{flex:1; min-width:0;}
+  .product-info h3{
+    margin:0; font-size:15px; font-weight:700;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .product-info small{color:#bdbdbd;font-size:13px;}
+  .add-btn{
+    margin-top:6px; display:inline-block; padding:6px 10px; border-radius:7px;
+    background:#39ffb4; color:#000; font-weight:800; font-size:12px; cursor:pointer;
+  }
+
+  /* cart */
+  #cartItems{padding:12px;}
+  .cart-item{
+    background:#1f1f1f;border:1px solid #2a2a2a;border-radius:10px;
+    padding:10px;margin-bottom:10px;display:flex;justify-content:space-between;gap:10px;
+  }
+  .qty-btn{
+    padding:4px 9px;background:#39ffb4;border-radius:6px;color:#000;font-weight:800;border:none;
+  }
+  .remove-btn{background:transparent;border:none;color:#ff6666;font-weight:700;cursor:pointer;}
+  .summary{padding:12px;}
+  .summary select,.summary textarea{width:100%; background:#1f1f1f; color:#fff; border:1px solid #2a2a2a;}
+
+  /* popup checkout */
+  #popup{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,.7);
+    justify-content:center; align-items:center; padding:20px; z-index:100;
+  }
+  #popup .inner{
+    background:#1e1e1e; padding:20px; border-radius:12px; max-width:420px; width:100%;
+  }
+
+  /* popup opsi */
+  #optionPopup{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,.65);
+    justify-content:center; align-items:center; padding:20px; z-index:99;
+  }
+  #optionPopup .inner-opt{
+    background:#1e1e1e; padding:18px; border-radius:12px; max-width:350px; width:100%;
+  }
+  #optionPopup select{
+    width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none;
+    background:#2a2a2a; color:#fff; outline:none;
+  }
+
+  /* floating cart bar */
+  #floatCart{
+    position:fixed; left:0; right:0; bottom:0; background:#1E1E1E;
+    border-top:1px solid #222; padding:10px 12px; display:none; z-index:60;
+  }
+  .float-inner{
+    max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;
+  }
+  .float-btn{background:#39ffb4;border:none;border-radius:8px;padding:8px 12px;font-weight:800;}
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="splash" class="center">
+  <div class="logo"><img src="img/lglixystore.png" alt="LIXY"></div>
+  <h2>LIXY STORE</h2>
+  <button onclick="goName()">Mulai</button>
+</div>
+
+<!-- NAME -->
+<div id="namePage" class="center">
+  <h2>Masukkan Nama Kamu</h2>
+  <input id="buyerName" placeholder="Nama lengkap..." maxlength="24">
+  <button onclick="saveName()">Lanjut</button>
+</div>
+
+<!-- BRAND -->
+<div id="brandPage">
+  <header>
+    <img src="img/lglixystore.png" onclick="reloadBrand()" alt="logo">
+    <div id="helloUser"></div>
+    <div onclick="openCart()" style="cursor:pointer;">
+      🛒 <span id="badge" class="badge">0</span>
+    </div>
+  </header>
+
+  <div class="brand-grid">
+    <div class="brand-item" onclick="openBrand('fore')">Fore</div>
+    <div class="brand-item" onclick="openBrand('kenangan')">Kopi Kenangan</div>
+    <div class="brand-item" onclick="openBrand('janjijiwa')">Janji Jiwa</div>
+    <div class="brand-item" onclick="openBrand('tomoro')">Tomoro</div>
+    <div class="brand-item" onclick="openBrand('chagee')">Chagee</div>
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<div id="productPage">
+  <header>
+    <img src="img/lglixystore.png" onclick="backBrand()" alt="logo">
+    <div id="brandTitle">Produk</div>
+    <div onclick="openCart()" style="cursor:pointer;">
+      🛒 <span id="badge2" class="badge">0</span>
+    </div>
+  </header>
+
+  <div style="padding:10px 12px; color:#bdbdbd; font-size:14px;">
+    Hi, <span id="helloUser2"></span> 👋
+  </div>
+
+  <div class="search-wrap">
+    <input id="searchInput" class="search" placeholder="Cari menu..." oninput="onSearch(this.value)">
+  </div>
+
+  <div id="categoryChips" class="chips"></div>
+  <div id="productList"></div>
+</div>
+
+<!-- CART -->
+<div id="cartPage">
+  <header>
+    <img src="img/lglixystore.png" onclick="backProduct()" alt="logo">
+    <div style="font-weight:700">Keranjang</div>
+    <div></div>
+  </header>
+
+  <div id="cartItems"></div>
+
+  <div class="summary">
+    <label style="font-size:13px;color:#aaa">Outlet</label>
+    <select id="outletSelect"></select>
+
+    <label style="font-size:13px;color:#aaa;margin-top:10px;display:block">Catatan</label>
+    <textarea id="cartNotes" placeholder="Opsional..." rows="3"></textarea>
+
+    <h3>Total: <span id="totalPrice">Rp 0</span></h3>
+    <button onclick="openPopup()">Checkout</button>
+    <button class="btn-secondary" onclick="backProduct()">Tambah Menu</button>
+  </div>
+</div>
+
+<!-- FLOAT CART -->
+<div id="floatCart">
+  <div class="float-inner">
+    <div>
+      <div style="font-size:13px"><b id="floatCount">0</b> item</div>
+      <div style="font-weight:800" id="floatTotal">Rp 0</div>
+    </div>
+    <button class="float-btn" onclick="openCart()">Lihat Cart</button>
+  </div>
+</div>
+
+<!-- POPUP CHECKOUT -->
+<div id="popup">
+  <div class="inner">
+    <h3>Konfirmasi Pesanan</h3>
+    <pre id="popupText" style="white-space:pre-wrap;font-size:14px"></pre>
+    <button onclick="sendWA()">Benar</button>
+    <button class="btn-secondary" onclick="closePopup()" style="border:1px solid #ff6666;color:#ff6666;margin-top:8px;">Tidak</button>
+  </div>
+</div>
+
+<!-- POPUP OPSI -->
+<div id="optionPopup">
+  <div class="inner-opt">
+    <h3 id="optTitle" style="margin-top:0;">Pilih Opsi</h3>
+
+    <label>Ice / Hot</label>
+    <select id="optTemp"></select>
+
+    <label>Gula</label>
+    <select id="optSugar"></select>
+
+    <label>Size</label>
+    <select id="optSize"></select>
+
+    <button onclick="confirmOptions()">Tambah ke Keranjang</button>
+    <button class="btn-secondary" onclick="closeOptionPopup()" style="margin-top:8px;">Batal</button>
+  </div>
+</div>
+
+<script>
+/* =========================
+   STATE
+========================= */
+const BRAND_MAP = {
+  fore: "data/fore.json",
+  kenangan: "data/kenangan.json",
+  janjijiwa: "data/janjijiwa.json",
+  tomoro: "data/tomoro.json",
+  chagee: "data/chagee.json"
+};
+
+let allProducts = [];
+let filteredProducts = [];
+let currentBrandKey = null;
+let currentBrandData = null;
+let activeCategory = "All";
+let searchQuery = "";
+
+// cart persist
+let cart = JSON.parse(localStorage.getItem("lixy_cart") || "[]");
+let selectedProductIndex = null;
+
+// auto-update trackers
+let lastBrandVersion = null;
+let lastBrandHash = null;
+let pollTimer = null;
+
+/* =========================
+   PAGE LOGIC
+========================= */
+window.onload = () => {
+  const n = localStorage.getItem("buyerName");
+  document.getElementById("splash").style.display = "flex";
+  if(n){
+    helloUser.innerText = "Belanja Yuk, " + n;
+    helloUser2.innerText = n;
+  }
+  updateBadge();
+};
+
+function goName(){
+  splash.style.display="none";
+  namePage.style.display="flex";
 }
+
+function saveName(){
+  let name = buyerName.value.trim();
+  if(!name) return alert("Nama tidak boleh kosong");
+  localStorage.setItem("buyerName", name);
+
+  helloUser.innerText  = "Belanja Yuk, " + name;
+  helloUser2.innerText = name;
+
+  namePage.style.display="none";
+  brandPage.style.display="block";
+}
+
+function reloadBrand(){
+  stopPolling();
+  productPage.style.display="none";
+  cartPage.style.display="none";
+  brandPage.style.display="block";
+}
+
+function backBrand(){
+  stopPolling();
+  productPage.style.display="none";
+  brandPage.style.display="block";
+}
+
+function backProduct(){
+  cartPage.style.display="none";
+  productPage.style.display="block";
+  startPolling();
+}
+
+/* =========================
+   BRAND LOADER (AUTO UPDATE)
+========================= */
+async function openBrand(key){
+  currentBrandKey = key;
+  brandPage.style.display="none";
+  productPage.style.display="block";
+  await loadBrand(key, true);
+  startPolling();
+}
+
+async function loadBrand(brandKey, force=false){
+  try{
+    const res = await fetch(BRAND_MAP[brandKey] + "?v=" + Date.now(), {cache:"no-store"});
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const raw = await res.json();
+    const data = normalizeBrandData(raw, brandKey);
+
+    const freshVersion = data.version || null;
+    const freshHash = hashJSON(data.products);
+
+    if(force || freshVersion !== lastBrandVersion || freshHash !== lastBrandHash){
+      currentBrandData = data;
+      allProducts = data.products || [];
+      lastBrandVersion = freshVersion;
+      lastBrandHash = freshHash;
+
+      brandTitle.innerText = data.brand || brandKey;
+
+      buildCategoryChips(allProducts);
+      applyFilters();
+      fillOutletOptions();
+    }
+  }catch(err){
+    console.error(err);
+    productList.innerHTML = `<div style="padding:20px;color:#aaa">Gagal load brand. Cek JSON/path.</div>`;
+  }
+}
+
+function normalizeBrandData(raw, brandKey){
+  if(raw && Array.isArray(raw.products)){
+    return {
+      brand: raw.brand || brandKey,
+      version: raw.version || null,
+      outlets: raw.outlets || [],
+      products: raw.products.map(p=>({
+        ...p,
+        brand: raw.brand || brandKey,
+        brandKey,
+        variants: p.variants || defaultVariants()
+      }))
+    };
+  }
+  if(raw && Array.isArray(raw.items)){
+    const brand = raw.brand || raw.items[0]?.brand || brandKey;
+    return {
+      brand,
+      version: raw.version || null,
+      outlets: raw.outlets || [],
+      products: raw.items.map((it, idx)=>({
+        id: it.id || (brandKey+"-"+idx),
+        name: it.name || "Untitled",
+        price: Number(it.price)||0,
+        image: it.image || "",
+        description: it.description || "",
+        category: it.category || "Coffee",
+        variants: defaultVariants(),
+        brand, brandKey
+      }))
+    };
+  }
+  return { brand: brandKey, version:null, outlets:[], products:[] };
+}
+
+function defaultVariants(){
+  return {
+    temperature:["Iced","Hot"],
+    sugar:["Normal","Less Sugar"],
+    size:["Small","Large"]
+  };
+}
+
+function startPolling(){
+  stopPolling();
+  pollTimer = setInterval(()=>{
+    if(productPage.style.display==="block" && currentBrandKey){
+      loadBrand(currentBrandKey,false);
+    }
+  }, 20000);
+}
+
+function stopPolling(){
+  if(pollTimer){ clearInterval(pollTimer); pollTimer=null; }
+}
+
+function hashJSON(obj){
+  try{
+    const s = JSON.stringify(obj);
+    let h=0; for(let i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0; }
+    return h;
+  }catch(e){ return Math.random(); }
+}
+
+/* =========================
+   CATEGORY + FILTER
+========================= */
+function buildCategoryChips(list){
+  const wrap = document.getElementById("categoryChips");
+
+  const cats = ["All", ...new Set(list.map(p => (p.category||"Other").trim()))];
+  wrap.innerHTML = cats.map(c =>
+    `<div class="chip ${c===activeCategory?"active":""}" onclick="selectCategory('${escapeAttr(c)}')">${c}</div>`
+  ).join("");
+}
+
+function selectCategory(cat){
+  activeCategory = cat;
+  document.querySelectorAll(".chip").forEach(ch=>{
+    ch.classList.toggle("active", ch.innerText===cat);
+  });
+  applyFilters();
+}
+
+function onSearch(q){
+  searchQuery = (q||"").toLowerCase();
+  applyFilters();
+}
+
+function applyFilters(){
+  filteredProducts = allProducts.filter(p=>{
+    const matchCat = activeCategory==="All" || (p.category||"").trim()===activeCategory;
+    const matchSearch = (p.name||"").toLowerCase().includes(searchQuery);
+    return matchCat && matchSearch;
+  });
+  renderProducts(filteredProducts);
+}
+
+/* =========================
+   RENDER PRODUCTS (LIST STYLE LAMA)
+========================= */
+function renderProducts(list){
+  const el = document.getElementById("productList");
+  if(!list.length){
+    el.innerHTML = `<div style="padding:20px;color:#aaa">Menu kosong.</div>`;
+    return;
+  }
+  el.innerHTML = list.map((p, i)=>`
+    <div class="product-card">
+      <img loading="lazy" decoding="async" src="${p.image}" alt="${escapeAttr(p.name)}"
+        onerror="this.src='';this.style.background='#111'">
+      <div class="product-info">
+        <h3>${escapeHtml(p.name)}</h3>
+        <small>${escapeHtml(p.category||"")}</small><br>
+        <small>Rp ${Number(p.price).toLocaleString("id-ID")}</small>
+        <div class="add-btn" onclick="addCart('${escapeAttr(p.id)}')">+ Keranjang</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* =========================
+   CART + OPTION
+========================= */
+function addCart(productId){
+  const idx = allProducts.findIndex(p=>p.id===productId);
+  selectedProductIndex = idx;
+  const p = allProducts[idx];
+  if(!p) return;
+
+  optTitle.innerText = p.name;
+
+  setSelectOptions("optTemp", p.variants?.temperature);
+  setSelectOptions("optSugar", p.variants?.sugar);
+  setSelectOptions("optSize", p.variants?.size);
+
+  optionPopup.style.display="flex";
+}
+
+function setSelectOptions(id, opts){
+  const sel = document.getElementById(id);
+  const arr = Array.isArray(opts) && opts.length ? opts : ["-"];
+  sel.innerHTML = arr.map(o=>`<option value="${o}">${o}</option>`).join("");
+}
+
+function closeOptionPopup(){ optionPopup.style.display="none"; }
+
+function confirmOptions(){
+  const item = allProducts[selectedProductIndex];
+  if(!item) return;
+
+  const temp  = optTemp.value;
+  const sugar = optSugar.value;
+  const size  = optSize.value;
+  const key = item.id + "|" + temp + "|" + sugar + "|" + size;
+
+  const exist = cart.find(c=>c.key===key);
+  if(exist) exist.qty++;
+  else cart.push({...item, key, qty:1, temp, sugar, size});
+
+  persistCart();
+  updateBadge();
+  closeOptionPopup();
+}
+
+function persistCart(){
+  localStorage.setItem("lixy_cart", JSON.stringify(cart));
+}
+
+function updateBadge(){
+  const qty = cart.reduce((a,b)=>a+b.qty,0);
+  badge.innerText = qty;
+  badge2.innerText = qty;
+  badge.style.display = qty? "inline-block":"none";
+  badge2.style.display = qty? "inline-block":"none";
+
+  floatCart.style.display = qty? "block":"none";
+  floatCount.innerText = qty;
+  floatTotal.innerText = toRp(cart.reduce((a,b)=>a+b.qty*b.price,0));
+}
+
+function openCart(){
+  stopPolling();
+  productPage.style.display="none";
+  brandPage.style.display="none";
+  cartPage.style.display="block";
+  loadCart();
+}
+
+function loadCart(){
+  const el = document.getElementById("cartItems");
+  el.innerHTML = "";
+  if(cart.length===0){
+    el.innerHTML = `<div style="padding:20px;color:#aaa;text-align:center">Cart kosong.</div>`;
+    totalPrice.innerText="Rp 0";
+    fillOutletOptions();
+    return;
+  }
+
+  cart.forEach((c,i)=>{
+    el.innerHTML += `
+      <div class="cart-item">
+        <div style="flex:1;min-width:0">
+          <b>${escapeHtml(c.name)}</b><br>
+          <small style="color:#aaa">${c.brand} • ${c.temp}, ${c.sugar}, ${c.size}</small><br>
+          Rp ${(c.price*c.qty).toLocaleString("id-ID")}
+        </div>
+        <div style="white-space:nowrap">
+          <button class="qty-btn" onclick="decQty(${i})">-</button>
+          <b style="margin:0 6px">${c.qty}</b>
+          <button class="qty-btn" onclick="incQty(${i})">+</button><br>
+          <button class="remove-btn" onclick="removeItem(${i})">hapus</button>
+        </div>
+      </div>
+    `;
+  });
+
+  updateTotal();
+}
+
+function incQty(i){ cart[i].qty++; persistCart(); loadCart(); updateBadge(); }
+function decQty(i){
+  cart[i].qty--;
+  if(cart[i].qty<=0) cart.splice(i,1);
+  persistCart(); loadCart(); updateBadge();
+}
+function removeItem(i){ cart.splice(i,1); persistCart(); loadCart(); updateBadge(); }
+
+function updateTotal(){
+  totalPrice.innerText = toRp(cart.reduce((a,b)=>a+b.qty*b.price,0));
+}
+
+function toRp(n){ return "Rp " + (Number(n)||0).toLocaleString("id-ID"); }
+
+/* =========================
+   OUTLETS
+========================= */
+function fillOutletOptions(){
+  const outlets = currentBrandData?.outlets?.length
+    ? currentBrandData.outlets
+    : ["LIXY Cilegon","LIXY Serang","LIXY Anyer"];
+
+  const saved = localStorage.getItem("lixy_outlet") || outlets[0];
+  outletSelect.innerHTML = outlets.map(o=>`<option ${o===saved?"selected":""}>${o}</option>`).join("");
+  outletSelect.onchange=()=>localStorage.setItem("lixy_outlet", outletSelect.value);
+}
+
+/* =========================
+   CHECKOUT (WA)
+========================= */
+function openPopup(){
+  if(cart.length===0) return alert("Cart kosong");
+
+  const name = localStorage.getItem("buyerName") || "-";
+  const outlet = outletSelect.value;
+  const notes = cartNotes.value.trim();
+
+  const listTxt = cart.map(c =>
+    `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}, ${c.size}) - ${toRp(c.qty*c.price)}`
+  ).join("\n");
+
+  popupText.textContent =
+`Nama: ${name}
+Outlet: ${outlet}
+
+Pesanan:
+${listTxt}
+
+Total: ${toRp(cart.reduce((a,b)=>a+b.qty*b.price,0))}
+${notes?("\nCatatan: "+notes):""}`;
+
+  popup.style.display="flex";
+}
+
+function closePopup(){ popup.style.display="none"; }
+
+function sendWA(){
+  const name = localStorage.getItem("buyerName") || "-";
+  const outlet = outletSelect.value;
+  const notes = cartNotes.value.trim();
+
+  const listTxt = cart.map(c =>
+    `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}, ${c.size}) - ${toRp(c.qty*c.price)}`
+  ).join("%0A");
+
+  let msg =
+`Nama: ${name}
+Outlet: ${outlet}
+
+Pesanan:
+${listTxt}
+
+Total: ${toRp(cart.reduce((a,b)=>a+b.qty*b.price,0))}
+${notes?("%0ACatatan: "+encodeURIComponent(notes)):""}`.replace(/\n/g,"%0A");
+
+  window.open(`https://wa.me/6281290306599?text=${msg}`, "_blank");
+}
+
+/* =========================
+   UTIL
+========================= */
+function escapeHtml(s=""){
+  return s.replace(/[&<>'"]/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;" }[c]));
+}
+function escapeAttr(s=""){ return String(s).replace(/"/g,"&quot;"); }
+</script>
+
+</body>
+</html>
