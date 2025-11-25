@@ -1,6 +1,6 @@
 {
   "brand": "Fore",
-  "version": 2,
+  "version": 3,
   "outlets": [
     "Fore Cilegon",
     "Fore Serang",
@@ -51,6 +51,7 @@
         ]
       }
     },
+    {
       "id": "fore-dirty-matchapresso",
       "name": "Dirty Matchapresso",
       "price": 19000,
