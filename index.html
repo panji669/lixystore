@@ -8,172 +8,176 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ROOT + GLOBAL THEME */
 :root{
-  --bg:#0f0f0f;
-  --bg2:#151515;
-  --card:#1c1c1c;
-  --card2:#222;
-  --text:#fff;
-  --muted:#bfbfbf;
-  --accent:#39ffb4;
-  --accent-dark:#00c985;
-  --line:#2a2a2a;
-  --radius:14px;
+  --bg:#0f0f0f; --bg2:#151515;
+  --card:#1c1c1c; --card2:#222;
+  --text:#fff; --muted:#bfbfbf;
+  --accent:#39ffb4; --accent-dark:#00c985;
+  --line:#2a2a2a; --radius:14px;
   --shadow:0 8px 24px rgba(0,0,0,.4);
 }
-
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Poppins,sans-serif;
-  -webkit-tap-highlight-color:transparent;
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Poppins,sans-serif; -webkit-tap-highlight-color:transparent;
 }
-
 .hidden{display:none!important;}
 button{font-family:inherit;cursor:pointer;}
 
-/* SPLASH */
 #splash{
-  height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:20px;
+  height:100vh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center; padding:20px;
 }
 .splash-card{
-  background:var(--card);padding:30px 20px;border-radius:20px;border:1px solid var(--line);
-  width:min(420px,100%);box-shadow:var(--shadow);
+  background:var(--card); padding:30px 20px; border-radius:20px;
+  border:1px solid var(--line); width:min(420px,100%);
+  box-shadow:var(--shadow);
 }
-.logo{width:150px;height:150px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid #fff;}
-.logo img{width:100%;height:100%;object-fit:cover;}
+.logo{
+  width:150px; height:150px; border-radius:50%; overflow:hidden;
+  margin:0 auto 16px; border:3px solid #fff;
+}
+.logo img{width:100%; height:100%; object-fit:cover;}
 .btn{
-  width:100%;padding:12px;background:var(--accent);border:none;border-radius:12px;
-  color:#000;font-weight:800;margin-top:12px;font-size:16px;
+  width:100%; padding:12px; background:var(--accent); border:none;
+  border-radius:12px; color:#000; font-weight:800; margin-top:12px; font-size:16px;
 }
-.btn.secondary{
-  background:var(--card2);color:#fff;border:1px solid var(--line);
-}
+.btn.secondary{background:var(--card2); color:#fff; border:1px solid var(--line);}
 
-/* HEADER */
+/* Splash progress */
+.progress-wrap{
+  width:100%; height:8px; background:#0b0b0b;
+  border:1px solid var(--line); border-radius:999px; overflow:hidden;
+  margin-top:14px;
+}
+.progress-bar{
+  height:100%; width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-dark));
+  animation:loadbar 1.8s ease forwards;
+}
+@keyframes loadbar{to{width:100%;}}
+
 header{
-  padding:14px 16px;display:flex;justify-content:space-between;align-items:center;
-  position:sticky;top:0;z-index:50;
-  background:rgba(20,20,20,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+  padding:14px 16px; display:flex; justify-content:space-between; align-items:center;
+  position:sticky; top:0; z-index:50;
+  background:rgba(20,20,20,.8); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
 }
-header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:pointer;user-select:none;}
-.head-title{font-weight:700;font-size:18px;}
-.cart-mini{font-size:18px;cursor:pointer;position:relative;font-weight:700;}
+header img{width:42px; height:42px; border-radius:50%; object-fit:cover; cursor:pointer; user-select:none;}
+.head-title{font-weight:700; font-size:18px;}
+.cart-mini{font-size:18px; cursor:pointer; position:relative; font-weight:700;}
 .badge{
-  position:absolute;top:-8px;right:-10px;background:#ff4444;color:#fff;border-radius:50%;
-  font-size:11px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;
-  font-weight:800;border:2px solid var(--bg);
+  position:absolute; top:-8px; right:-10px; background:#ff4444; color:#fff;
+  border-radius:50%; font-size:11px; width:20px; height:20px;
+  display:flex; align-items:center; justify-content:center; font-weight:800; border:2px solid var(--bg);
 }
 
-/* BRAND GRID */
 .brand-grid{
-  padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;
+  padding:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px;
 }
 .brand-item{
-  background:var(--card);padding:18px;text-align:center;border-radius:var(--radius);
-  border:1px solid var(--line);font-weight:700;cursor:pointer;transition:.2s;
+  background:var(--card); padding:18px; text-align:center;
+  border-radius:var(--radius); border:1px solid var(--line);
+  font-weight:700; cursor:pointer; transition:.2s;
 }
-.brand-item:hover{border-color:var(--accent);transform:translateY(-3px);}
+.brand-item:hover{border-color:var(--accent); transform:translateY(-3px);}
 
-/* SEARCH */
 .search-wrap{
-  position:sticky;top:70px;z-index:45;background:var(--bg);
-  padding:10px 16px;border-bottom:1px solid var(--line);
+  position:sticky; top:70px; z-index:45; background:var(--bg);
+  padding:10px 16px; border-bottom:1px solid var(--line);
 }
 .search{
-  width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
-  background:var(--card);color:#fff;font-size:15px;
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--line);
+  background:var(--card); color:#fff; font-size:15px;
 }
 
-/* CATEGORY CHIPS */
 .chips{
-  display:flex;gap:10px;overflow-x:auto;padding:10px 16px;border-bottom:1px solid var(--line);
+  display:flex; gap:10px; overflow-x:auto; padding:10px 16px; border-bottom:1px solid var(--line);
 }
 .chip{
-  padding:8px 14px;border-radius:20px;background:var(--card);border:1px solid var(--line);
-  font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;
+  padding:8px 14px; border-radius:20px; background:var(--card);
+  border:1px solid var(--line); font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap;
 }
-.chip.active{background:var(--accent);border-color:var(--accent);color:#000;}
+.chip.active{background:var(--accent); border-color:var(--accent); color:#000;}
 
-/* PRODUCT LIST */
-#productList{padding:20px;display:grid;grid-template-columns:1fr;gap:12px;}
-@media(min-width:900px){#productList{grid-template-columns:repeat(2,1fr);}}
+/* Product list -> 1 col mobile, 2 col desktop */
+#productList{
+  padding:20px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+@media(min-width:900px){
+  #productList{grid-template-columns:repeat(2,1fr);}
+}
 .product-card{
-  background:var(--card);border-radius:var(--radius);padding:12px;border:1px solid var(--line);
-  transition:.2s;display:flex;gap:12px;
+  background:var(--card); border-radius:var(--radius); padding:12px; border:1px solid var(--line);
+  transition:.2s; display:flex; gap:12px;
 }
 .product-card:hover{border-color:var(--accent);}
 .product-card img{
-  width:110px;height:110px;border-radius:12px;object-fit:cover;background:#000;flex-shrink:0;
+  width:110px; height:110px; border-radius:12px; object-fit:cover; background:#000; flex-shrink:0;
 }
-.product-info{flex:1;min-width:0;}
+.product-info{flex:1; min-width:0;}
 .product-info h3{
-  margin:0;font-size:16px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  margin:0; font-size:16px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 .product-info small{color:var(--muted);}
 .add-btn{
-  margin-top:8px;display:inline-block;padding:7px 12px;background:var(--accent);
-  color:#000;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;text-align:center;
+  margin-top:8px; display:inline-block; padding:7px 12px; background:var(--accent);
+  color:#000; border-radius:10px; font-weight:800; font-size:13px; cursor:pointer; text-align:center;
 }
 
-/* CART PAGE */
 .cart-item{
-  background:var(--card);padding:14px;border-radius:12px;border:1px solid var(--line);
-  margin-bottom:12px;display:flex;justify-content:space-between;gap:10px;
+  background:var(--card); padding:14px; border-radius:12px; border:1px solid var(--line);
+  margin-bottom:12px; display:flex; justify-content:space-between; gap:10px;
 }
-.qty-btn{
-  padding:4px 10px;background:var(--accent);border:none;border-radius:8px;font-weight:700;
-}
-.remove-btn{background:transparent;border:none;color:#ff5555;font-weight:700;cursor:pointer;}
+.qty-btn{padding:4px 10px; background:var(--accent); border:none; border-radius:8px; font-weight:700;}
+.remove-btn{background:transparent; border:none; color:#ff5555; font-weight:700; cursor:pointer;}
 .summary{padding:16px;}
 .summary textarea,.summary select{
-  width:100%;background:var(--card);border:1px solid var(--line);color:#fff;
-  padding:10px;border-radius:10px;margin-top:8px;
+  width:100%; background:var(--card); border:1px solid var(--line); color:#fff;
+  padding:10px; border-radius:10px; margin-top:8px;
 }
 
-/* FLOAT CART */
 #floatCart{
-  display:none;position:fixed;left:0;right:0;bottom:0;background:rgba(20,20,20,.9);
-  backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 14px;z-index:50;
+  display:none; position:fixed; left:0; right:0; bottom:0;
+  background:rgba(20,20,20,.9); backdrop-filter:blur(10px);
+  border-top:1px solid var(--line); padding:10px 14px; z-index:50;
 }
-.float-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.float-inner{
+  max-width:1100px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+}
 .float-btn{
-  padding:8px 12px;background:var(--accent);border:none;border-radius:10px;color:#000;font-weight:800;
+  padding:8px 12px; background:var(--accent); border:none; border-radius:10px; color:#000; font-weight:800;
 }
 
-/* POPUP */
 #popup{
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);
-  justify-content:center;align-items:center;padding:20px;z-index:100;
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,.65);
+  justify-content:center; align-items:center; padding:20px; z-index:100;
 }
 #popup .inner{
-  background:var(--card2);padding:20px;border-radius:14px;width:min(420px,100%);
+  background:var(--card2); padding:20px; border-radius:14px; width:min(420px,100%);
 }
 
-/* OPTION POPUP */
 #optionPopup{
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
-  justify-content:center;align-items:center;padding:20px;z-index:120;
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,.55);
+  justify-content:center; align-items:center; padding:20px; z-index:120;
 }
 .inner-opt{
-  background:var(--card2);padding:18px;border-radius:14px;width:min(350px,100%);
+  background:var(--card2); padding:18px; border-radius:14px; width:min(350px,100%);
 }
 .inner-opt select{
-  width:100%;padding:10px;margin:6px 0;border-radius:10px;border:1px solid var(--line);
-  background:var(--card);color:#fff;
+  width:100%; padding:10px; margin:6px 0; border-radius:10px; border:1px solid var(--line);
+  background:var(--card); color:#fff;
 }
 
-
-/* LOADING OVERLAY */
+/* Menu loading overlay (fixed) */
 #loadingOverlay{
-  display:none;
-  position:fixed;inset:0;z-index:200;
-  background:rgba(15,15,15,.85);
+  display:none; position:fixed; inset:0; z-index:200;
+  background:rgba(15,15,15,.75);
   backdrop-filter:blur(6px);
-  align-items:center;justify-content:center;flex-direction:column;gap:10px;
+  align-items:center; justify-content:center; flex-direction:column; gap:10px;
 }
 #loadingOverlay .spinner{
   width:58px;height:58px;border-radius:50%;
@@ -186,7 +190,6 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
   color:var(--muted);font-weight:600;font-size:14px;letter-spacing:.3px;
 }
 @keyframes spin{to{transform:rotate(360deg);}}
-
 </style>
 </head>
 
@@ -194,31 +197,37 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
 
 <section id="splash">
   <div class="splash-card">
-    <div class="logo"><img src="img/lglixystore.png"></div>
+    <div class="logo"><img src="img/lglixystore.png" alt="LIXY"></div>
     <h2 style="margin:0;font-size:28px;font-weight:800;">LIXY STORE</h2>
     <p style="color:var(--muted);margin:6px 0 0;">coffee & tea marketplace</p>
-    <button class="btn" onclick="goName()">Mulai</button>
+
+    <!-- progress loading -->
+    <div class="progress-wrap">
+      <div class="progress-bar" id="splashBar"></div>
+    </div>
+
+    <button class="btn" id="startBtn" onclick="goName()" style="display:none;">Mulai</button>
   </div>
 </section>
 
 <section id="namePage" class="hidden" style="min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;">
   <div style="width:min(520px,100%);text-align:center;">
-    <h2>Masukkan Nama Kamu</h2>
-    <input id="buyerName" class="search" placeholder="Nama lengkap..." maxlength="24"/>
+    <h2 style="margin:0 0 8px;">Masukkan Nama Kamu</h2>
+    <input id="buyerName" class="search" placeholder="Nama lengkap..." maxlength="24" />
     <button class="btn" onclick="saveName()">Lanjut</button>
   </div>
 </section>
 
 <section id="brandPage" class="hidden">
   <header>
-    <img src="img/lglixystore.png" onclick="reloadBrand()">
+    <img src="img/lglixystore.png" alt="logo" onclick="reloadBrand()">
     <div class="head-title" id="helloUser">LIXY Store</div>
     <div class="cart-mini" onclick="openCart()">🛒 Cart <span id="badge" class="badge hidden">0</span></div>
   </header>
 
   <div style="padding:16px 20px 0;">
-    <h2>Pilih Brand</h2>
-    <p style="color:var(--muted);font-size:14px;">Pilih brand favoritmu.</p>
+    <h2 style="margin:0;font-size:20px;">Pilih Brand</h2>
+    <p style="margin:6px 0 0;color:var(--muted);font-size:14px;">Pilih brand favoritmu dulu ya.</p>
   </div>
 
   <div class="brand-grid">
@@ -231,9 +240,8 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
 </section>
 
 <section id="productPage" class="hidden">
-
   <header>
-    <img src="img/lglixystore.png" onclick="backBrand()">
+    <img src="img/lglixystore.png" alt="logo" onclick="backBrand()">
     <div class="head-title" id="brandTitle">Produk</div>
     <div class="cart-mini" onclick="openCart()">🛒 Cart <span id="badge2" class="badge hidden">0</span></div>
   </header>
@@ -248,31 +256,30 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
 
   <div id="categoryChips" class="chips"></div>
   <div id="productList"></div>
-
 </section>
 
 <section id="cartPage" class="hidden">
   <header>
-    <img src="img/lglixystore.png" onclick="backProduct()">
+    <img src="img/lglixystore.png" alt="logo" onclick="backProduct()">
     <div class="head-title">Keranjang</div>
     <div></div>
   </header>
 
   <div style="padding:14px 16px 0;">
-    <h2>Pesanan Kamu</h2>
-    <p style="color:var(--muted);font-size:14px;">Cek dulu sebelum checkout.</p>
+    <h2 style="margin:0;font-size:18px;">Pesanan Kamu</h2>
+    <p style="margin:6px 0 0;color:var(--muted);font-size:14px;">Cek dulu sebelum checkout ya.</p>
   </div>
 
   <div id="cartItems" style="padding:16px;"></div>
 
   <div class="summary">
-    <label>Outlet</label>
+    <label style="font-size:13px;color:var(--muted)">Outlet</label>
     <select id="outletSelect"></select>
 
-    <label style="margin-top:10px;display:block;">Catatan</label>
+    <label style="font-size:13px;color:var(--muted);margin-top:10px;display:block;">Catatan</label>
     <textarea id="cartNotes" rows="3" placeholder="Opsional..."></textarea>
 
-    <h3>Total: <span id="totalPrice">Rp 0</span></h3>
+    <h3 style="margin-top:14px;">Total: <span id="totalPrice">Rp 0</span></h3>
 
     <button class="btn" onclick="openPopup()">Checkout</button>
     <button class="btn secondary" onclick="backProduct()">Tambah Menu</button>
@@ -291,18 +298,19 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
 
 <div id="optionPopup">
   <div class="inner-opt">
-    <h3 id="optTitle">Pilih Opsi</h3>
-    <label>Ice / Hot</label>
+    <h3 id="optTitle" style="margin-top:0;">Pilih Opsi</h3>
+
+    <label style="font-size:13px;color:var(--muted);">Ice / Hot</label>
     <select id="optTemp"></select>
 
-    <label>Gula</label>
+    <label style="font-size:13px;color:var(--muted);">Gula</label>
     <select id="optSugar"></select>
 
-    <label>Size</label>
+    <label style="font-size:13px;color:var(--muted);">Size</label>
     <select id="optSize"></select>
 
     <button class="btn" onclick="confirmOptions()">Tambah ke Keranjang</button>
-    <button class="btn secondary" onclick="optionPopup.style.display='none'">Batal</button>
+    <button class="btn secondary" onclick="closeOptionPopup()">Batal</button>
   </div>
 </div>
 
@@ -311,32 +319,34 @@ header img{width:42px;height:42px;border-radius:50%;object-fit:cover;cursor:poin
     <h3>Konfirmasi Pesanan</h3>
     <pre id="popupText" style="white-space:pre-wrap;font-size:14px;"></pre>
     <button class="btn" onclick="sendWA()">Benar</button>
-    <button class="btn secondary" onclick="popup.style.display='none'" style="border-color:#ff6666;color:#ff6666;margin-top:8px;">Tidak</button>
+    <button class="btn secondary" onclick="closePopup()" style="border-color:#ff6666;color:#ff6666;margin-top:8px;">Tidak</button>
   </div>
 </div>
 
-
+<!-- Menu loading overlay -->
 <div id="loadingOverlay">
   <div class="spinner"></div>
   <div class="loading-text">Loading menu...</div>
 </div>
 
-
 <script>
 /* UTIL */
 function rupiah(n){return "Rp "+n.toLocaleString("id-ID");}
 function hashJSON(obj){
-  return JSON.stringify(obj).split("").reduce((a,b)=>((a<<5)-a)+b.charCodeAt(0),0);
+  try{
+    return JSON.stringify(obj).split("").reduce((a,b)=>((a<<5)-a)+b.charCodeAt(0),0);
+  }catch(e){return Math.random()}
 }
 function save(k,v){localStorage.setItem(k,JSON.stringify(v));}
 function load(k,d=null){let v=localStorage.getItem(k);return v?JSON.parse(v):d;}
 
 function showLoading(on){
-  const ol = document.getElementById("loadingOverlay");
+  const ol=document.getElementById("loadingOverlay");
   if(!ol) return;
   ol.style.display = on ? "flex" : "none";
 }
 
+/* STATE */
 let CURRENT_BRAND=null,CURRENT_PRODUCTS=[],CURRENT_OUTLETS=[],CART=load("cart",[]),USERNAME=load("username","");
 let LIVE_VERSION=null,LIVE_HASH=null,OPT_PRODUCT=null;
 let ACTIVE_CATEGORY="All",SEARCH_TEXT="",POLL=null;
@@ -347,9 +357,12 @@ function saveName(){
   const v=buyerName.value.trim();if(!v)return alert("Nama tidak boleh kosong.");
   USERNAME=v;save("username",v);
   namePage.classList.add("hidden");brandPage.classList.remove("hidden");
-  helloUser.innerText=v;
+  helloUser.innerText=v;helloUser2.innerText=v;
 }
-function reloadBrand(){brandPage.classList.remove("hidden");productPage.classList.add("hidden");cartPage.classList.add("hidden");floatCart.style.display="none";}
+function reloadBrand(){
+  brandPage.classList.remove("hidden");productPage.classList.add("hidden");
+  cartPage.classList.add("hidden");floatCart.style.display="none";
+}
 function openBrand(k){
   CURRENT_BRAND=k;brandPage.classList.add("hidden");productPage.classList.remove("hidden");
   helloUser2.innerText=USERNAME;brandTitle.innerText=k.toUpperCase();
@@ -361,9 +374,10 @@ function backProduct(){cartPage.classList.add("hidden");productPage.classList.re
 
 /* LOAD BRAND */
 async function loadBrand(b,force=false){
+  showLoading(true);
   try{
-    showLoading(true);
-    let res=await fetch(`data/${b}.json?x=`+Date.now());
+    let res=await fetch(`data/${b}.json?x=`+Date.now(),{cache:"no-store"});
+    if(!res.ok) throw new Error("HTTP "+res.status);
     let data=await res.json();
     let norm=normalizeBrand(data);
     let v=norm.version||1,h=hashJSON(norm.products);
@@ -376,17 +390,23 @@ async function loadBrand(b,force=false){
     }
 
     startPolling(b);
-  }catch(e){console.error(e);}
+  }catch(e){
+    console.error(e);
+    productList.innerHTML = `<p style="color:var(--muted);padding:20px;">Gagal load menu ${b}.json</p>`;
+  }finally{
+    showLoading(false);
+  }
 }
 function normalizeBrand(d){
+  const productsArr = Array.isArray(d.products) ? d.products : (d.items||[]);
   return{
     version:d.version||1,
     brand:d.brand||"",
     outlets:d.outlets||[],
-    products:(d.products||[]).map((p,i)=>({
+    products:productsArr.map((p,i)=>({
       id:p.id||("prd-"+i),
       name:p.name||"Unnamed",
-      price:p.price||0,
+      price:Number(p.price)||0,
       image:p.image||"",
       category:p.category||guessCategory(p.name),
       variants:p.variants||{
@@ -401,7 +421,7 @@ function startPolling(b){
   if(POLL)clearInterval(POLL);
   POLL=setInterval(()=>loadBrand(b,false),20000);
 }
-function guessCategory(n){
+function guessCategory(n=""){
   n=n.toLowerCase();
   if(n.includes("latte")||n.includes("kopi")||n.includes("americano"))return"Coffee";
   if(n.includes("matcha")||n.includes("green"))return"Matcha";
@@ -423,6 +443,7 @@ function buildCategories(list){
     el.onclick=()=>setCategory(cat);
     categoryChips.appendChild(el);
   });
+  ACTIVE_CATEGORY="All";
 }
 function setCategory(cat){
   ACTIVE_CATEGORY=cat;
@@ -431,17 +452,15 @@ function setCategory(cat){
 }
 
 /* SEARCH */
-function onSearch(v){SEARCH_TEXT=v.toLowerCase();filterAndRender();}
+function onSearch(v){SEARCH_TEXT=(v||"").toLowerCase();filterAndRender();}
 
-/* FILTER PRODUK */
+/* FILTER & RENDER */
 function filterAndRender(){
   let list=CURRENT_PRODUCTS;
   if(ACTIVE_CATEGORY!=="All")list=list.filter(p=>p.category===ACTIVE_CATEGORY);
   if(SEARCH_TEXT)list=list.filter(p=>p.name.toLowerCase().includes(SEARCH_TEXT));
   renderProducts(list);
 }
-
-/* RENDER PRODUK */
 function renderProducts(list){
   productList.innerHTML="";
   if(list.length===0){
@@ -482,6 +501,7 @@ function openOptionPopup(p){
   optSize.innerHTML=p.variants.size.map(v=>`<option>${v}</option>`).join("");
   optionPopup.style.display="flex";
 }
+function closeOptionPopup(){optionPopup.style.display="none"; OPT_PRODUCT=null;}
 function confirmOptions(){
   if(!OPT_PRODUCT)return;
   let item={
@@ -493,14 +513,13 @@ function confirmOptions(){
     image:OPT_PRODUCT.image,qty:1
   };
   CART.push(item);save("cart",CART);
-  optionPopup.style.display="none";
-  OPT_PRODUCT=null;
+  closeOptionPopup();
   updateBadge();updateFloatingCart();
 }
 
 /* CART */
 function updateBadge(){
-  let c=CART.length;
+  let c=CART.reduce((a,b)=>a+b.qty,0);
   if(c===0){
     badge.classList.add("hidden");badge2.classList.add("hidden");
   }else{
@@ -511,7 +530,7 @@ function updateBadge(){
 function updateFloatingCart(){
   if(CART.length===0){floatCart.style.display="none";return;}
   floatCart.style.display="block";
-  floatCount.innerText=CART.length;
+  floatCount.innerText=CART.reduce((a,b)=>a+b.qty,0);
   floatTotal.innerText=rupiah(CART.reduce((a,b)=>a+b.price*b.qty,0));
 }
 
@@ -519,8 +538,8 @@ function updateFloatingCart(){
 function renderCart(){
   cartItems.innerHTML="";
   if(CART.length===0){
-    cartItems.innerHTML=`<p style='color:var(--muted);'>Keranjang masih kosong.</p>`;
-    totalPrice.innerText="Rp 0";return;
+    cartItems.innerHTML=`<p style='color:var(--muted);padding:12px;'>Keranjang masih kosong.</p>`;
+    totalPrice.innerText="Rp 0"; outletSelect.innerHTML=""; return;
   }
   CART.forEach(item=>{
     let row=document.createElement("div");
@@ -528,10 +547,9 @@ function renderCart(){
     row.innerHTML=`
       <div style='flex:1;'>
         <b>${item.name}</b><br>
-        <small>${item.temp} • ${item.sugar} • ${item.size}</small><br>
+        <small style="color:var(--muted)">${item.temp} • ${item.sugar} • ${item.size}</small><br>
         <small>${rupiah(item.price)}</small>
       </div>
-
       <div style='display:flex;flex-direction:column;align-items:flex-end;'>
         <div>
           <button class='qty-btn' onclick="decQty('${item.id}')">-</button>
@@ -546,52 +564,53 @@ function renderCart(){
   totalPrice.innerText=rupiah(CART.reduce((a,b)=>a+b.price*b.qty,0));
   outletSelect.innerHTML=CURRENT_OUTLETS.map(o=>`<option>${o}</option>`).join("");
 }
-function incQty(id){CART=CART.map(x=>{if(x.id===id)x.qty++;return x});save("cart",CART);renderCart();updateBadge();updateFloatingCart();}
-function decQty(id){CART=CART.map(x=>{if(x.id===id&&x.qty>1)x.qty--;return x});save("cart",CART);renderCart();updateBadge();updateFloatingCart();}
-function removeItem(id){CART=CART.filter(x=>x.id!==id);save("cart",CART);renderCart();updateBadge();updateFloatingCart();}
+function incQty(id){
+  CART=CART.map(x=>{if(x.id===id)x.qty++;return x});
+  save("cart",CART);renderCart();updateBadge();updateFloatingCart();
+}
+function decQty(id){
+  CART=CART.map(x=>{if(x.id===id&&x.qty>1)x.qty--;return x});
+  save("cart",CART);renderCart();updateBadge();updateFloatingCart();
+}
+function removeItem(id){
+  CART=CART.filter(x=>x.id!==id);
+  save("cart",CART);renderCart();updateBadge();updateFloatingCart();
+}
 
-/* CHECKOUT POPUP */
+/* CHECKOUT */
 function openPopup(){
   if(CART.length===0)return alert("Keranjang kosong!");
-  let txt=`Pesanan untuk: ${USERNAME}
-Brand: ${CURRENT_BRAND.toUpperCase()}
-Outlet: ${outletSelect.value}
-
-`;
+  let txt=`Pesanan untuk: ${USERNAME}\nBrand: ${CURRENT_BRAND.toUpperCase()}\nOutlet: ${outletSelect.value}\n\n`;
   CART.forEach((it,i)=>{
-    txt+=`${i+1}. ${it.name}
-   ${it.temp} • ${it.sugar} • ${it.size}
-   Qty: ${it.qty} x ${rupiah(it.price)}
-   Total: ${rupiah(it.qty*it.price)}
-
-`;
+    txt+=`${i+1}. ${it.name}\n   ${it.temp} • ${it.sugar} • ${it.size}\n   Qty: ${it.qty} x ${rupiah(it.price)}\n   Total: ${rupiah(it.qty*it.price)}\n\n`;
   });
   let grand=CART.reduce((a,b)=>a+b.price*b.qty,0);
-  txt+=`Total: ${rupiah(grand)}
-
-`;
+  txt+=`Total: ${rupiah(grand)}\n\n`;
   let notes=cartNotes.value.trim();
-  if(notes)txt+=`Catatan:
-${notes}
-`;
+  if(notes)txt+=`Catatan:\n${notes}\n`;
   popupText.innerText=txt;popup.style.display="flex";
 }
+function closePopup(){popup.style.display="none";}
 function sendWA(){
   let txt=popupText.innerText;
   let url="https://wa.me/6281294944774?text="+encodeURIComponent(txt);
   window.open(url,"_blank");
   CART=[];save("cart",CART);
-  popup.style.display="none";renderCart();updateBadge();updateFloatingCart();
+  closePopup();renderCart();updateBadge();updateFloatingCart();
 }
 
 /* INIT */
-window.onload=()=>{
+window.addEventListener("load", ()=>{
+  // splash progress: show start button after bar finishes
+  const btn = document.getElementById("startBtn");
+  setTimeout(()=>{ if(btn) btn.style.display="block"; }, 1850);
+
   if(USERNAME){
     splash.classList.add("hidden");namePage.classList.add("hidden");
-    brandPage.classList.remove("hidden");helloUser.innerText=USERNAME;
+    brandPage.classList.remove("hidden");helloUser.innerText=USERNAME;helloUser2.innerText=USERNAME;
   }
   updateBadge();updateFloatingCart();
-};
+});
 </script>
 
 </body>
