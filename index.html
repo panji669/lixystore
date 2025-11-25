@@ -225,6 +225,11 @@ header img{width:42px; height:42px; border-radius:50%; object-fit:cover; cursor:
     <div class="cart-mini" onclick="openCart()">🛒 Cart <span id="badge" class="badge hidden">0</span></div>
   </header>
 
+  <div style="padding:0 20px 8px; display:flex; gap:8px; justify-content:flex-end;">
+    <button class="btn secondary" style="width:auto; padding:8px 12px; font-size:13px;" onclick="goChangeName()">Ganti Nama</button>
+  </div>
+</header>
+
   <div style="padding:16px 20px 0;">
     <h2 style="margin:0;font-size:20px;">Pilih Brand</h2>
     <p style="margin:6px 0 0;color:var(--muted);font-size:14px;">Pilih brand favoritmu dulu ya.</p>
@@ -371,6 +376,17 @@ function openBrand(k){
 function backBrand(){productPage.classList.add("hidden");brandPage.classList.remove("hidden");floatCart.style.display="none";}
 function openCart(){productPage.classList.add("hidden");cartPage.classList.remove("hidden");renderCart();}
 function backProduct(){cartPage.classList.add("hidden");productPage.classList.remove("hidden");}
+
+function goChangeName(){
+  // stop polling if running
+  if(POLL) clearInterval(POLL);
+  brandPage.classList.add("hidden");
+  productPage.classList.add("hidden");
+  cartPage.classList.add("hidden");
+  namePage.classList.remove("hidden");
+  buyerName.value = USERNAME || "";
+  buyerName.focus();
+}
 
 /* LOAD BRAND */
 async function loadBrand(b,force=false){
@@ -600,17 +616,37 @@ function sendWA(){
 }
 
 /* INIT */
-window.addEventListener("load", ()=>{
-  // splash progress: show start button after bar finishes
-  const btn = document.getElementById("startBtn");
-  setTimeout(()=>{ if(btn) btn.style.display="block"; }, 1850);
 
-  if(USERNAME){
-    splash.classList.add("hidden");namePage.classList.add("hidden");
-    brandPage.classList.remove("hidden");helloUser.innerText=USERNAME;helloUser2.innerText=USERNAME;
-  }
-  updateBadge();updateFloatingCart();
+window.addEventListener("load", ()=>{
+  // Always show splash first
+  splash.classList.remove("hidden");
+  namePage.classList.add("hidden");
+  brandPage.classList.add("hidden");
+  productPage.classList.add("hidden");
+  cartPage.classList.add("hidden");
+
+  updateBadge();
+  updateFloatingCart();
+
+  const btn = document.getElementById("startBtn");
+  if(btn) btn.style.display = "none";
+
+  // After progress ends, route based on saved name
+  setTimeout(()=>{
+    if(USERNAME){
+      splash.classList.add("hidden");
+      brandPage.classList.remove("hidden");
+      helloUser.innerText = USERNAME;
+      helloUser2.innerText = USERNAME;
+    }else{
+      splash.classList.add("hidden");
+      namePage.classList.remove("hidden");
+      buyerName.value = "";
+    }
+    if(btn) btn.style.display = "block";
+  }, 1850);
 });
+
 </script>
 
 </body>
