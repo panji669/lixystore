@@ -350,6 +350,12 @@
     </div>
 </div>
 
+<!-- Button Refreah -->
+    <button class="btn secondary" style="width:auto" onclick="loadBrand(currentBrandKey,true)">
+  Refresh Menu
+</button>
+
+
 <!-- POPUP CHECKOUT -->
 <div id="popup">
     <div class="inner">
@@ -436,9 +442,14 @@ const BRAND_MAP = {
   chagee: "data/chagee.json"
 };
 
-async function loadBrand(brandKey){
+async function loadBrand(brandKey, forceReload=false){
   const cacheKey = "brand_" + brandKey;
   const versionKey = "brandver_" + brandKey;
+
+  if(forceReload){
+    localStorage.removeItem(cacheKey);
+    localStorage.removeItem(versionKey);
+  }
 
   // 1) coba ambil data terbaru dari server dulu
   let fresh = null;
@@ -452,41 +463,40 @@ async function loadBrand(brandKey){
     fresh = null;
   }
 
-  // 2) kalau server kebaca → cek versi cache
   if(fresh){
     const cachedVersion = parseInt(localStorage.getItem(versionKey) || "0", 10);
     const freshVersion  = parseInt(fresh.version || "1", 10);
 
-    if(freshVersion !== cachedVersion){
+    if(forceReload || freshVersion !== cachedVersion){
       localStorage.setItem(cacheKey, JSON.stringify(fresh));
       localStorage.setItem(versionKey, String(freshVersion));
     }
 
     currentBrandData = fresh;
-    products = fresh.products || [];
-    outlets  = fresh.outlets || [];
-    renderCategories(products);
-    applyFilters();
+    allProducts = fresh.products || [];   // <- pastiin pakai allProducts
+    renderCategories(allProducts);
+    renderProducts(allProducts);
+    updateCartUI();
+    fillOutletOptions();
     return;
   }
 
-  // 3) kalau server gagal → fallback ke cache lokal
+  // 3) fallback cache lokal
   const cached = localStorage.getItem(cacheKey);
   if(cached){
     const data = JSON.parse(cached);
     currentBrandData = data;
-    products = data.products || [];
-    outlets  = data.outlets || [];
-    renderCategories(products);
-    applyFilters();
+    allProducts = data.products || [];
+    renderCategories(allProducts);
+    renderProducts(allProducts);
+    updateCartUI();
+    fillOutletOptions();
     return;
   }
 
-  // 4) kalau dua-duanya kosong
-  products = [];
-  outlets = [];
-  renderCategories(products);
-  applyFilters();
+  allProducts = [];
+  renderCategories(allProducts);
+  renderProducts(allProducts);
 }
 
 async function openBrand(b) {
