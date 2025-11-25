@@ -1,438 +1,334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LIXY Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        background: #121212;
-        font-family: Poppins, sans-serif;
-        color: #f2f2f2;
-    }
+  :root{
+    --bg:#0f1115; --bg2:#151820;
+    --card:#181c26; --card2:#1e2330;
+    --text:#eef2f7; --muted:#9aa3b2;
+    --accent:#39ffb4; --accent2:#12d0ff;
+    --danger:#ff5b5b; --line:rgba(255,255,255,.08);
+    --radius:14px; --shadow:0 8px 24px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Poppins,sans-serif; color:var(--text);
+    background:
+      radial-gradient(900px 500px at 10% -10%, #1c2334 0%, transparent 55%),
+      radial-gradient(800px 500px at 110% 0%, #1a1524 0%, transparent 60%),
+      var(--bg);
+    min-height:100vh;
+  }
+  button{font-family:inherit; cursor:pointer}
 
-    #splash, #namePage, #brandPage, #productPage, #cartPage {
-        display: none;
-    }
+  .hidden{display:none!important}
+  .page{max-width:1100px;margin:0 auto;padding:16px 16px 110px; animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-    .center {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
+  /* Splash */
+  #splash{height:100vh;display:grid;place-items:center;text-align:center;padding:20px}
+  .splash-card{
+    width:min(460px,100%); background:rgba(255,255,255,.04);
+    border:1px solid var(--line); border-radius:22px; padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .logo{
+    width:120px;height:120px;border-radius:50%;overflow:hidden;
+    margin:0 auto 12px;border:3px solid #fff;
+  }
+  .logo img{width:100%;height:100%;object-fit:cover}
+  .splash-title{font-size:28px;font-weight:800;margin:8px 0}
+  .splash-sub{color:var(--muted);font-size:14px;margin:0}
+  .btn{
+    width:100%; border:none; padding:12px 14px; border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#001b12; font-weight:900; margin-top:14px;
+    box-shadow:0 8px 18px rgba(57,255,180,.25);
+  }
+  .btn.secondary{
+    background:var(--card2); color:var(--text);
+    border:1px solid var(--line); box-shadow:none;
+  }
+  .input{
+    width:100%; padding:12px 14px; border-radius:12px;
+    border:1px solid var(--line); background:var(--card);
+    color:var(--text); outline:none;
+  }
 
-    .logo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-bottom: 20px;
-        border: 3px solid #fff;
-    }
-    .logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  /* Topbar */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:linear-gradient(180deg, rgba(15,17,21,.95), rgba(15,17,21,.65));
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    max-width:1100px;margin:0 auto;padding:12px 16px;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  header img{
+    width:40px;height:40px;border-radius:50%;object-fit:cover;cursor:pointer;
+    border:1px solid var(--line);
+  }
+  .head-title{font-weight:800;letter-spacing:.3px}
+  .cart-mini{cursor:pointer; font-weight:700; position:relative}
+  .badge{
+    position:absolute; top:-8px; right:-10px;
+    background:#ff4444; color:#fff; font-size:11px; font-weight:800;
+    width:20px;height:20px;border-radius:50%; display:grid;place-items:center;
+    border:2px solid var(--bg);
+  }
 
-    button {
-        padding: 12px 20px;
-        background: #39ffb4;
-        border: none;
-        border-radius: 8px;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 20px;
-        transition: 0.2s;
-    }
-    button:hover { opacity: 0.85; }
+  /* Brand page */
+  .brand-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:10px;
+  }
+  @media(min-width:900px){.brand-grid{grid-template-columns:repeat(3,1fr)}}
+  .brand-item{
+    background:rgba(255,255,255,.04); border:1px solid var(--line);
+    border-radius:14px; padding:16px; text-align:center;
+    font-weight:700; font-size:18px; box-shadow:var(--shadow);
+    transition:.15s ease;
+  }
+  .brand-item:hover{transform:translateY(-2px); border-color:rgba(57,255,180,.6)}
 
-    input {
-        padding: 12px;
-        width: 80%;
-        border-radius: 8px;
-        border: none;
-        margin-top: 10px;
-    }
+  /* Search sticky */
+  .search-wrap{
+    position:sticky; top:64px; z-index:40;
+    background:linear-gradient(180deg, rgba(15,17,21,.98), rgba(15,17,21,.8));
+    border-bottom:1px solid var(--line);
+    margin:0 -16px 8px; padding:10px 16px;
+  }
+  .search{
+    width:100%; padding:11px 12px; border-radius:12px; border:1px solid var(--line);
+    background:var(--card); color:#fff; outline:none; font-size:15px;
+  }
 
-    header {
-        padding: 15px 20px;
-        background: #1E1E1E;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 50;
-    }
+  /* Product list */
+  #productList{display:grid; grid-template-columns:1fr; gap:12px}
+  @media(min-width:900px){#productList{grid-template-columns:repeat(2,1fr)}}
+  .product-card{
+    display:flex; gap:12px; align-items:center;
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--line); border-radius:14px; padding:10px; box-shadow:var(--shadow);
+  }
+  .product-card img{
+    width:110px;height:110px;border-radius:10px;object-fit:cover;flex-shrink:0;
+    background:#0b0d12;border:1px solid var(--line);
+  }
+  .product-info{flex:1;min-width:0}
+  .product-info h3{margin:0 0 4px;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .product-info small{color:var(--muted)}
+  .add-btn{
+    margin-top:8px; display:inline-block;
+    background:rgba(57,255,180,.14); color:var(--accent);
+    border:1px solid rgba(57,255,180,.35);
+    padding:6px 10px;border-radius:8px;font-weight:800;font-size:13px;
+  }
 
-    header img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        cursor: pointer;
-    }
+  /* Cart */
+  .cart-item{
+    background:rgba(255,255,255,.04); border:1px solid var(--line);
+    padding:12px; margin:10px 0; border-radius:12px;
+    display:flex; justify-content:space-between; gap:10px; align-items:center;
+  }
+  .qty-btn{
+    padding:4px 9px; background:var(--accent); border-radius:6px; color:#001b12;
+    font-weight:900; border:none;
+  }
+  .remove-btn{background:transparent;border:none;color:var(--danger);font-weight:700}
+  .summary{
+    background:rgba(255,255,255,.04); border:1px solid var(--line);
+    border-radius:14px; padding:12px; margin-top:12px;
+  }
 
-    /* search bar tetap di atas saat scroll */
-    .search-wrap {
-        position: sticky;
-        top: 70px;
-        z-index: 40;
-        padding: 10px 12px;
-        background: #121212;
-        border-bottom: 1px solid #222;
-    }
+  /* Modal opsi */
+  #optionPopup{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,.65);
+    justify-content:center; align-items:center; padding:20px; z-index:99;
+  }
+  .inner-opt{
+    background:var(--bg2); padding:16px; border-radius:14px; width:min(360px,100%);
+    border:1px solid var(--line); box-shadow:var(--shadow);
+  }
+  .inner-opt select{
+    width:100%; padding:10px; margin:7px 0; border-radius:8px; border:1px solid var(--line);
+    background:var(--card); color:var(--text); outline:none;
+  }
 
-    .search {
-        padding: 10px 12px;
-        width: 100%;
-        border-radius: 10px;
-        border: none;
-        background: #1f1f1f;
-        color: #fff;
-        display: block;
-        font-size: 15px;
-        outline: none;
-    }
+  /* Popup checkout */
+  #popup{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,.7);
+    justify-content:center; align-items:center; padding:20px; z-index:100;
+  }
+  #popup .inner{
+    background:var(--bg2); padding:16px; border-radius:14px; width:min(420px,100%);
+    border:1px solid var(--line); box-shadow:var(--shadow);
+  }
 
-    /* ===== BRAND PAGE ===== */
-    .brand-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        padding: 20px;
-    }
-
-    @media (min-width: 900px) {
-        .brand-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    .brand-item {
-        background: #1F1F1F;
-        padding: 14px 18px;
-        border-radius: 12px;
-        text-align: center;
-        color: white;
-        font-size: 18px;
-        font-weight: 600;
-        cursor: pointer;
-        border: 1px solid rgba(255,255,255,0.12);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        transition: 0.2s;
-    }
-    .brand-item:hover {
-        background: #292929;
-        transform: scale(1.05);
-    }
-
-    /* ===== PRODUK LIST VIEW ===== */
-    #productList {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 10px;
-    }
-    @media (min-width: 900px) {
-        #productList {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .product-card {
-        display: flex;
-        background: #111;
-        border-radius: 14px;
-        padding: 12px;
-        color: white;
-        align-items: center;
-        gap: 12px;
-        min-height: 110px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .product-card img {
-        width: 110px;
-        height: 110px;
-        border-radius: 10px;
-        object-fit: cover;
-        flex-shrink: 0;
-    }
-
-    .product-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex: 1;
-    }
-
-    .product-info h3 {
-        font-size: 17px;
-        margin: 0 0 4px 0;
-    }
-
-    .product-info small {
-        font-size: 14px;
-        opacity: 0.8;
-    }
-
-    .add-btn {
-        background: #27ffae;
-        padding: 6px 12px;
-        border-radius: 6px;
-        color: black;
-        font-weight: bold;
-        margin-top: 6px;
-        width: fit-content;
-        cursor: pointer;
-    }
-
-    .badge {
-        background: #ff4444;
-        padding: 2px 7px;
-        border-radius: 50%;
-        font-size: 12px;
-        position: relative;
-        top: -10px;
-        right: 10px;
-    }
-
-    .cart-item {
-        background: #1e1e1e;
-        padding: 12px;
-        margin: 12px;
-        border-radius: 10px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .qty-btn {
-        padding: 5px 10px;
-        background: #39ffb4;
-        border-radius: 5px;
-        color: black;
-        cursor: pointer;
-        margin: 0 5px;
-        font-weight: bold;
-    }
-
-    /* POPUP CHECKOUT */
-    #popup {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.7);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        z-index: 100;
-    }
-
-    #popup .inner {
-        background: #1e1e1e;
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 400px;
-        width: 100%;
-    }
-
-    /* POPUP PILIH OPSI */
-    #optionPopup{
-        display:none; 
-        position:fixed;
-        top:0; left:0;
-        width:100%; height:100%;
-        background:rgba(0,0,0,0.65);
-        justify-content:center;
-        align-items:center;
-        padding:20px;
-        z-index: 99;
-    }
-    #optionPopup .inner-opt{
-        background:#1e1e1e;
-        padding:20px;
-        border-radius:12px;
-        max-width:350px;
-        width:100%;
-        color:white;
-    }
-    #optionPopup select{
-        width:100%;
-        padding:10px;
-        margin:8px 0;
-        border-radius:8px;
-        border:none;
-        background:#2a2a2a;
-        color:white;
-        outline:none;
-    }
+  /* Floating cart bar */
+  .float-cart{
+    position:fixed; left:0; right:0; bottom:0; z-index:60;
+    background:linear-gradient(180deg, rgba(15,17,21,.1), rgba(15,17,21,.98));
+    border-top:1px solid var(--line); padding:8px 12px;
+  }
+  .float-inner{
+    max-width:1100px;margin:0 auto; background:rgba(255,255,255,.04);
+    border:1px solid var(--line); border-radius:12px; padding:10px 12px;
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+  }
+  .float-btn{
+    border:none; background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#001b12; font-weight:900; padding:9px 12px; border-radius:10px;
+  }
 </style>
 </head>
-
 <body>
 
-<!-- Splash -->
-<div id="splash" class="center">
-    <div class="logo"><img src="img/lglixystore.png" alt="LIXY logo"></div>
-    <h2>LIXY STORE</h2>
-    <button onclick="goName()">Mulai</button>
-</div>
+<!-- SPLASH -->
+<section id="splash">
+  <div class="splash-card">
+    <div class="logo"><img src="img/lglixystore.png" alt="LIXY"/></div>
+    <div class="splash-title">LIXY STORE</div>
+    <p class="splash-sub">coffee & tea marketplace</p>
+    <button class="btn" onclick="goName()">Mulai</button>
+  </div>
+</section>
 
-<!-- Input Nama -->
-<div id="namePage" class="center">
-    <h2>Masukkan Nama Kamu</h2>
-    <input id="buyerName" placeholder="Nama lengkap">
-    <button onclick="saveName()">Lanjut</button>
-</div>
+<!-- NAME PAGE -->
+<section id="namePage" class="page hidden">
+  <div style="max-width:520px;margin:40px auto 0">
+    <h2 style="margin:0 0 8px">Masukkan Nama Kamu</h2>
+    <input id="buyerName" class="input" placeholder="Nama lengkap..." maxlength="24"/>
+    <button class="btn" onclick="saveName()">Lanjut</button>
+  </div>
+</section>
 
-<!-- Brand -->
-<div id="brandPage">
-    <header>
-        <img src="img/lglixystore.png" onclick="reloadBrand()" alt="logo">
-        <div id="helloUser"></div>
-        <div onclick="openCart()" style="cursor:pointer;">
-            🛒 <span id="badge" class="badge" style="display:none;">0</span>
-        </div>
-    </header>
-
-    <div id="brandList" class="brand-grid">
-        <div class="brand-item" onclick="openBrand('fore')">Fore</div>
-        <div class="brand-item" onclick="openBrand('kenangan')">Kopi Kenangan</div>
-        <div class="brand-item" onclick="openBrand('janjijiwa')">Janji Jiwa</div>
-        <div class="brand-item" onclick="openBrand('tomoro')">Tomoro</div>
-        <div class="brand-item" onclick="openBrand('chagee')">Chagee</div>
+<!-- BRAND PAGE -->
+<section id="brandPage" class="page hidden">
+  <header>
+    <div class="head-inner">
+      <img src="img/lglixystore.png" alt="logo">
+      <div class="head-title" id="helloUser">LIXY Store</div>
+      <div class="cart-mini" onclick="openCart()">🛒 Cart <span id="badge" class="badge hidden">0</span></div>
     </div>
+  </header>
+
+  <h2 style="margin-top:16px">Pilih Brand</h2>
+  <div class="brand-grid">
+    <div class="brand-item" onclick="openBrand('fore')">Fore</div>
+    <div class="brand-item" onclick="openBrand('kenangan')">Kopi Kenangan</div>
+    <div class="brand-item" onclick="openBrand('janjijiwa')">Janji Jiwa</div>
+    <div class="brand-item" onclick="openBrand('tomoro')">Tomoro</div>
+    <div class="brand-item" onclick="openBrand('chagee')">Chagee</div>
+  </div>
+</section>
+
+<!-- PRODUCT PAGE -->
+<section id="productPage" class="page hidden">
+  <header>
+    <div class="head-inner">
+      <img src="img/lglixystore.png" alt="logo" onclick="backBrand()">
+      <div class="head-title" id="brandTitle">Produk</div>
+      <div class="cart-mini" onclick="openCart()">🛒 Cart <span id="badge2" class="badge hidden">0</span></div>
+    </div>
+  </header>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px">
+    <div style="color:var(--muted);font-size:14px">Hi, <span id="helloUser2"></span> 👋</div>
+    <button class="btn secondary" style="width:auto" onclick="openBrand(currentBrandKey,true)">Refresh Menu</button>
+  </div>
+
+  <div class="search-wrap">
+    <input id="searchInput" class="search" placeholder="Cari menu..." oninput="filterProducts(this.value)">
+  </div>
+
+  <div id="productList"></div>
+</section>
+
+<!-- CART PAGE -->
+<section id="cartPage" class="page hidden">
+  <header>
+    <div class="head-inner">
+      <img src="img/lglixystore.png" alt="logo" onclick="backProduct()">
+      <div class="head-title">Keranjang</div>
+      <div></div>
+    </div>
+  </header>
+
+  <div id="cartItems" style="margin-top:10px"></div>
+
+  <div class="summary">
+    <label style="font-size:13px;color:var(--muted)">Outlet</label>
+    <select id="outletSelect"></select>
+
+    <label style="font-size:13px;color:var(--muted);margin-top:8px;display:block">Catatan</label>
+    <textarea id="cartNotes" class="input" style="min-height:70px;resize:vertical" placeholder="Opsional..."></textarea>
+
+    <h3>Total: <span id="totalPrice">Rp 0</span></h3>
+    <button class="btn" onclick="openPopup()">Checkout</button>
+    <button class="btn secondary" onclick="backProduct()">Tambah Menu</button>
+  </div>
+</section>
+
+<!-- FLOAT CART -->
+<div id="floatCart" class="float-cart hidden">
+  <div class="float-inner">
+    <div>
+      <div style="font-size:13px"><b id="floatCount">0</b> item</div>
+      <div style="font-weight:900" id="floatTotal">Rp 0</div>
+    </div>
+    <button class="float-btn" onclick="openCart()">Lihat Cart</button>
+  </div>
 </div>
 
-<!-- Produk -->
-<div id="productPage">
-    <header>
-        <img src="img/lglixystore.png" onclick="backBrand()" alt="logo">
-        <div id="helloUser2"></div>
-        <div onclick="openCart()" style="cursor:pointer;">
-            🛒 <span id="badge2" class="badge" style="display:none;">0</span>
-        </div>
-    </header>
-    
-    <button class="btn secondary" style="width:auto" onclick="loadBrand(currentBrandKey,true)">
-  Refresh Menu
-</button>
+<!-- POPUP OPSI -->
+<div id="optionPopup">
+  <div class="inner-opt">
+    <h3 style="margin-top:0" id="optTitle">Pilih Opsi</h3>
 
+    <label>Ice / Hot</label>
+    <select id="optTemp">
+      <option value="Iced">Iced</option>
+      <option value="Hot">Hot</option>
+    </select>
 
-    <div class="search-wrap">
-        <input class="search" placeholder="Cari minuman..." onkeyup="filterProducts(this.value)">
-    </div>
+    <label>Gula</label>
+    <select id="optSugar">
+      <option value="Normal">Normal</option>
+      <option value="Less Sugar">Less Sugar</option>
+    </select>
 
-    <div id="productList"></div>
-</div>
+    <label>Size</label>
+    <select id="optSize">
+      <option value="Small">Small</option>
+      <option value="Large">Large</option>
+    </select>
 
-<!-- Cart -->
-<div id="cartPage">
-    <header>
-        <img src="img/lglixystore.png" onclick="backProduct()" alt="logo">
-        <div id="helloUser3"></div>
-    </header>
-
-    <div id="cartItems"></div>
-
-    <div style="padding:20px;">
-        <input id="outletName" placeholder="Outlet mana?" style="width:100%;padding:12px;border-radius:10px;">
-        <h3>Total: <span id="totalPrice">Rp 0</span></h3>
-        <button onclick="openPopup()">Checkout</button>
-    </div>
+    <button class="btn" onclick="confirmOptions()">Tambah ke Keranjang</button>
+    <button class="btn secondary" onclick="closeOptionPopup()">Batal</button>
+  </div>
 </div>
 
 <!-- POPUP CHECKOUT -->
 <div id="popup">
-    <div class="inner">
-        <h3>Konfirmasi Pesanan</h3>
-        <pre id="popupText" style="white-space: pre-wrap;"></pre>
-        <button onclick="sendWA()">Benar</button>
-        <button onclick="closePopup()" style="background:#ff4444;">Tidak</button>
-    </div>
-</div>
-
-<!-- POPUP PILIHAN PRODUK -->
-<div id="optionPopup">
-    <div class="inner-opt">
-        <h3 style="margin-top:0;">Pilih Opsi Minuman</h3>
-
-        <label>Kamu Mau Ice/Hot?:</label>
-        <select id="optTemp">
-            <option value="Iced">Iced</option>
-            <option value="Hot">Hot</option>
-        </select>
-
-        <label>Gula:</label>
-        <select id="optSugar">
-            <option value="Normal">Normal</option>
-            <option value="Less Sugar">Less Sugar</option>
-        </select>
-
-        <label>Ukuran:</label>
-        <select id="optSize">
-            <option value="Small">Small</option>
-            <option value="Large">Large</option>
-        </select>
-
-        <button onclick="confirmOptions()">Tambah ke Keranjang</button>
-        <button onclick="closeOptionPopup()" style="background:#ff4444;margin-top:10px;">Batal</button>
-    </div>
+  <div class="inner">
+    <h3>Konfirmasi Pesanan</h3>
+    <pre id="popupText" style="white-space:pre-wrap; font-size:14px"></pre>
+    <button class="btn" onclick="sendWA()">Benar</button>
+    <button class="btn secondary" onclick="closePopup()" style="border-color:rgba(255,91,91,.6)">Tidak</button>
+  </div>
 </div>
 
 <script>
-/* --------------- PAGE LOGIC --------------- */
-window.onload = () => {
-    document.getElementById("splash").style.display = "flex";
-};
-
-function goName() {
-    splash.style.display = "none";
-    namePage.style.display = "flex";
-}
-
-function saveName() {
-    let name = buyerName.value.trim();
-    if (name === "") return alert("Nama tidak boleh kosong");
-    localStorage.setItem("buyerName", name);
-
-    helloUser.innerText  = "Belanja Yuk, " + name;
-    helloUser2.innerText = "Belanja Yuk, " + name;
-    helloUser3.innerText = "Belanja Yuk, " + name;
-
-    namePage.style.display = "none";
-    brandPage.style.display = "block";
-}
-
-function reloadBrand() {
-    productPage.style.display = "none";
-    cartPage.style.display    = "none";
-    brandPage.style.display   = "block";
-}
-
-function backBrand() {
-    productPage.style.display = "none";
-    brandPage.style.display   = "block";
-}
-
-/* --------------- FETCH PRODUCTS (JSON BATCH) --------------- */
-let allProducts = [];
-let currentBrand = "";
-
-
+/* =========================
+   STATE
+========================= */
 const BRAND_MAP = {
   fore: "data/fore.json",
   kenangan: "data/kenangan.json",
@@ -441,242 +337,405 @@ const BRAND_MAP = {
   chagee: "data/chagee.json"
 };
 
-async function loadBrand(brandKey, forceReload=false){
-  const cacheKey = "brand_" + brandKey;
-  const versionKey = "brandver_" + brandKey;
+let allProducts = [];
+let currentBrandKey = null;
+let currentBrandData = null;
 
-  if(forceReload){
-    localStorage.removeItem(cacheKey);
-    localStorage.removeItem(versionKey);
-  }
-
-  // 1) coba ambil data terbaru dari server dulu
-  let fresh = null;
-  try{
-    const res = await fetch(`data/${brandKey}.json?v=${Date.now()}`, {
-      cache: "no-store"
-    });
-    if(!res.ok) throw new Error("fetch failed");
-    fresh = await res.json();
-  }catch(e){
-    fresh = null;
-  }
-
-  if(fresh){
-    const cachedVersion = parseInt(localStorage.getItem(versionKey) || "0", 10);
-    const freshVersion  = parseInt(fresh.version || "1", 10);
-
-    if(forceReload || freshVersion !== cachedVersion){
-      localStorage.setItem(cacheKey, JSON.stringify(fresh));
-      localStorage.setItem(versionKey, String(freshVersion));
-    }
-
-    currentBrandData = fresh;
-    allProducts = fresh.products || [];   // <- pastiin pakai allProducts
-    renderCategories(allProducts);
-    renderProducts(allProducts);
-    updateCartUI();
-    fillOutletOptions();
-    return;
-  }
-
-  // 3) fallback cache lokal
-  const cached = localStorage.getItem(cacheKey);
-  if(cached){
-    const data = JSON.parse(cached);
-    currentBrandData = data;
-    allProducts = data.products || [];
-    renderCategories(allProducts);
-    renderProducts(allProducts);
-    updateCartUI();
-    fillOutletOptions();
-    return;
-  }
-
-  allProducts = [];
-  renderCategories(allProducts);
-  renderProducts(allProducts);
-}
-
-async function openBrand(b) {
-    currentBrandKey = b;
-    brandPage.style.display = "none";
-    productPage.style.display = "block";
-    await loadBrand(b);
-}
-
-
-function renderProducts(list) {
-    const productListEl = document.getElementById("productList");
-    productListEl.innerHTML = "";
-    list.forEach((p, i) => {
-        productListEl.innerHTML += `
-            <div class="product-card">
-                <img loading="lazy" decoding="async" src="${p.image}" alt="${p.name}">
-                <div class="product-info">
-                    <h3>${p.name}</h3>
-                    <small>Rp ${Number(p.price).toLocaleString()}</small>
-                    <div class="add-btn" onclick="addCart(${i})">+ Keranjang</div>
-                </div>
-            </div>
-        `;
-    });
-}
-
-function filterProducts(q) {
-    q = q.toLowerCase();
-    let filtered = allProducts.filter(x => x.name.toLowerCase().includes(q));
-    renderProducts(filtered);
-}
-
-/* --------------- CART + OPTION SYSTEM --------------- */
-let cart = [];
+// cart persist
+let cart = JSON.parse(localStorage.getItem("lixy_cart") || "[]");
 let selectedProductIndex = null;
 
-function addCart(i) {
-    selectedProductIndex = i;
-    openOptionPopup();
+// auto-update trackers (no localStorage)
+let lastBrandVersion = null;
+let lastBrandHash = null;
+let pollTimer = null;
+
+/* =========================
+   NAV PAGES
+========================= */
+const splash = document.getElementById("splash");
+const namePage = document.getElementById("namePage");
+const brandPage = document.getElementById("brandPage");
+const productPage = document.getElementById("productPage");
+const cartPage = document.getElementById("cartPage");
+
+function showOnly(page){
+  [namePage, brandPage, productPage, cartPage].forEach(p=>p.classList.add("hidden"));
+  page.classList.remove("hidden");
 }
 
-function openOptionPopup() {
-    optionPopup.style.display = "flex";
+window.onload = () => {
+  const n = localStorage.getItem("buyerName");
+  if(n){
+    setUserName(n);
+    splash.classList.add("hidden");
+    showOnly(brandPage);
+  }
+};
+
+function goName(){
+  splash.classList.add("hidden");
+  showOnly(namePage);
 }
 
-function closeOptionPopup() {
-    optionPopup.style.display = "none";
+function saveName(){
+  const v = buyerName.value.trim();
+  if(!v) return alert("Nama tidak boleh kosong");
+  localStorage.setItem("buyerName", v);
+  setUserName(v);
+  showOnly(brandPage);
 }
 
-function confirmOptions() {
-    let temp = document.getElementById("optTemp").value;
-    let sugar = document.getElementById("optSugar").value;
-
-    let item = allProducts[selectedProductIndex];
-
-    let exist = cart.find(c =>
-        c.name === item.name &&
-        c.brand === item.brand &&
-        c.temp === temp &&
-        c.sugar === sugar
-    );
-
-    if (exist) exist.qty++;
-    else cart.push({
-        ...item,
-        qty: 1,
-        temp: temp,
-        sugar: sugar
-    });
-
-    optionPopup.style.display = "none";
-    updateBadge();
+function setUserName(v){
+  helloUser.textContent  = "Belanja Yuk, " + v;
+  helloUser2.textContent = v;
 }
 
-function updateBadge() {
-    let qty = cart.reduce((a,b)=>a + b.qty,0);
+function backBrand(){
+  stopPolling();
+  showOnly(brandPage);
+}
 
-    if (qty === 0) {
-        badge.style.display  = "none";
-        badge2.style.display = "none";
+function backProduct(){
+  showOnly(productPage);
+}
+
+/* =========================
+   BRAND LOADER (AUTO UPDATE)
+========================= */
+async function openBrand(key, forceReload=false){
+  currentBrandKey = key;
+  showOnly(productPage);
+  await loadBrand(key, forceReload);
+  startPolling(); // auto update while on product page
+}
+
+async function loadBrand(brandKey, forceReload=false){
+  // always fetch fresh (no local cache for products)
+  const url = BRAND_MAP[brandKey];
+  if(!url) return;
+
+  try{
+    const res = await fetch(url + "?v=" + Date.now(), { cache:"no-store" });
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+
+    // normalize schema (products / items)
+    const normalized = normalizeBrandData(data, brandKey);
+
+    // detect update
+    const freshVersion = normalized.version || null;
+    const freshHash = hashJSON(normalized.products);
+
+    if(forceReload || freshVersion !== lastBrandVersion || freshHash !== lastBrandHash){
+      currentBrandData = normalized;
+      allProducts = normalized.products || [];
+      lastBrandVersion = freshVersion;
+      lastBrandHash = freshHash;
+
+      document.getElementById("brandTitle").textContent = normalized.brand || brandKey;
+      renderProducts(allProducts);
+      fillOutletOptions();
     } else {
-        badge.innerText  = qty;
-        badge2.innerText = qty;
-        badge.style.display  = "inline-block";
-        badge2.style.display = "inline-block";
+      // no change, do nothing
     }
+
+  }catch(err){
+    console.error("loadBrand error:", err);
+    document.getElementById("productList").innerHTML =
+      `<div style="color:var(--muted);padding:30px;text-align:center">
+        Gagal load ${brandKey}. Pastikan file JSON ada & pakai Live Server.
+      </div>`;
+  }
 }
 
-function openCart() {
-    productPage.style.display = "none";
-    brandPage.style.display   = "none";
-    cartPage.style.display    = "block";
-    loadCart();
+function normalizeBrandData(raw, brandKey){
+  // schema baru
+  if(raw && Array.isArray(raw.products)){
+    return {
+      brand: raw.brand || brandKey,
+      version: raw.version || null,
+      outlets: raw.outlets || [],
+      products: raw.products.map(p=>({
+        ...p,
+        brand: raw.brand || brandKey,
+        brandKey,
+        variants: p.variants || defaultVariants()
+      }))
+    };
+  }
+  // schema lama
+  if(raw && Array.isArray(raw.items)){
+    const brand = raw.brand || raw.items[0]?.brand || brandKey;
+    return {
+      brand,
+      version: raw.version || null,
+      outlets: raw.outlets || [],
+      products: raw.items.map((it, idx)=>({
+        id: (brandKey+"-"+idx),
+        name: it.name || "Untitled",
+        price: Number(it.price)||0,
+        image: it.image || "",
+        description: it.description || "",
+        category: it.category || "Coffee",
+        variants: defaultVariants(),
+        brand, brandKey
+      }))
+    };
+  }
+  return { brand: brandKey, version:null, outlets:[], products:[] };
 }
 
-function backProduct() {
-    cartPage.style.display    = "none";
-    productPage.style.display = "block";
+function defaultVariants(){
+  return {
+    temperature:["Iced","Hot"],
+    sugar:["Normal","Less Sugar"],
+    size:["Small","Large"]
+  };
 }
 
-function loadCart() {
-    const cartItemsEl = document.getElementById("cartItems");
-    cartItemsEl.innerHTML = "";
-    cart.forEach((c, i) => {
-        cartItemsEl.innerHTML += `
-            <div class="cart-item">
-                <div>
-                    <strong>${c.name}</strong><br>
-                    <small>${c.temp} • ${c.sugar}</small><br>
-                    Rp ${(c.price * c.qty).toLocaleString()}
-                </div>
-                <div>
-                    <span class="qty-btn" onclick="decQty(${i})">-</span>
-                    ${c.qty}
-                    <span class="qty-btn" onclick="incQty(${i})">+</span>
-                </div>
-            </div>
-        `;
-    });
-
-    updateTotal();
+function startPolling(){
+  stopPolling();
+  pollTimer = setInterval(()=>{
+    if(currentBrandKey && !productPage.classList.contains("hidden")){
+      loadBrand(currentBrandKey, false); // check update silently
+    }
+  }, 20000); // tiap 20 detik cek update (enteng)
 }
 
-function incQty(i){ cart[i].qty++; loadCart(); updateBadge(); }
+function stopPolling(){
+  if(pollTimer){ clearInterval(pollTimer); pollTimer=null; }
+}
+
+function hashJSON(obj){
+  try{
+    const s = JSON.stringify(obj);
+    let h=0; for(let i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0; }
+    return h;
+  }catch(e){ return Math.random(); }
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+function renderProducts(list){
+  const productListEl = document.getElementById("productList");
+  if(!list.length){
+    productListEl.innerHTML = `<div style="color:var(--muted);padding:30px;text-align:center">Menu kosong.</div>`;
+    return;
+  }
+  productListEl.innerHTML = "";
+  list.forEach((p, i)=>{
+    productListEl.innerHTML += `
+      <div class="product-card">
+        <img loading="lazy" decoding="async" src="${p.image}" alt="${escapeHtml(p.name)}"
+          onerror="this.src=''; this.style.background='#111'; this.alt='no image'">
+        <div class="product-info">
+          <h3>${escapeHtml(p.name)}</h3>
+          <small>Rp ${Number(p.price).toLocaleString("id-ID")}</small>
+          <div class="add-btn" onclick="addCart(${i})">+ Keranjang</div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function filterProducts(q){
+  q = (q||"").toLowerCase();
+  const filtered = allProducts.filter(x => (x.name||"").toLowerCase().includes(q));
+  renderProducts(filtered);
+}
+
+function escapeHtml(s=""){
+  return s.replace(/[&<>'"]/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;" }[c]));
+}
+
+/* =========================
+   CART + OPTION
+========================= */
+function addCart(i){
+  selectedProductIndex = i;
+  const p = allProducts[i];
+  optTitle.textContent = p.name;
+  // set default based on variants if exist
+  setSelectOptions("optTemp", p.variants?.temperature);
+  setSelectOptions("optSugar", p.variants?.sugar);
+  setSelectOptions("optSize", p.variants?.size);
+  optionPopup.style.display="flex";
+}
+
+function setSelectOptions(id, opts){
+  const sel = document.getElementById(id);
+  const arr = Array.isArray(opts) && opts.length ? opts : sel.querySelectorAll("option")?.length ? null : [];
+  if(arr){
+    sel.innerHTML = arr.map(o=>`<option value="${o}">${o}</option>`).join("");
+  }
+}
+
+function closeOptionPopup(){ optionPopup.style.display="none"; }
+
+function confirmOptions(){
+  const temp  = optTemp.value;
+  const sugar = optSugar.value;
+  const size  = optSize.value;
+
+  const item = allProducts[selectedProductIndex];
+  if(!item) return;
+
+  const key = item.id + "|" + temp + "|" + sugar + "|" + size;
+
+  const exist = cart.find(c => c.key === key);
+  if(exist) exist.qty++;
+  else cart.push({
+    key,
+    ...item,
+    qty:1,
+    temp,sugar,size
+  });
+
+  persistCart();
+  updateBadge();
+  closeOptionPopup();
+}
+
+function persistCart(){
+  localStorage.setItem("lixy_cart", JSON.stringify(cart));
+}
+
+function updateBadge(){
+  const qty = cart.reduce((a,b)=>a+b.qty,0);
+  badge.textContent = qty;
+  badge2.textContent = qty;
+  badge.classList.toggle("hidden", qty===0);
+  badge2.classList.toggle("hidden", qty===0);
+
+  floatCount.textContent = qty;
+  floatTotal.textContent = toRp(cart.reduce((a,b)=>a + b.qty*b.price,0));
+  floatCart.classList.toggle("hidden", qty===0);
+}
+
+function openCart(){
+  stopPolling();
+  showOnly(cartPage);
+  loadCart();
+}
+
+function loadCart(){
+  cartItems.innerHTML = "";
+  if(cart.length===0){
+    cartItems.innerHTML = `<div style="color:var(--muted);padding:25px;text-align:center">Cart kosong.</div>`;
+    totalPrice.textContent="Rp 0";
+    fillOutletOptions();
+    return;
+  }
+
+  cart.forEach((c,i)=>{
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <div style="flex:1;min-width:0">
+          <strong>${escapeHtml(c.name)}</strong><br>
+          <small style="color:var(--muted)">
+            ${c.brand} • ${c.temp}, ${c.sugar}, ${c.size}
+          </small><br>
+          Rp ${(c.price*c.qty).toLocaleString("id-ID")}
+        </div>
+        <div style="white-space:nowrap">
+          <button class="qty-btn" onclick="decQty(${i})">-</button>
+          <b style="margin:0 6px">${c.qty}</b>
+          <button class="qty-btn" onclick="incQty(${i})">+</button>
+          <button class="remove-btn" onclick="removeItem(${i})">hapus</button>
+        </div>
+      </div>
+    `;
+  });
+
+  updateTotal();
+}
+
+function incQty(i){ cart[i].qty++; persistCart(); loadCart(); updateBadge(); }
 function decQty(i){
-    if (cart[i].qty > 1) cart[i].qty--;
-    else cart.splice(i,1);
+  cart[i].qty--; 
+  if(cart[i].qty<=0) cart.splice(i,1);
+  persistCart(); loadCart(); updateBadge();
+}
+function removeItem(i){ cart.splice(i,1); persistCart(); loadCart(); updateBadge(); }
 
-    loadCart();
-    updateBadge();
+function updateTotal(){
+  const total = cart.reduce((a,b)=>a + b.qty*b.price,0);
+  totalPrice.textContent = toRp(total);
 }
 
-function updateTotal() {
-    let total = cart.reduce((a,b)=>a + (b.qty*b.price),0);
-    totalPrice.innerText = "Rp " + total.toLocaleString();
+function toRp(n){
+  n=Number(n)||0;
+  return "Rp " + n.toLocaleString("id-ID");
 }
 
-/* --------------- CHECKOUT --------------- */
-function openPopup() {
-    let name   = localStorage.getItem("buyerName") || "-";
-    let outlet = outletName.value.trim();
-    if (outlet === "") return alert("Outlet harus diisi!");
+/* =========================
+   OUTLETS
+========================= */
+function fillOutletOptions(){
+  const outlets = currentBrandData?.outlets?.length
+    ? currentBrandData.outlets
+    : ["LIXY Cilegon","LIXY Serang","LIXY Anyer"];
 
-    let listTxt = cart.map(c =>
-        `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}) - Rp ${(c.qty*c.price).toLocaleString()}`
-    ).join("\n");
+  const saved = localStorage.getItem("lixy_outlet") || outlets[0];
+  outletSelect.innerHTML = outlets.map(o=>`<option ${o===saved?"selected":""}>${o}</option>`).join("");
+  outletSelect.onchange=()=>localStorage.setItem("lixy_outlet", outletSelect.value);
+}
 
-    popupText.innerText =
+/* =========================
+   CHECKOUT
+========================= */
+function openPopup(){
+  if(cart.length===0) return alert("Cart kosong");
+  const name = localStorage.getItem("buyerName") || "-";
+  const outlet = outletSelect.value;
+  const notes = cartNotes.value.trim();
+
+  const listTxt = cart.map(c =>
+    `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}, ${c.size}) - ${toRp(c.qty*c.price)}`
+  ).join("\n");
+
+  popupText.textContent =
 `Nama: ${name}
 Outlet: ${outlet}
 
 Pesanan:
-${listTxt}`;
+${listTxt}
 
-    popup.style.display = "flex";
+Total: ${toRp(cart.reduce((a,b)=>a+b.qty*b.price,0))}
+${notes?("\nCatatan: "+notes):""}`;
+
+  popup.style.display="flex";
 }
 
-function closePopup() {
-    popup.style.display = "none";
-}
+function closePopup(){ popup.style.display="none"; }
 
-function sendWA() {
-    let name   = localStorage.getItem("buyerName") || "-";
-    let outlet = outletName.value;
+function sendWA(){
+  const name = localStorage.getItem("buyerName") || "-";
+  const outlet = outletSelect.value;
+  const notes = cartNotes.value.trim();
+  const listTxt = cart.map(c =>
+    `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}, ${c.size}) - ${toRp(c.qty*c.price)}`
+  ).join("%0A");
 
-    let listTxt = cart.map(c =>
-        `${c.qty}x ${c.name} (${c.temp}, ${c.sugar}) - Rp ${(c.qty*c.price).toLocaleString()}`
-    ).join("%0A");
-
-    let msg =
+  let msg =
 `Nama: ${name}
 Outlet: ${outlet}
 
 Pesanan:
-${listTxt}`.replace(/\n/g,"%0A");
+${listTxt}
 
-    window.location.href = `https://wa.me/6281290306599?text=${msg}`;
+Total: ${toRp(cart.reduce((a,b)=>a+b.qty*b.price,0))}
+${notes?("%0ACatatan: "+encodeURIComponent(notes)):""}`.replace(/\n/g,"%0A");
+
+  // ganti nomor WA tujuan
+  window.open(`https://wa.me/6281290306599?text=${msg}`, "_blank");
 }
+
+/* init badge at start */
+updateBadge();
 </script>
 
 </body>
 </html>
-
