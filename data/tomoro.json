@@ -1,113 +1,430 @@
 {
-  "brand": "Tomoro",
+  "version": 1,
+  "brand": "Tomoro Coffee",
   "outlets": [
-    "Tomoro Cilegon",
-    "Tomoro Serang"
+    "Tomoro Coffee - Cilegon",
+    "Tomoro Coffee - Summarecon Bekasi",
+    "Tomoro Coffee - Lippo Cikarang"
   ],
   "products": [
     {
-      "id": "tomoro-001",
-      "name": "Sample Tomoro Drink 1",
-      "price": 19000,
-      "image": "img/tomoro/sample-1.webp",
+      "id": "tom-001",
+      "name": "Pistachio Latte",
+      "price": 18000,
+      "image": "/img/tomoro/Pistachio Latte.jpg",
       "category": "Coffee",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
       }
     },
     {
-      "id": "tomoro-002",
-      "name": "Sample Tomoro Drink 2",
-      "price": 20000,
-      "image": "img/tomoro/sample-2.webp",
-      "category": "Milk Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "tomoro-003",
-      "name": "Sample Tomoro Drink 3",
-      "price": 21000,
-      "image": "img/tomoro/sample-3.webp",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "tomoro-004",
-      "name": "Sample Tomoro Drink 4",
-      "price": 22000,
-      "image": "img/tomoro/sample-4.webp",
+      "id": "tom-002",
+      "name": "Pistachio Chocolate",
+      "price": 18000,
+      "image": "/img/tomoro/Pistachio Chocolate.jpg",
       "category": "Chocolate",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
       }
     },
     {
-      "id": "tomoro-005",
-      "name": "Sample Tomoro Drink 5",
-      "price": 23000,
-      "image": "img/tomoro/sample-5.webp",
-      "category": "Refresh",
+      "id": "tom-003",
+      "name": "Pistachio Matcha Latte",
+      "price": 19000,
+      "image": "/img/tomoro/Pistachio Matcha Latte.jpg",
+      "category": "Coffee",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-004",
+      "name": "Matcha Frappe",
+      "price": 18000,
+      "image": "/img/tomoro/Matcha Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-005",
+      "name": "Choco Oat Latte",
+      "price": 18000,
+      "image": "/img/tomoro/Choco Oat Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-006",
+      "name": "Matcha Oat Latte",
+      "price": 18000,
+      "image": "/img/tomoro/Matcha Oat Latte.jpg",
+      "category": "Matcha",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-007",
+      "name": "Hojicha Oat Latte",
+      "price": 19000,
+      "image": "/img/tomoro/Hojicha Oat Latte.jpg",
+      "category": "Tea",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-008",
+      "name": "Coconut Choco",
+      "price": 16000,
+      "image": "/img/tomoro/Coconut Choco.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-009",
+      "name": "Grapefruit Americano",
+      "price": 14000,
+      "image": "/img/tomoro/Grapefruit Americano.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-010",
+      "name": "Lemonade Americano",
+      "price": 14000,
+      "image": "/img/tomoro/Lemonade Americano.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-011",
+      "name": "Jasmine Americano",
+      "price": 14000,
+      "image": "/img/tomoro/Jasmine Americano.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-012",
+      "name": "Caffe Mocha",
+      "price": 17000,
+      "image": "/img/tomoro/Caffe Mocha.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-013",
+      "name": "Coconut Aren Latte",
+      "price": 17000,
+      "image": "/img/tomoro/Coconut Aren Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-014",
+      "name": "Caramel Macchiato",
+      "price": 17000,
+      "image": "/img/tomoro/Caramel Macchiato.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-015",
+      "name": "Spanish Aren Latte",
+      "price": 17000,
+      "image": "/img/tomoro/Spanish Aren Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-016",
+      "name": "Manuka Oat Latte",
+      "price": 19000,
+      "image": "/img/tomoro/Manuka Oat Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-017",
+      "name": "Caramel Cheese Latte",
+      "price": 17000,
+      "image": "/img/tomoro/Caramel Cheese Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-018",
+      "name": "Cheese Cloud Latte",
+      "price": 17000,
+      "image": "/img/tomoro/Cheese Cloud Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-019",
+      "name": "Dino-Mite Mango Frappe",
+      "price": 17000,
+      "image": "/img/tomoro/Dino- mite Mango Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-020",
+      "name": "Dino-mite Cloud Tea",
+      "price": 16000,
+      "image": "/img/tomoro/Dino- mite Cloud Tea.jpg",
+      "category": "Tea",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-021",
+      "name": "Tomoro Aren Latte",
+      "price": 14000,
+      "image": "/img/tomoro/TOMORO Aren Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-022",
+      "name": "Tomoro Oat Latte",
+      "price": 16000,
+      "image": "/img/tomoro/TOMORO Oat Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-023",
+      "name": "Breve Latte",
+      "price": 19000,
+      "image": "/img/tomoro/Breve Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-024",
+      "name": "Cheese Cloud Chocolate",
+      "price": 17000,
+      "image": "/img/tomoro/Cheese Cloud Chocolate.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-025",
+      "name": "Sea Salt Cloud Caramel Macchiato",
+      "price": 19000,
+      "image": "/img/tomoro/Sea Salt Cloud Caramel Macchiato.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-026",
+      "name": "Caffe Americano",
+      "price": 13000,
+      "image": "/img/tomoro/Caffe Americano.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-027",
+      "name": "Tomoro Coconut Latte",
+      "price": 16000,
+      "image": "/img/tomoro/TOMORO Coconut Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-028",
+      "name": "Caffe Latte",
+      "price": 16000,
+      "image": "/img/tomoro/Caffe Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-029",
+      "name": "Cappucino",
+      "price": 16000,
+      "image": "/img/tomoro/Cappuccino.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-030",
+      "name": "Spanish Latte",
+      "price": 17000,
+      "image": "/img/tomoro/Spanish Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-031",
+      "name": "Pink Pop Lemonade",
+      "price": 10000,
+      "image": "/img/tomoro/Pink Pop Lemonade.jpg",
+      "category": "Lemonade",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-032",
+      "name": "Pink Pop Lemon Tea",
+      "price": 12000,
+      "image": "/img/tomoro/Pink Pop Lemon Tea.jpg",
+      "category": "Tea",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-033",
+      "name": "Chocolate",
+      "price": 15000,
+      "image": "/img/tomoro/Chocolate.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-034",
+      "name": "Chocolate Frappe",
+      "price": 16000,
+      "image": "/img/tomoro/Chocolate Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-035",
+      "name": "Matcha Latte",
+      "price": 18000,
+      "image": "/img/tomoro/Matcha Latte.jpg",
+      "category": "Matcha",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
       }
     }
   ]

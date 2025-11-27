@@ -1,113 +1,966 @@
 {
+  "version": 1,
   "brand": "Kopi Kenangan",
   "outlets": [
-    "Kenangan Cilegon",
-    "Kenangan Serang"
+    "Kopi Kenangan - Lippo Cikarang",
+    "Kopi Kenangan - Summarecon Bekasi",
+    "Kopi Kenangan - Cilegon"
   ],
   "products": [
     {
-      "id": "kenangan-001",
-      "name": "Sample Kopi Kenangan Drink 1",
-      "price": 19000,
-      "image": "img/kenangan/sample-1.webp",
+      "id": "ken-001",
+      "name": "Pistachio Latte",
+      "price": 15000,
+      "image": "/img/kopken/Pistachio Latte.jpg",
       "category": "Coffee",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
       }
     },
     {
-      "id": "kenangan-002",
-      "name": "Sample Kopi Kenangan Drink 2",
-      "price": 20000,
-      "image": "img/kenangan/sample-2.webp",
-      "category": "Milk Tea",
+      "id": "ken-002",
+      "name": "Dubai Pistachio Latte",
+      "price": 18000,
+      "image": "/img/kopken/Dubai Pistachio Latte.jpg",
+      "category": "Coffee",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
       }
     },
     {
-      "id": "kenangan-003",
-      "name": "Sample Kopi Kenangan Drink 3",
-      "price": 21000,
-      "image": "img/kenangan/sample-3.webp",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "kenangan-004",
-      "name": "Sample Kopi Kenangan Drink 4",
-      "price": 22000,
-      "image": "img/kenangan/sample-4.webp",
+      "id": "ken-003",
+      "name": "Dubai Pistachio Chocolate",
+      "price": 19000,
+      "image": "/img/kopken/Dubai Pistachio Chocolate.jpg",
       "category": "Chocolate",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
       }
     },
     {
-      "id": "kenangan-005",
-      "name": "Sample Kopi Kenangan Drink 5",
-      "price": 23000,
-      "image": "img/kenangan/sample-5.webp",
-      "category": "Refresh",
+      "id": "ken-004",
+      "name": "Pistachio Frappe",
+      "price": 25000,
+      "image": "/img/kopken/Pistachio Frappe.jpg",
+      "category": "Frappe",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-005",
+      "name": "Pandan Aren Thai Tea",
+      "price": 15000,
+      "image": "/img/kopken/Pandan Aren Thai Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-006",
+      "name": "Butterscotch Sea Salt Crumble",
+      "price": 15000,
+      "image": "/img/kopken/Butterscotch Sea Salt Crumble.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-007",
+      "name": "Matcha Latte",
+      "price": 16000,
+      "image": "/img/kopken/Matcha Latte.jpg",
+      "category": "Matcha",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-008",
+      "name": "Kopi Susus Black Aren",
+      "price": 14000,
+      "image": "/img/kopken/Kopi Susu Black Aren.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-009",
+      "name": "Mocha Latte",
+      "price": 21000,
+      "image": "/img/kopken/Mocha Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-010",
+      "name": "Hazelnut Latte",
+      "price": 17000,
+      "image": "/img/kopken/Hazelnut Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-011",
+      "name": "Caramel Latte",
+      "price": 17000,
+      "image": "/img/kopken/Caramel Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-012",
+      "name": "Dua Shot Iced Shaken",
+      "price": 17000,
+      "image": "/img/kopken/Dua Shot Iced Shaken.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-013",
+      "name": "Caramel Macchiato",
+      "price": 20000,
+      "image": "/img/kopken/Caramel Macchiato.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-014",
+      "name": "Pandan Aren Latte",
+      "price": 17000,
+      "image": "/img/kopken/Pandan Aren Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-015",
+      "name": "Cafe Malt Latte",
+      "price": 17000,
+      "image": "/img/kopken/Cafe Malt Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-016",
+      "name": "Mil Ore Crumble",
+      "price": 17000,
+      "image": "/img/kopken/Milk Oreo Crumble.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "ken-017",
+      "name": "Babyccino",
+      "price": 13000,
+      "image": "/img/kopken/Babyccino.jpg",
+      "category": "Non Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-018",
+      "name": "Honey Lemonade",
+      "price": 15000,
+      "image": "/img/kopken/Honey Lemonade.jpg",
+      "category": "Lemonade",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-019",
+      "name": "Fresh Lemonade",
+      "price": 13000,
+      "image": "/img/kopken/Fresh Lemonade.jpg",
+      "category": "Lemonade",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-020",
+      "name": "Creamy Aren Latte",
+      "price": 15000,
+      "image": "/img/kopken/Creamy Aren Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-021",
+      "name": "Matcha Espresso",
+      "price": 17000,
+      "image": "/img/kopken/Matcha Espresso.jpg",
+      "category": "Coffee Matcha",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-022",
+      "name": "Honey Latte",
+      "price": 15000,
+      "image": "/img/kopken/Honey Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-023",
+      "name": "Cappuccino",
+      "price": 15000,
+      "image": "/img/kopken/Cappuccino.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-024",
+      "name": "Butterscotch Sea Salt Latte",
+      "price": 16000,
+      "image": "/img/kopken/Butterscotch Sea Salt Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+    {
+      "id": "ken-025",
+      "name": "Vanilla Latte",
+      "price": 17000,
+      "image": "/img/kopken/Vanilla Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-026",
+      "name": "Latte",
+      "price": 15000,
+      "image": "/img/kopken/Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-027",
+      "name": "Honey Americano",
+      "price": 13000,
+      "image": "/img/kopken/Honey Americano.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-028",
+      "name": "Kopi Kenangan Mantan",
+      "price": 13000,
+      "image": "/img/kopken/Kopi Kenangan Mantan.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-029",
+      "name": "Butterscotch Aren Latte",
+      "price": 14000,
+      "image": "/img/kopken/Butterscotch Aren Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-030",
+      "name": "Americano",
+      "price": 11000,
+      "image": "/img/kopken/Americano.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-031",
+      "name": "Spanish Latte",
+      "price": 14000,
+      "image": "/img/kopken/Spanish Latte.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-032",
+      "name": "Hazelnut Choco Milk Tea",
+      "price": 15000,
+      "image": "/img/kopken/Hazelnut Choco Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-033",
+      "name": "Avocado Caramel",
+      "price": 17000,
+      "image": "/img/kopken/Avocado Caramel.jpg",
+      "category": "Coffee",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-034",
+      "name": "Avocado Mil",
+      "price": 15000,
+      "image": "/img/kopken/Avocado Milk.jpg",
+      "category": "Milk",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-035",
+      "name": "Caramel Dutch Choco",
+      "price": 18000,
+      "image": "/img/kopken/Caramel Dutch Choco.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-036",
+      "name": "Dutch Chocolate",
+      "price": 16000,
+      "image": "/img/kopken/Dutch Chocolate.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-037",
+      "name": "Hazelnut Dutch Choco",
+      "price": 18000,
+      "image": "/img/kopken/Hazelnut Dutch Choco.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice", "Hot"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-038",
+      "name": "Lemon Black Tea",
+      "price": 11000,
+      "image": "/img/kopken/Lemon Black Tea.jpg",
+      "category": "Tea",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-039",
+      "name": "Kenangan Milk Tea",
+      "price": 14000,
+      "image": "/img/kopken/Kenangan Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-040",
+      "name": "Milo Dinosaurus",
+      "price": 16000,
+      "image": "/img/kopken/Milo Dinosaurus.jpg",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-041",
+      "name": "Oreo Shake",
+      "price": 17000,
+      "image": "/img/kopken/Oreo Shake.jpg",
+      "category": "Shake",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-042",
+      "name": "Raspeberry Hibiscus",
+      "price": 14000,
+      "image": "/img/kopken/Raspberry Hibiscus.jpg",
+      "category": "Tea",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-043",
+      "name": "Thai Tea",
+      "price": 14000,
+      "image": "/img/kopken/Thai Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-044",
+      "name": "Butterscotch Kenangan Frappe",
+      "price": 20000,
+      "image": "/img/kopken/Butterscotch Kenangan Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-045",
+      "name": "Matcha Kenangan Frappe",
+      "price": 21000,
+      "image": "/img/kopken/Matcha Kenangan Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-046",
+      "name": "Kopi Kenangan Mantan Frappe",
+      "price": 18000,
+      "image": "/img/kopken/Kopi Kenangan Mantan Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-047",
+      "name": "Vanilla Kenangan Frappe",
+      "price": 17000,
+      "image": "/img/kopken/Vanilla Kenangan Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-048",
+      "name": "Dutch Choco Kenangan Frappe",
+      "price": 20000,
+      "image": "/img/kopken/Dutch Choco Kenangan Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "temperature": ["Ice"],
+        "sugar": ["Normal", "Less Sugar", "No Sugar"],
+        "size": ["Reguler", "Large"]
+      }
+    },
+
+
+    {
+      "id": "ken-049",
+      "name": "Ropang Coklat",
+      "price": 12000,
+      "image": "/img/kopken/Bambang Choco Cheese Toast.jpg",
+      "category": "Food Toast",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-050",
+      "name": "Ropang Ayam",
+      "price": 13000,
+      "image": "/img/kopken/Adam Ayam Toast.jpg",
+      "category": "Food Toast",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-051",
+      "name": "Ropang Sapi",
+      "price": 13000,
+      "image": "/img/kopken/Wahyu Sapi Toast.jpg",
+      "category": "Food Toast",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-052",
+      "name": "Chocolate Cromboloni",
+      "price": 17000,
+      "image": "/img/kopken/Chocolate Cromboloni.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-053",
+      "name": "Strawberry Cromboloni",
+      "price": 17000,
+      "image": "/img/kopken/Strawberry Cromboloni.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-054",
+      "name": "Pizza Cakalang",
+      "price": 17000,
+      "image": "/img/kopken/Pizza Cakalang.jpg",
+      "category": "Food Pizza",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-055",
+      "name": "Pizza Cheeseburger",
+      "price": 15000,
+      "image": "/img/kopken/Pizza Cheeseburger.jpg",
+      "category": "Food Pizza",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-056",
+      "name": "Dirty Croissant Milo",
+      "price": 16000,
+      "image": "/img/kopken/Dirt Croissant Milo.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-057",
+      "name": "Chicken Curry Pastry",
+      "price": 15000,
+      "image": "/img/kopken/Chicken Curry Pastry.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-058",
+      "name": "Chocolate Croissant",
+      "price": 13000,
+      "image": "/img/kopken/Chocolate Croissant.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-059",
+      "name": "Milky Caramel Danish",
+      "price": 13000,
+      "image": "/img/kopken/Milky Caramel Danish.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-060",
+      "name": "Butter Croisant",
+      "price": 11000,
+      "image": "/img/kopken/Butter Croissant.jpg",
+      "category": "Food Pastry",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-061",
+      "name": "Friend Chip Cookie",
+      "price": 12000,
+      "image": "/img/kopken/Friend Chip Cookie.jpg",
+      "category": "Food Cookie",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-062",
+      "name": "Choco Chip Cookies",
+      "price": 11000,
+      "image": "/img/kopken/Choco Chip Cookies.jpg",
+      "category": "Food Cookie",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-063",
+      "name": "Cheese Donut",
+      "price": 11000,
+      "image": "/img/kopken/Cheese Donut.jpg",
+      "category": "Food Donut",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-064",
+      "name": "Chocolate Donut",
+      "price": 10000,
+      "image": "/img/kopken/Chocolate Donut.jpg",
+      "category": "Food Donut",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-065",
+      "name": "Sugar Donut",
+      "price": 8000,
+      "image": "/img/kopken/Sugar Donut.jpg",
+      "category": "Food Donut",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-066",
+      "name": "Roti Sisir Keju",
+      "price": 13000,
+      "image": "/img/kopken/Roti Sisir Keju.jpg",
+      "category": "Food Bread",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-067",
+      "name": "Roti Sisir Coklat",
+      "price": 12000,
+      "image": "/img/kopken/Roti Sisir Coklat.jpg",
+      "category": "Food Bread",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+    {
+      "id": "ken-068",
+      "name": "Ropang Srikaya",
+      "price": 11000,
+      "image": "/img/kopken/Kun Ya Kaya Toast.jpg",
+      "category": "Food Toast",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-069",
+      "name": "Roti Sisir Original",
+      "price": 11000,
+      "image": "/img/kopken/Roti Sisir Original.jpg",
+      "category": "Food Bread",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-070",
+      "name": "Roti Keju Manis",
+      "price": 9000,
+      "image": "/img/kopken/Roti Keju Manis.jpg",
+      "category": "Food Bread",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-071",
+      "name": "Roti Susu Manis",
+      "price": 7000,
+      "image": "/img/kopken/Roti Susu Manis.jpg",
+      "category": "Food Bread",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
+      }
+    },
+
+
+    {
+      "id": "ken-072",
+      "name": "Roti Coklat Klasik",
+      "price": 7000,
+      "image": "/img/kopken/Roti Coklat Klasik.jpg",
+      "category": "Food Bread",
+      "variants": {
+        "temperature": ["Normal"],
+        "sugar": ["Normal"],
+        "size": ["Reguler"]
       }
     }
   ]

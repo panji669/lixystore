@@ -1,113 +1,380 @@
 {
   "brand": "Chagee",
+  "version": 1,
   "outlets": [
-    "Chagee Cilegon",
-    "Chagee Serang"
+    "CHAGEE AEON Mall Deltamas",
+    "CHAGEE AEON Mall BSD City",
+    "CHAGEE Agora Mall",
+    "CHAGEE Blok M Plaza",
+    "CHAGEE Ciputra Mall",
+    "CHAGEE Citywalk Sudirman",
+    "CHAGEE Epiwalk",
+    "CHAGEE fX Sudirman",
+    "CHAGEE Gandaria City",
+    "CHAGEE Lippo Mall Nusantara",
+    "CHAGEE Lippo Mall Puri",
+    "CHAGEE Lotte Mall Jakarta",
+    "CHAGEE Kota Kasablanka",
+    "CHAGEE Mal Ciputra Cibubur",
+    "CHAGEE Mall of Indonesia",
+    "CHAGEE Margo City",
+    "CHAGEE Pakuwon Mall Bekasi",
+    "CHAGEE PIK Avenue",
+    "CHAGEE Pluit Village",
+    "CHAGEE Puri Indah Mall",
+    "CHAGEE Supermal Karawaci"
   ],
   "products": [
     {
-      "id": "chagee-001",
-      "name": "Sample Chagee Drink 1",
-      "price": 19000,
-      "image": "img/chagee/sample-1.webp",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
-    },
-    {
-      "id": "chagee-002",
-      "name": "Sample Chagee Drink 2",
-      "price": 20000,
-      "image": "img/chagee/sample-2.webp",
+      "id": "chg-001",
+      "name": "Peach Oolong Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/Peach Oolong Milk Tea.jpg",
       "category": "Milk Tea",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
       }
     },
     {
-      "id": "chagee-003",
-      "name": "Sample Chagee Drink 3",
-      "price": 21000,
-      "image": "img/chagee/sample-3.webp",
-      "category": "Matcha",
+      "id": "chg-002",
+      "name": "LAPSANG SOUCHONG Tea Latte",
+      "price": 26000,
+      "image": "/img/chagee/LAPSANG SOUCHONG Tea Latte.jpg",
+      "category": "Milk Tea",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
       }
     },
     {
-      "id": "chagee-004",
-      "name": "Sample Chagee Drink 4",
-      "price": 22000,
-      "image": "img/chagee/sample-4.webp",
-      "category": "Chocolate",
+      "id": "chg-003",
+      "name": "LAPSANG SOUCHONG Black Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/LAPSANG SOUCHONG Black Milk Tea.jpg",
+      "category": "Milk Tea",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
       }
     },
     {
-      "id": "chagee-005",
-      "name": "Sample Chagee Drink 5",
-      "price": 23000,
-      "image": "img/chagee/sample-5.webp",
-      "category": "Refresh",
+      "id": "chg-004",
+      "name": "ROSE PU-ER Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/ROSE PU-ER Milk Tea.jpg",
+      "category": "Milk Tea",
       "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-005",
+      "name": "DA HONG PAO Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/DA HONG PAO Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-006",
+      "name": "Glutinous Green Tea",
+      "price": 26000,
+      "image": "/img/chagee/Glutinous Green Tea.jpg",
+      "category": "Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-007",
+      "name": "TIE GUAN YIN",
+      "price": 26000,
+      "image": "/img/chagee/TIE GUAN YIN.jpg",
+      "category": "Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-008",
+      "name": "CHANGEE Foldable Umbrella",
+      "price": 26000,
+      "image": "/img/chagee/CHANGEE Foldable Umbrella.jpg",
+      "category": "Merchandise"
+    },
+    {
+      "id": "chg-009",
+      "name": "DA HONG PAO SNOW Cap Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/DA HONG PAO SNOW Cap Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-010",
+      "name": "DA HONG PAO",
+      "price": 26000,
+      "image": "/img/chagee/DA HONG PAO.jpg",
+      "category": "Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-011",
+      "name": "OSMANTHUS Oolong Tea",
+      "price": 26000,
+      "image": "/img/chagee/OSMANTHUS Oolong Tea.jpg",
+      "category": "Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-012",
+      "name": "CHANGEE Classic Tumbler",
+      "price": 26000,
+      "image": "/img/chagee/CHANGEE Classic Tumbler.jpg",
+      "category": "Merchandise"
+    },
+    {
+      "id": "chg-013",
+      "name": "DA HONG PAO Tea Latte",
+      "price": 26000,
+      "image": "/img/chagee/DA HONG PAO Tea Latte.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-014",
+      "name": "OSMANTHUS Oolong Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/OSMANTHUS Oolong Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-015",
+      "name": "TIE GUAN YIN Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/TIE GUAN YIN Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-016",
+      "name": "OREO LAPSANG SOUCHONG Tea Frappe",
+      "price": 26000,
+      "image": "/img/chagee/OREO LAPSANG SOUCHONG Tea Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-017",
+      "name": "OSMANTHUS Oolong Snow Cap Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/OSMANTHUS Oolong Snow Cap Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-018",
+      "name": "CHANGEE Classic Tote Bag",
+      "price": 26000,
+      "image": "/img/chagee/CHANGEE Classic Tote Bag.jpg",
+      "category": "Merchandise"
+    },
+    {
+      "id": "chg-019",
+      "name": "Glutinous Green Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/Glutinous Green Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-020",
+      "name": "Caramel DA HONG PAO Tea Frappe",
+      "price": 26000,
+      "image": "/img/chagee/Caramel DA HONG PAO Tea Frappe.jpg",
+      "category": "Frappe",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
+      }
+    },
+    {
+      "id": "chg-021",
+      "name": "CHANGEE Blue Tumbler",
+      "price": 26000,
+      "image": "/img/chagee/CHANGEE Blue Tumbler.jpg",
+      "category": "Merchandise"
+    },
+    {
+      "id": "chg-022",
+      "name": "BO.YA Jasmine Green Milk Tea",
+      "price": 26000,
+      "image": "/img/chagee/BO.YA Jasmine Green Milk Tea.jpg",
+      "category": "Milk Tea",
+      "variants": {
+        "Size": ["Regular", "Large"],
+        "Ice Level": ["Hot", "No Ice", "Less Ice", "Normal Ice"],
+        "Sweetness Level": ["Normal Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      },
+      "variantPricing": {
+        "Size": {
+          "Regular": 26000,
+          "Large": 29000
+        }
       }
     }
   ]
