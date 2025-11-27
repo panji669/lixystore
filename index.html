@@ -1,1295 +1,261 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>LIXY Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #050509;
-      --bg-elevated: #0f1015;
-      --bg-soft: #151621;
-      --border-subtle: #252637;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --accent: #22c55e; /* default */
-      --accent-soft: rgba(34, 197, 94, 0.15);
-      --accent-strong: rgba(34, 197, 94, 0.35);
-      --danger: #f97373;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #161625 0, #050509 55%);
-      color: var(--text-main);
-    }
-
-    .app-root {
-      min-height: 100vh;
-      padding: 16px;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-    }
-
-    .app-shell {
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    header.app-header {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 30% 10%, #ffffff 0, #facc15 10%, #f97316 30%, #18181b 70%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-      color: #020617;
-      box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
-    }
-
-    .logo-text-main {
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      font-size: 18px;
-    }
-
-    .logo-text-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .brand-switcher {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .brand-pill {
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 12px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,16,21,0.95);
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .brand-pill span.dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--border-subtle);
-    }
-
-    .brand-pill.active {
-      color: #f9fafb;
-      border-color: var(--accent);
-      background: linear-gradient(to right, var(--accent-soft), transparent);
-      box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 0 18px var(--accent-soft);
-    }
-
-    .brand-pill.active span.dot {
-      background: var(--accent);
-    }
-
-    .brand-pill small {
-      font-size: 10px;
-      opacity: 0.8;
-    }
-
-    .layout-main {
-      display: grid;
-      grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 900px) {
-      .layout-main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .panel {
-      background: radial-gradient(circle at top left, #1f2933 0, var(--bg-elevated) 35%);
-      border-radius: 18px;
-      padding: 14px 14px 16px;
-      border: 1px solid rgba(15,23,42,0.8);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.75);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, var(--accent-strong), transparent 60%);
-      opacity: 0.06;
-      pointer-events: none;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .panel-title {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .pill-small {
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      color: var(--text-muted);
-      background: rgba(15,23,42,0.9);
-    }
-
-    .panel-body {
-      position: relative;
-      z-index: 1;
-    }
-
-    .field-group {
-      margin-bottom: 10px;
-    }
-
-    .field-group label {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 3px;
-      display: block;
-    }
-
-    .field-inline-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    input[type="text"] {
-      border-radius: 10px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
-      padding: 7px 10px;
-      font-size: 13px;
-      color: var(--text-main);
-      width: 100%;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    input[type="text"]::placeholder {
-      color: #4b5563;
-    }
-
-    input[type="text"]:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 0 0 1px var(--accent-soft);
-      background: #020617;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    .btn {
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 12px;
-      padding: 6px 11px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(to right, var(--accent), #16a34a);
-      color: #0b1120;
-      font-weight: 500;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
-      white-space: nowrap;
-    }
-
-    .btn:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-      box-shadow: 0 16px 30px rgba(0,0,0,0.75);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text-muted);
-      border-color: var(--border-subtle);
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      filter: none;
-      transform: none;
-    }
-
-    .tiny-text {
-      font-size: 10px;
-      color: var(--text-muted);
-      margin-top: 3px;
-    }
-
-    .section-divider {
-      border-top: 1px dashed rgba(75,85,99,0.9);
-      margin: 10px 0 8px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      margin-bottom: 4px;
-      color: var(--text-muted);
-    }
-
-    .summary-row strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .summary-total {
-      font-size: 13px;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-
-    .summary-total span {
-      color: var(--accent);
-    }
-
-    .cart-list {
-      max-height: 260px;
-      overflow-y: auto;
-      padding-right: 4px;
-      margin-top: 8px;
-    }
-
-    .cart-empty {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .cart-item {
-      display: flex;
-      gap: 8px;
-      padding: 7px 8px;
-      background: rgba(15,23,42,0.9);
-      border-radius: 10px;
-      border: 1px solid rgba(31,41,55,0.9);
-      margin-bottom: 6px;
-    }
-
-    .cart-item-main {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .cart-item-title {
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .cart-item-meta {
-      font-size: 10px;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-      line-height: 1.4;
-    }
-
-    .cart-item-price {
-      font-size: 11px;
-      font-weight: 500;
-      color: #e5e7eb;
-    }
-
-    .cart-item-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    .cart-qty-btns {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .icon-btn {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
-      color: var(--text-muted);
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .icon-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .cart-qty {
-      font-size: 11px;
-      min-width: 16px;
-      text-align: center;
-    }
-
-    .btn-danger-link {
-      border: none;
-      background: transparent;
-      color: var(--danger);
-      font-size: 10px;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    /* Product grid */
-
-    .product-panel {
-      background: radial-gradient(circle at top, #111827 0, #020617 60%);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 720px) {
-      .product-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .product-card {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(31,41,55,0.9);
-      background: linear-gradient(to bottom, rgba(15,23,42,0.9), #020617);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      min-height: 140px;
-    }
-
-    .product-thumb-wrap {
-      position: relative;
-      overflow: hidden;
-      height: 120px;
-      background: #020617;
-    }
-
-    .product-thumb-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .product-card:hover .product-thumb-wrap img {
-      transform: scale(1.05);
-    }
-
-    .product-chip {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      padding: 2px 7px;
-      font-size: 9px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.85);
-      border: 1px solid rgba(55,65,81,0.9);
-      color: var(--text-muted);
-      backdrop-filter: blur(6px);
-    }
-
-    .product-body {
-      padding: 8px 9px 9px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      flex: 1;
-    }
-
-    .product-title-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 6px;
-      align-items: flex-start;
-    }
-
-    .product-name {
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .product-price {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .product-variant-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 2px;
-    }
-
-    .variant-select {
-      flex: 1;
-      min-width: 0;
-    }
-
-    select {
-      width: 100%;
-      border-radius: 999px;
-      border: 1px solid rgba(55,65,81,0.9);
-      background: rgba(15,23,42,0.98);
-      color: var(--text-main);
-      font-size: 10px;
-      padding: 4px 7px;
-      outline: none;
-    }
-
-    select:focus {
-      border-color: var(--accent);
-    }
-
-    .product-footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-    }
-
-    .product-note {
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    .btn-add {
-      font-size: 11px;
-      padding: 5px 10px;
-    }
-
-    /* Splash loader */
-
-    #splash {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 50;
-    }
-
-    .splash-inner {
-      max-width: 320px;
-      width: 100%;
-      padding: 18px 18px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(55,65,81,0.9);
-      background: radial-gradient(circle at top left, rgba(148,163,184,0.3), #020617 50%);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.85);
-    }
-
-    .splash-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-
-    .splash-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .progress-bar-shell {
-      width: 100%;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      overflow: hidden;
-      border: 1px solid rgba(31,41,55,0.95);
-    }
-
-    .progress-bar-inner {
-      width: 0%;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #f97316, #facc15, #22c55e, #38bdf8);
-      background-size: 200% 100%;
-      animation: loaderSlide 1.1s ease-in-out infinite;
-    }
-
-    @keyframes loaderSlide {
-      0% { width: 0%; background-position: 0% 50%; }
-      50% { width: 70%; background-position: 100% 50%; }
-      100% { width: 100%; background-position: 0% 50%; }
-    }
-
-    .splash-meta {
-      margin-top: 6px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    .splash-hidden {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-    }
-
-    /* Brand accent badges */
-
-    .brand-badge {
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.9);
-      color: var(--text-muted);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIXY Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===========================
+   BASE THEME (versi lama)
+   =========================== */
+:root{
+    --bg:#0d0f12;
+    --card:#16181d;
+    --text:#ffffff;
+    --muted:#9aa0af;
+    --radius:14px;
+    --accent:#f97316; /* default Kopi Kenangan */
+}
+
+/* BRAND COLOURS INJECTED WHEN CLICKED */
+body.brand-kopken { --accent:#f97316; }
+body.brand-fore   { --accent:#22c55e; }
+body.brand-tomoro { --accent:#eab308; }
+body.brand-jiwa   { --accent:#00a2ff; }
+body.brand-chagee { --accent:#ff2e63; }
+
+body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:Poppins,sans-serif;
+}
+
+button{cursor:pointer;font-family:inherit;}
+
+/* ===========================
+   HEADER – simple clean old style
+   =========================== */
+header{
+    padding:14px 18px;
+    font-size:18px;
+    font-weight:600;
+    border-bottom:1px solid #1f2126;
+    background:#0d0f12cc;
+    backdrop-filter:blur(10px);
+    display:flex;justify-content:space-between;align-items:center;
+}
+
+header .brand-title{font-size:18px;}
+header .mini-note{font-size:12px;color:var(--muted);margin-top:-2px;}
+
+
+/* ===========================
+   BRAND SELECTOR UI lama style
+   =========================== */
+.brand-select{
+    padding:14px 18px;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+}
+
+.brand-pill{
+    padding:8px 14px;
+    border-radius:999px;
+    background:#1c1f26;
+    border:1px solid #282c34;
+    font-size:13px;
+    white-space:nowrap;
+}
+.brand-pill.active{
+    background:var(--accent);
+    color:#000;
+    border-color:var(--accent);
+}
+
+
+/* ===========================
+   LAYOUT
+   =========================== */
+.page{
+    display:flex;
+    gap:18px;
+    padding:18px;
+}
+.left,.right{flex:1;}
+@media(max-width:850px){
+    .page{flex-direction:column;}
+}
+
+/* ===========================
+   MENU CARD (GAMBAR TIDAK CUT)
+   =========================== */
+.product-card{
+    background:var(--card);
+    border:1px solid #2a2e34;
+    border-radius:var(--radius);
+    display:flex;
+    gap:12px;
+    padding:10px;
+    margin-bottom:12px;
+}
+.product-card img{
+    width:110px;
+    height:110px;
+    border-radius:10px;
+    object-fit:cover; /* ini yang membuat GAMBAR TIDAK TERPOTONG BERLEBIHAN */
+}
+.product-info h3{margin:0;font-size:15px;font-weight:600;}
+.product-info small{color:var(--muted);font-size:12px;}
+.addbtn{
+    margin-top:8px;
+    background:var(--accent);
+    padding:6px 12px;
+    border-radius:8px;
+    border:none;
+    font-weight:600;
+    font-size:13px;color:#000;
+}
+
+
+/* ===========================
+   CART
+   =========================== */
+.cart-box{
+    background:var(--card);
+    border:1px solid #282c34;
+    padding:14px;border-radius:var(--radius);
+}
+.cart-item{
+    background:#1a1c22;padding:10px;border-radius:10px;
+    margin-bottom:8px;
+}
+.cart-item span{font-size:13px;}
+
+.btn-wa{
+    background:var(--accent);
+    width:100%;padding:10px;
+    border-radius:10px;
+    font-weight:600;border:none;font-size:15px;margin-top:10px;
+}
+.btn-clear{
+    background:#24272d;border:none;
+    color:#ff6277;
+    font-size:13px;font-weight:600;
+    width:100%;padding:9px;border-radius:10px;margin-top:6px;
+}
+
+</style>
 </head>
-<body>
-  <!-- Splash Loader -->
-  <div id="splash">
-    <div class="splash-inner">
-      <div class="splash-title">LIXY Store is warming up…</div>
-      <div class="splash-sub">Menyiapkan menu dari semua brand dan memuat preferensi kamu.</div>
-      <div class="progress-bar-shell">
-        <div class="progress-bar-inner"></div>
-      </div>
-      <div class="splash-meta">
-        <span>Auto sync JSON</span>
-        <span>v1 · multi-brand</span>
-      </div>
-    </div>
-  </div>
+<body class="brand-kopken">
 
-  <div class="app-root">
-    <div class="app-shell">
-      <header class="app-header">
-        <div class="logo-wrap">
-          <div class="logo-mark">LX</div>
-          <div>
-            <div class="logo-text-main">LIXY Store</div>
-            <div class="logo-text-sub">Multi-brand drink & toast sandbox</div>
-          </div>
+<header>
+    <div>
+        <div class="brand-title">LIXY Store</div>
+        <div class="mini-note">UI versi lama + auto JSON brand</div>
+    </div>
+</header>
+
+<!-- BRAND CATEGORY -->
+<div class="brand-select" id="brandSelect">
+    <div class="brand-pill active" data-brand="kopken">Kopi Kenangan</div>
+    <div class="brand-pill" data-brand="fore">Fore</div>
+    <div class="brand-pill" data-brand="tomoro">Tomoro</div>
+    <div class="brand-pill" data-brand="jiwa">Janji Jiwa</div>
+    <div class="brand-pill" data-brand="chagee">Chagee</div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="page">
+
+    <!-- LEFT MENU -->
+    <div class="left">
+        <div id="menuList">Loading menu...</div>
+    </div>
+
+    <!-- RIGHT CART -->
+    <div class="right">
+        <div class="cart-box">
+            <h3>Keranjang</h3>
+            <div id="cartList"></div>
+            <button class="btn-wa" id="sendWA">Kirim ke WA</button>
+            <button class="btn-clear" id="clearCart">Clear Cart</button>
         </div>
-        <div class="brand-switcher" id="brandSwitcher"></div>
-      </header>
-
-      <main class="layout-main">
-        <!-- LEFT: Customer + Cart -->
-        <section class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">Customer & Outlet</div>
-              <div class="tiny-text" id="activeBrandLabel"></div>
-            </div>
-            <span class="pill-small" id="premiumPill">Standard Mode</span>
-          </div>
-          <div class="panel-body">
-            <div class="field-group">
-              <label for="customerNameInput">Nama Customer</label>
-              <div class="field-inline-row">
-                <input id="customerNameInput" type="text" placeholder="cth: Panji Eky Bima" />
-                <button type="button" class="btn-outline" id="btnChangeName">Ganti</button>
-              </div>
-              <p class="tiny-text">
-                Nama akan disimpan di device ini, tapi loader tetap muncul setiap kamu buka halaman.
-              </p>
-            </div>
-
-            <div class="field-group">
-              <label for="outletInput">Outlet / Lokasi Store</label>
-              <input
-                id="outletInput"
-                type="text"
-                placeholder="cth: Tomoro Cilegon PCI / Janji Jiwa Modernland"
-              />
-              <p class="tiny-text">
-                Outlet diinput manual supaya fleksibel, dan ikut terkirim di WhatsApp.
-              </p>
-            </div>
-
-            <div class="section-divider"></div>
-
-            <div class="summary-row">
-              <span>Item dalam keranjang</span>
-              <strong><span id="cartItemCount">0</span> produk</strong>
-            </div>
-            <div class="summary-row">
-              <span>Brand aktif</span>
-              <strong id="summaryBrand">-</strong>
-            </div>
-            <div class="summary-total">
-              Total: <span id="cartTotal">Rp 0</span>
-            </div>
-
-            <div class="section-divider"></div>
-
-            <div class="panel-header" style="margin-bottom: 4px">
-              <div class="panel-title">Keranjang</div>
-              <span class="brand-badge" id="brandBadge">Brand: -</span>
-            </div>
-
-            <div class="cart-list" id="cartList"></div>
-            <div class="cart-empty" id="cartEmpty">Belum ada item. Pilih menu di sebelah kanan.</div>
-
-            <div class="section-divider"></div>
-
-            <div class="field-inline-row">
-              <button type="button" class="btn" id="btnCheckout">
-                Kirim ke WhatsApp
-              </button>
-              <button type="button" class="btn-outline" id="btnClearCart">
-                Hapus Keranjang
-              </button>
-            </div>
-            <p class="tiny-text">
-              Pesan akan dibuka di WhatsApp Web / App. Total & detail varian ikut terkirim.
-            </p>
-          </div>
-        </section>
-
-        <!-- RIGHT: Products -->
-        <section class="panel product-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">Menu</div>
-              <div class="tiny-text" id="brandMeta">Memuat data…</div>
-            </div>
-            <span class="pill-small" id="pollStatus">Auto-sync JSON: ON</span>
-          </div>
-
-          <div class="panel-body">
-            <div class="product-grid" id="productGrid"></div>
-            <div class="tiny-text" style="margin-top:8px;">
-              * Harga bisa berbeda dengan harga asli brand. Ini hanya sandbox praktek frontend.
-            </div>
-          </div>
-        </section>
-      </main>
     </div>
-  </div>
 
-  <script>
-    // === CONFIG BRAND ===
-    const BRANDS = {
-      kopken: {
-        key: "kopken",
-        label: "Kopi Kenangan",
-        file: "kenangan",
-        color: "#f97316", // orange
-        accentSoft: "rgba(249,115,22,0.15)",
-        accentStrong: "rgba(249,115,22,0.38)",
-        nick: "kopken"
-      },
-      fore: {
-        key: "fore",
-        label: "Fore",
-        file: "fore",
-        color: "#22c55e", // hijau
-        accentSoft: "rgba(34,197,94,0.16)",
-        accentStrong: "rgba(34,197,94,0.42)",
-        nick: "fore"
-      },
-      tomoro: {
-        key: "tomoro",
-        label: "Tomoro Coffee",
-        file: "tomoro",
-        color: "#facc15", // kuning
-        accentSoft: "rgba(250,204,21,0.18)",
-        accentStrong: "rgba(250,204,21,0.48)",
-        nick: "tomoro"
-      },
-      janjijiwa: {
-        key: "janjijiwa",
-        label: "Janji Jiwa",
-        file: "janjijiwa",
-        color: "#38bdf8", // biru muda
-        accentSoft: "rgba(56,189,248,0.18)",
-        accentStrong: "rgba(56,189,248,0.48)",
-        nick: "jj"
-      },
-      chagee: {
-        key: "chagee",
-        label: "Chagee",
-        file: "chagee",
-        color: "#e11d48", // merah pink
-        accentSoft: "rgba(225,29,72,0.2)",
-        accentStrong: "rgba(225,29,72,0.5)",
-        nick: "chagee"
-      }
-    };
+</div>
 
-    const CUSTOMER_NAME_KEY = "lixy_customer_name";
-    const OUTLET_KEY = "lixy_outlet";
-    const LAST_BRAND_KEY = "lixy_last_brand";
-    const PREMIUM_KEY = "lixy_premium_mode";
 
-    const POLL_INTERVAL_MS = 30000;
+<script>
+/* ===============================
+   DATA SOURCE JSON FILES
+   =============================== */
+const files={
+    kopken:"data/kenangan.json",
+    fore:"data/fore.json",
+    tomoro:"data/tomoro.json",
+    jiwa:"data/janjijiwa.json",
+    chagee:"data/chagee.json"
+};
 
-    let currentBrandKey = localStorage.getItem(LAST_BRAND_KEY) || "kopken";
-    if (!BRANDS[currentBrandKey]) currentBrandKey = "kopken";
+let cart=[];
 
-    let currentBrandData = null;
-    let currentProducts = [];
-    let pollTimer = null;
-    let cart = [];
+/* LOAD BRAND */
+async function loadMenu(brand){
+    document.getElementById("menuList").innerHTML="Loading...";    
+    const res=await fetch(files[brand]);
+    const data=await res.json();
 
-    // === DOM ===
-    const brandSwitcher = document.getElementById("brandSwitcher");
-    const activeBrandLabel = document.getElementById("activeBrandLabel");
-    const summaryBrand = document.getElementById("summaryBrand");
-    const brandBadge = document.getElementById("brandBadge");
-    const brandMeta = document.getElementById("brandMeta");
-    const pollStatus = document.getElementById("pollStatus");
-    const productGrid = document.getElementById("productGrid");
-
-    const customerNameInput = document.getElementById("customerNameInput");
-    const btnChangeName = document.getElementById("btnChangeName");
-    const outletInput = document.getElementById("outletInput");
-
-    const cartList = document.getElementById("cartList");
-    const cartEmpty = document.getElementById("cartEmpty");
-    const cartItemCount = document.getElementById("cartItemCount");
-    const cartTotal = document.getElementById("cartTotal");
-    const btnCheckout = document.getElementById("btnCheckout");
-    const btnClearCart = document.getElementById("btnClearCart");
-    const premiumPill = document.getElementById("premiumPill");
-    const splashEl = document.getElementById("splash");
-
-    // === Helpers ===
-    function setBrandAccent(brandCfg) {
-      document.documentElement.style.setProperty("--accent", brandCfg.color);
-      document.documentElement.style.setProperty("--accent-soft", brandCfg.accentSoft);
-      document.documentElement.style.setProperty("--accent-strong", brandCfg.accentStrong);
-    }
-
-    function formatRupiah(num) {
-      return "Rp " + (num || 0).toLocaleString("id-ID");
-    }
-
-    function normalizeBrandData(raw) {
-      const data = { ...raw };
-      if (!data.products || !Array.isArray(data.products)) {
-        data.products = [];
-      }
-      // Pastikan setiap product minimal punya id
-      data.products = data.products.map((p, idx) => {
-        const copy = { ...p };
-        if (!copy.id) {
-          copy.id = `${currentBrandKey}-${idx + 1}`;
-        }
-        return copy;
-      });
-      return data;
-    }
-
-    async function fetchBrandJson(brandCfg) {
-      const url = `data/${brandCfg.file}.json?ts=${Date.now()}`;
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) throw new Error("Gagal fetch JSON brand: " + brandCfg.label);
-      const data = await res.json();
-      return normalizeBrandData(data);
-    }
-
-    function buildBrandSwitcher() {
-      brandSwitcher.innerHTML = "";
-      Object.values(BRANDS).forEach((b) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "brand-pill";
-        btn.dataset.brandKey = b.key;
-        btn.innerHTML = `
-          <span class="dot"></span>
-          <span>${b.label}</span>
-          <small>${b.nick}</small>
-        `;
-        if (b.key === currentBrandKey) btn.classList.add("active");
-        btn.addEventListener("click", () => {
-          if (currentBrandKey === b.key) return;
-          currentBrandKey = b.key;
-          localStorage.setItem(LAST_BRAND_KEY, currentBrandKey);
-          document
-            .querySelectorAll(".brand-pill")
-            .forEach((el) => el.classList.remove("active"));
-          btn.classList.add("active");
-          loadBrand();
-        });
-        brandSwitcher.appendChild(btn);
-      });
-    }
-
-    function renderProducts() {
-      productGrid.innerHTML = "";
-      if (!currentBrandData) return;
-      const brandCfg = BRANDS[currentBrandKey];
-
-      currentProducts = currentBrandData.products || [];
-
-      activeBrandLabel.textContent = `${brandCfg.label} • ${
-        currentProducts.length
-      } menu`;
-      summaryBrand.textContent = brandCfg.label;
-      brandBadge.textContent = `Brand: ${brandCfg.nick.toUpperCase()}`;
-      brandMeta.textContent = `Version ${currentBrandData.version ?? "1"} • ${
-        currentProducts.length
-      } item`;
-
-      if (currentProducts.length === 0) {
-        productGrid.innerHTML =
-          '<div class="tiny-text">Tidak ada menu untuk brand ini. Cek kembali file JSON-nya.</div>';
-        return;
-      }
-
-      currentProducts.forEach((p) => {
-        const card = document.createElement("article");
-        card.className = "product-card";
-
-        // Build variant selects if any
-        let variantSectionHtml = "";
-        const variantKeys = p.variants ? Object.keys(p.variants) : [];
-        if (variantKeys.length > 0) {
-          variantSectionHtml =
-            '<div class="product-variant-row">' +
-            variantKeys
-              .map((vk) => {
-                const opts = p.variants[vk] || [];
-                const optHtml = opts
-                  .map(
-                    (val, idx) =>
-                      `<option value="${val}" ${
-                        idx === 0 ? "selected" : ""
-                      }>${val}</option>`
-                  )
-                  .join("");
-                return `
-                  <div class="variant-select">
-                    <select data-variant-key="${vk}">
-                      ${optHtml}
-                    </select>
-                  </div>
-                `;
-              })
-              .join("") +
-            "</div>";
-        }
-
-        card.innerHTML = `
-          <div class="product-thumb-wrap">
-            <img src="${p.image || ""}" alt="${p.name || ""}" loading="lazy">
-            <div class="product-chip">${p.category || "Menu"}</div>
-          </div>
-          <div class="product-body">
-            <div class="product-title-row">
-              <div class="product-name">${p.name || "-"}</div>
-              <div class="product-price">${formatRupiah(p.price || 0)}</div>
+    let html="";
+    data.products.forEach(p=>{
+        html+=`
+        <div class="product-card">
+            <img src="${p.image}">
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <small>${p.category ?? ""}</small><br>
+                <b>Rp ${p.price.toLocaleString()}</b><br>
+                <button class="addbtn" onclick='addCart(${JSON.stringify(p)})'>Tambah</button>
             </div>
-            ${variantSectionHtml}
-            <div class="product-footer-row">
-              <div class="product-note">
-                ${p.note || "Klik tambah untuk masuk keranjang"}
-              </div>
-              <button type="button" class="btn btn-add">Tambah</button>
-            </div>
-          </div>
-        `;
+        </div>`;
+    });
+    document.getElementById("menuList").innerHTML=html;
+}
+loadMenu("kopken");
 
-        const btnAdd = card.querySelector(".btn-add");
-        btnAdd.addEventListener("click", () => {
-          const variantSelections = {};
-          if (variantKeys.length > 0) {
-            card
-              .querySelectorAll("select[data-variant-key]")
-              .forEach((sel) => {
-                variantSelections[sel.dataset.variantKey] = sel.value;
-              });
-          }
-          addToCart(p, variantSelections);
-        });
 
-        productGrid.appendChild(card);
-      });
+/* KLIK BRAND – UBAH WARNA THEMA */
+document.querySelectorAll(".brand-pill").forEach(b=>{
+    b.onclick=()=>{
+        document.querySelectorAll(".brand-pill").forEach(x=>x.classList.remove("active"));
+        b.classList.add("active");
+
+        let brand=b.dataset.brand;
+        document.body.className="brand-"+brand;
+        loadMenu(brand);
     }
+});
 
-    function computePriceWithVariants(product, variants) {
-      // Default base price
-      let price = product.price || 0;
-      if (!product.variantPricing) return price;
-      // Only support Size dimension in pricing for now
-      if (variants && variants.Size && product.variantPricing.Size) {
-        const map = product.variantPricing.Size;
-        if (map[variants.Size] != null) {
-          price = map[variants.Size];
-        }
-      }
-      return price;
-    }
 
-    function addToCart(product, variants = {}) {
-      const key = product.id + JSON.stringify(variants || {});
-      let existing = cart.find((c) => c.key === key);
-      if (!existing) {
-        const unitPrice = computePriceWithVariants(product, variants);
-        existing = {
-          key,
-          id: product.id,
-          name: product.name,
-          qty: 1,
-          basePrice: product.price || 0,
-          unitPrice,
-          total: unitPrice,
-          variants,
-          brand: BRANDS[currentBrandKey].label
-        };
-        cart.push(existing);
-      } else {
-        existing.qty += 1;
-        existing.total = existing.unitPrice * existing.qty;
-      }
-      renderCart();
-    }
+/* CART */
+function addCart(i){
+    cart.push(i);
+    renderCart();
+}
+function renderCart(){
+    let out=""; cart.forEach((i,x)=>{
+        out+=`<div class="cart-item"><span>${i.name}</span></div>`;
+    });
+    document.getElementById("cartList").innerHTML=out||"<i>belum ada item</i>";
+}
 
-    function updateCartItemQty(key, delta) {
-      const item = cart.find((c) => c.key === key);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter((c) => c.key !== key);
-      } else {
-        item.total = item.unitPrice * item.qty;
-      }
-      renderCart();
-    }
+document.getElementById("clearCart").onclick=()=>{cart=[];renderCart();}
+document.getElementById("sendWA").onclick=()=>alert("WA function next step..");
 
-    function removeCartItem(key) {
-      cart = cart.filter((c) => c.key !== key);
-      renderCart();
-    }
+</script>
 
-    function clearCart() {
-      cart = [];
-      renderCart();
-    }
-
-    function renderCart() {
-      cartList.innerHTML = "";
-      if (cart.length === 0) {
-        cartEmpty.style.display = "block";
-      } else {
-        cartEmpty.style.display = "none";
-      }
-
-      let total = 0;
-      cart.forEach((item) => {
-        total += item.total;
-
-        const row = document.createElement("div");
-        row.className = "cart-item";
-        const variantText = item.variants
-          ? Object.keys(item.variants)
-              .map((k) => `${k}: ${item.variants[k]}`)
-              .join(" · ")
-          : "";
-
-        row.innerHTML = `
-          <div class="cart-item-main">
-            <div class="cart-item-title">${item.name}</div>
-            ${
-              variantText
-                ? `<div class="cart-item-meta">${variantText}</div>`
-                : ""
-            }
-            <div class="cart-item-price">${formatRupiah(
-              item.unitPrice
-            )} <span style="opacity:.7;">x ${item.qty}</span></div>
-          </div>
-          <div class="cart-item-controls">
-            <div class="cart-qty-btns">
-              <button class="icon-btn" data-action="dec">-</button>
-              <span class="cart-qty">${item.qty}</span>
-              <button class="icon-btn" data-action="inc">+</button>
-            </div>
-            <button class="btn-danger-link">hapus</button>
-          </div>
-        `;
-
-        const btnDec = row.querySelector('button[data-action="dec"]');
-        const btnInc = row.querySelector('button[data-action="inc"]');
-        const btnDel = row.querySelector(".btn-danger-link");
-
-        btnDec.addEventListener("click", () => updateCartItemQty(item.key, -1));
-        btnInc.addEventListener("click", () => updateCartItemQty(item.key, 1));
-        btnDel.addEventListener("click", () => removeCartItem(item.key));
-
-        cartList.appendChild(row);
-      });
-
-      cartItemCount.textContent = cart.length.toString();
-      cartTotal.textContent = formatRupiah(total);
-    }
-
-    function buildWhatsappMessage() {
-      const brandCfg = BRANDS[currentBrandKey];
-      const name = (customerNameInput.value || "").trim();
-      const outlet = (outletInput.value || "").trim();
-
-      let lines = [];
-      lines.push(`LIXY Store Order (${brandCfg.label})`);
-      lines.push(`Nama: ${name || "-"}`);
-      lines.push(`Outlet: ${outlet || "-"}`);
-      lines.push("--------------------------------");
-
-      if (cart.length === 0) {
-        lines.push("Keranjang masih kosong.");
-      } else {
-        cart.forEach((item, idx) => {
-          lines.push(
-            `${idx + 1}. ${item.name} x${item.qty} - ${formatRupiah(
-              item.total
-            )}`
-          );
-          if (item.variants && Object.keys(item.variants).length > 0) {
-            const vt = Object.keys(item.variants)
-              .map((k) => `${k}: ${item.variants[k]}`)
-              .join(", ");
-            lines.push(`   (${vt})`);
-          }
-        });
-
-        const total = cart.reduce((sum, c) => sum + c.total, 0);
-        lines.push("--------------------------------");
-        lines.push(`Total: ${formatRupiah(total)}`);
-      }
-
-      return lines.join("\n");
-    }
-
-    function openWhatsapp() {
-      const msg = buildWhatsappMessage();
-      // Nomor WA dummy, silakan ganti dengan nomor sendiri
-      const PHONE = "6281234567890";
-      const url =
-        "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
-      window.open(url, "_blank");
-    }
-
-    function loadCustomerPrefs() {
-      const savedName = localStorage.getItem(CUSTOMER_NAME_KEY);
-      if (savedName && customerNameInput) {
-        customerNameInput.value = savedName;
-      }
-      const savedOutlet = localStorage.getItem(OUTLET_KEY);
-      if (savedOutlet && outletInput) {
-        outletInput.value = savedOutlet;
-      }
-      const premium = localStorage.getItem(PREMIUM_KEY) === "1";
-      updatePremiumPill(premium);
-    }
-
-    function updatePremiumPill(isPremium) {
-      if (!premiumPill) return;
-      if (isPremium) {
-        premiumPill.textContent = "Premium Mode";
-        premiumPill.style.borderColor = "var(--accent)";
-        premiumPill.style.color = "var(--accent)";
-      } else {
-        premiumPill.textContent = "Standard Mode";
-        premiumPill.style.borderColor = "rgba(148,163,184,0.5)";
-        premiumPill.style.color = "var(--text-muted)";
-      }
-    }
-
-    function setupEvents() {
-      if (customerNameInput) {
-        customerNameInput.addEventListener("input", () => {
-          const v = customerNameInput.value.trim();
-          if (v) {
-            localStorage.setItem(CUSTOMER_NAME_KEY, v);
-          } else {
-            localStorage.removeItem(CUSTOMER_NAME_KEY);
-          }
-        });
-      }
-
-      if (outletInput) {
-        outletInput.addEventListener("input", () => {
-          const v = outletInput.value.trim();
-          if (v) {
-            localStorage.setItem(OUTLET_KEY, v);
-          } else {
-            localStorage.removeItem(OUTLET_KEY);
-          }
-        });
-      }
-
-      if (btnChangeName) {
-        btnChangeName.addEventListener("click", () => {
-          customerNameInput.value = "";
-          localStorage.removeItem(CUSTOMER_NAME_KEY);
-          customerNameInput.focus();
-        });
-      }
-
-      if (btnCheckout) {
-        btnCheckout.addEventListener("click", () => {
-          openWhatsapp();
-        });
-      }
-
-      if (btnClearCart) {
-        btnClearCart.addEventListener("click", () => {
-          clearCart();
-        });
-      }
-
-      if (premiumPill) {
-        premiumPill.addEventListener("click", () => {
-          const current = localStorage.getItem(PREMIUM_KEY) === "1";
-          const next = !current;
-          localStorage.setItem(PREMIUM_KEY, next ? "1" : "0");
-          updatePremiumPill(next);
-        });
-      }
-    }
-
-    function startPolling(brandCfg) {
-      if (pollTimer) {
-        clearInterval(pollTimer);
-        pollTimer = null;
-      }
-      pollTimer = setInterval(async () => {
-        try {
-          const data = await fetchBrandJson(brandCfg);
-          // cek perubahan versi atau jumlah produk
-          const prevVersion = currentBrandData ? currentBrandData.version : null;
-          const prevCount = currentBrandData
-            ? currentBrandData.products.length
-            : 0;
-          if (
-            prevVersion !== data.version ||
-            prevCount !== data.products.length
-          ) {
-            currentBrandData = data;
-            renderProducts();
-          }
-        } catch (err) {
-          console.warn("Polling JSON gagal:", err.message);
-        }
-      }, POLL_INTERVAL_MS);
-    }
-
-    async function loadBrand() {
-      const brandCfg = BRANDS[currentBrandKey];
-      setBrandAccent(brandCfg);
-      brandMeta.textContent = "Memuat data…";
-
-      try {
-        const data = await fetchBrandJson(brandCfg);
-        currentBrandData = data;
-        renderProducts();
-        startPolling(brandCfg);
-        pollStatus.textContent = "Auto-sync JSON: ON";
-      } catch (err) {
-        console.error(err);
-        brandMeta.textContent = "Gagal memuat data brand.";
-        productGrid.innerHTML =
-          '<div class="tiny-text">Tidak dapat memuat file JSON untuk brand ini.</div>';
-        pollStatus.textContent = "Auto-sync JSON: ERROR";
-      } finally {
-        hideSplash();
-      }
-    }
-
-    function hideSplash() {
-      if (!splashEl) return;
-      splashEl.classList.add("splash-hidden");
-      setTimeout(() => {
-        if (splashEl && splashEl.parentNode) {
-          splashEl.parentNode.removeChild(splashEl);
-        }
-      }, 400);
-    }
-
-    // === INIT ===
-    (function init() {
-      buildBrandSwitcher();
-      loadCustomerPrefs();
-      setupEvents();
-      // Set accent awal
-      setBrandAccent(BRANDS[currentBrandKey]);
-      loadBrand();
-    })();
-  </script>
 </body>
 </html>
