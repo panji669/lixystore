@@ -1,114 +1,340 @@
 {
   "brand": "Janji Jiwa",
+  "version": 2,
   "outlets": [
-    "Janji Jiwa Cilegon",
-    "Janji Jiwa Serang"
+    "Janji Jiwa - Cilegon",
+    "Janji Jiwa - Modernland",
+    "Janji Jiwa - Summarecon Bekasi"
   ],
   "products": [
     {
-      "id": "janjijiwa-001",
-      "name": "Sample Janji Jiwa Drink 1",
+      "id": "jj-001",
+      "name": "Honey Oat Matcha",
+      "price": 28000,
+      "image": "/img/janjijiwa/Honey Oat Matcha.jpg",
+      "category": "Matcha"
+    },
+    {
+      "id": "jj-002",
+      "name": "Salted Brown Matcha",
+      "price": 28000,
+      "image": "/img/janjijiwa/Salted Brown Matcha.jpg",
+      "category": "Matcha"
+    },
+    {
+      "id": "jj-003",
+      "name": "Signature Kopi Susu",
+      "price": 18000,
+      "image": "/img/janjijiwa/Signature Kopi Susu.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-004",
+      "name": "Latte",
+      "price": 18000,
+      "image": "/img/janjijiwa/Latte.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-005",
+      "name": "Iced Double Shaken Ekspresso",
       "price": 19000,
-      "image": "img/janjijiwa/sample-1.webp",
-      "category": "Coffee",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
+      "image": "/img/janjijiwa/Iced Double Shaken Ekspresso.jpg",
+      "category": "Coffee"
     },
     {
-      "id": "janjijiwa-002",
-      "name": "Sample Janji Jiwa Drink 2",
+      "id": "jj-006",
+      "name": "Capuccino",
+      "price": 18000,
+      "image": "/img/janjijiwa/Capuccino.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-007",
+      "name": "Dirty Matcha Latte",
+      "price": 30000,
+      "image": "/img/janjijiwa/Dirty Matcha Latte.jpg",
+      "category": "Matcha"
+    },
+    {
+      "id": "jj-008",
+      "name": "Premium Matcha Latte",
+      "price": 28000,
+      "image": "/img/janjijiwa/Premium Matcha Latte.jpg",
+      "category": "Matcha"
+    },
+    {
+      "id": "jj-009",
+      "name": "Americano",
+      "price": 16000,
+      "image": "/img/janjijiwa/Americano.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-010",
+      "name": "Espresso",
+      "price": 13000,
+      "image": "/img/janjijiwa/Espresso.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-011",
+      "name": "Hazelnut Latte",
       "price": 20000,
-      "image": "img/janjijiwa/sample-2.webp",
-      "category": "Milk Tea",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
+      "image": "/img/janjijiwa/Hazelnut Latte.jpg",
+      "category": "Coffee"
     },
     {
-      "id": "janjijiwa-003",
-      "name": "Sample Janji Jiwa Drink 3",
+      "id": "jj-012",
+      "name": "Vanilla Latte",
+      "price": 20000,
+      "image": "/img/janjijiwa/Vanilla Latte.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-013",
+      "name": "Caramel Latte",
       "price": 21000,
-      "image": "img/janjijiwa/sample-3.webp",
-      "category": "Matcha",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
+      "image": "/img/janjijiwa/Caramel Latte.jpg",
+      "category": "Coffee"
     },
     {
-      "id": "janjijiwa-004",
-      "name": "Sample Janji Jiwa Drink 4",
+      "id": "jj-014",
+      "name": "Caramel Macchiato",
       "price": 22000,
-      "image": "img/janjijiwa/sample-4.webp",
-      "category": "Chocolate",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
+      "image": "/img/janjijiwa/Caramel Macchiato.jpg",
+      "category": "Coffee"
     },
     {
-      "id": "janjijiwa-005",
-      "name": "Sample Janji Jiwa Drink 5",
-      "price": 23000,
-      "image": "img/janjijiwa/sample-5.webp",
-      "category": "Refresh",
-      "variants": {
-        "temperature": [
-          "Iced",
-          "Hot"
-        ],
-        "sugar": [
-          "Normal",
-          "Less Sugar"
-        ],
-        "size": [
-          "Small",
-          "Large"
-        ]
-      }
+      "id": "jj-015",
+      "name": "Earl Grey Tea",
+      "price": 14000,
+      "image": "/img/janjijiwa/Earl Grey Tea.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-016",
+      "name": "Jasmine fresh Mint",
+      "price": 15000,
+      "image": "/img/janjijiwa/Jasmine fresh Mint.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-017",
+      "name": "Blue Batak Latte",
+      "price": 21000,
+      "image": "/img/janjijiwa/Blue Batak Latte.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-018",
+      "name": "Blue batak Himalayan Latte",
+      "price": 24000,
+      "image": "/img/janjijiwa/Blue batak Himalayan Latte.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-019",
+      "name": "Milo Mocha Macchiato",
+      "price": 22000,
+      "image": "/img/janjijiwa/Milo Mocha Macchiato.jpg",
+      "category": "Chocolate"
+    },
+    {
+      "id": "jj-020",
+      "name": "Mocha",
+      "price": 21000,
+      "image": "/img/janjijiwa/Mocha.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-021",
+      "name": "Hibiscus Mix Berry",
+      "price": 15000,
+      "image": "/img/janjijiwa/Hibiscus Mix Berry.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-022",
+      "name": "Blue batak Butter Latte",
+      "price": 24000,
+      "image": "/img/janjijiwa/Blue batak Butter Latte.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-023",
+      "name": "Blue Batak Long Black",
+      "price": 18000,
+      "image": "/img/janjijiwa/Blue Batak Long Black.jpg",
+      "category": "Coffee"
+    },
+    {
+      "id": "jj-024",
+      "name": "Peach Tea With Coco Jelly",
+      "price": 17000,
+      "image": "/img/janjijiwa/Peach Tea With Coco Jelly.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-025",
+      "name": "Lychee Tea With Coco Jelly",
+      "price": 17000,
+      "image": "/img/janjijiwa/Lychee Tea With Coco Jelly.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-026",
+      "name": "Matcha Latte",
+      "price": 21000,
+      "image": "/img/janjijiwa/Matcha Latte.jpg",
+      "category": "Matcha"
+    },
+    {
+      "id": "jj-027",
+      "name": "Milo Machiato",
+      "price": 19000,
+      "image": "/img/janjijiwa/Milo Machiato.jpg",
+      "category": "Chocolate"
+    },
+    {
+      "id": "jj-028",
+      "name": "Sea Salt Caramel Breeze",
+      "price": 25000,
+      "image": "/img/janjijiwa/Sea Salt Caramel Breeze.jpg",
+      "category": "Blended"
+    },
+    {
+      "id": "jj-029",
+      "name": "Java Mocha Breeze",
+      "price": 25000,
+      "image": "/img/janjijiwa/Java Mocha Breeze.jpg",
+      "category": "Blended"
+    },
+    {
+      "id": "jj-030",
+      "name": "Lemon Tea With Coco Jelly",
+      "price": 17000,
+      "image": "/img/janjijiwa/Lemon Tea With Coco Jelly.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-031",
+      "name": "Thai Milk Tea",
+      "price": 18000,
+      "image": "/img/janjijiwa/Thai Milk Tea.jpg",
+      "category": "Tea"
+    },
+    {
+      "id": "jj-032",
+      "name": "Royale Milo",
+      "price": 19000,
+      "image": "/img/janjijiwa/Royale Milo.jpg",
+      "category": "Chocolate"
+    },
+    {
+      "id": "jj-033",
+      "name": "Hazelnut Choco",
+      "price": 18000,
+      "image": "/img/janjijiwa/Hazelnut Choco.jpg",
+      "category": "Chocolate"
+    },
+    {
+      "id": "jj-034",
+      "name": "Double Choco Breeze",
+      "price": 25000,
+      "image": "/img/janjijiwa/Double Choco Breeze.jpg",
+      "category": "Blended"
+    },
+    {
+      "id": "jj-035",
+      "name": "Matcha Breeze",
+      "price": 30000,
+      "image": "/img/janjijiwa/Matcha Breeze.jpg",
+      "category": "Blended"
+    },
+    {
+      "id": "jj-036",
+      "name": "Beef Terivaki - Lite Toast",
+      "price": 18000,
+      "image": "/img/janjijiwa/Beef Terivaki - Lite Toast.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-037",
+      "name": "Black Pepper Beef - Lite Toast",
+      "price": 18000,
+      "image": "/img/janjijiwa/Black Pepper Beef - Lite Toast.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-038",
+      "name": "Spicy Bulgogi",
+      "price": 26000,
+      "image": "/img/janjijiwa/Spicy Bulgogi.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-039",
+      "name": "Beef Truffle Mayo",
+      "price": 26000,
+      "image": "/img/janjijiwa/Beef Truffle Mayo.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-040",
+      "name": "Smoked Beef n Cheese",
+      "price": 26000,
+      "image": "/img/janjijiwa/Smoked Beef n Cheese.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-041",
+      "name": "Ultimate Cheesy Beef",
+      "price": 26000,
+      "image": "/img/janjijiwa/Ultimate Cheesy Beef.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-042",
+      "name": "Crispy Chicken Mentai",
+      "price": 26000,
+      "image": "/img/janjijiwa/Crispy Chicken Mentai.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-043",
+      "name": "Creamy Egg truffle",
+      "price": 25000,
+      "image": "/img/janjijiwa/Creamy Egg Truffle.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-044",
+      "name": "Crispy Spicy Chicken",
+      "price": 25000,
+      "image": "/img/janjijiwa/Crispy Spicy Chicken.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-045",
+      "name": "Cheezy Cripsy Chicken Mentai",
+      "price": 25000,
+      "image": "/img/janjijiwa/Cheezy Cripsy Chicken Mentai.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-046",
+      "name": "Egg n Cheese",
+      "price": 22000,
+      "image": "/img/janjijiwa/Egg n Cheese.jpg",
+      "category": "Toast"
+    },
+    {
+      "id": "jj-047",
+      "name": "Plain Toast",
+      "price": 15000,
+      "image": "/img/janjijiwa/Plain Toast.jpg",
+      "category": "Toast"
     }
   ]
 }
