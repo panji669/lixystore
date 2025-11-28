@@ -330,6 +330,10 @@ header img{
 <div id="optionPopup">
   <div class="inner-opt">
     <h3 id="optTitle" style="margin-top:0;">Pilih Opsi</h3>
+    <div id="popupPrice" 
+     style="font-size:18px;font-weight:600;margin-top:10px;color:var(--accent);">
+     Rp 0
+</div>
 
     <label style="font-size:13px;color:var(--muted);">Ice / Hot</label>
     <select id="optTemp"></select>
@@ -562,27 +566,79 @@ function openOptionPopup(p){
   optTemp.innerHTML=p.variants.temperature.map(v=>`<option>${v}</option>`).join("");
   optSugar.innerHTML=p.variants.sugar.map(v=>`<option>${v}</option>`).join("");
   optSize.innerHTML=p.variants.size.map(v=>`<option>${v}</option>`).join("");
+  // LISTENER REALTIME HARGA SAAT SIZE DIGANTI
+optSize.onchange = () => {
+    updatePopupPrice();
+};
+  setTimeout(() => {
+    updatePopupPrice();
+  }, 10);
   optionPopup.style.display="flex";
 }
 function closeOptionPopup(){
   optionPopup.style.display="none";OPT_PRODUCT=null;
 }
-function confirmOptions(){
-  if(!OPT_PRODUCT)return;
-  const item={
-    id:OPT_PRODUCT.id+"-"+Date.now(),
-    name:OPT_PRODUCT.name,
-    price:OPT_PRODUCT.price,
-    base:OPT_PRODUCT.id,
-    temp:optTemp.value,
-    sugar:optSugar.value,
-    size:optSize.value,
-    image:OPT_PRODUCT.image,
-    qty:1
-  };
-  CART.push(item);save("cart",CART);
-  closeOptionPopup();
-  updateBadge();updateFloatingCart();
+function calculateFinalPrice(product, selectedSize) {
+    const basePrice = Number(product.price) || 0;
+
+    // BRAND CHAGEE → gunakan harga variantPricing
+    if (CURRENT_BRAND === "chagee") {
+        if (
+            product.variantPricing &&
+            product.variantPricing.Size &&
+            product.variantPricing.Size[selectedSize]
+        ) {
+            return product.variantPricing.Size[selectedSize];
+        }
+        return basePrice;
+    }
+
+    // BRAND LAIN → aturan umum Large +5000
+    if (selectedSize === "Large") {
+        return basePrice + 5000;
+    }
+
+    return basePrice;
+}
+function updatePopupPrice() {
+    if (!OPT_PRODUCT || !optSize) return;
+
+    const size = optSize.value;
+    const price = calculateFinalPrice(OPT_PRODUCT, size);
+
+    const priceBox = document.getElementById("popupPrice");
+    if (priceBox) {
+        priceBox.innerText = "Rp " + price.toLocaleString("id-ID");
+    }
+}
+function confirmOptions() {
+    if (!OPT_PRODUCT) return;
+
+    const selectedSize = optSize ? optSize.value : "Regular";
+
+    // Gunakan sistem harga realtime
+    const finalPrice = calculateFinalPrice(OPT_PRODUCT, selectedSize);
+
+    let item = {
+        id: OPT_PRODUCT.id + "-" + Date.now(),
+        name: OPT_PRODUCT.name,
+        basePrice: OPT_PRODUCT.price,
+        finalPrice: finalPrice,
+        price: finalPrice,       // dipakai cart & WA
+        size: selectedSize,
+        temp: optTemp ? optTemp.value : "",
+        sugar: optSugar ? optSugar.value : "",
+        image: OPT_PRODUCT.image,
+        qty: 1,
+        brand: CURRENT_BRAND
+    };
+
+    CART.push(item);
+    save("cart", CART);
+
+    closeOptionPopup();
+    updateBadge();
+    updateFloatingCart();
 }
 
 // Cart helpers
