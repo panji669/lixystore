@@ -1,7 +1,7 @@
 {
   "version": 2,
   "brand": "Tomoro Coffee",
-  "outlets": "manual"
+  "outlets": "manual",
   "products": [
     {
       "id": "tom-001",
