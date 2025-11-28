@@ -889,7 +889,7 @@
       "id": "ken-036",
       "name": "Dutch Chocolate",
       "price": 16000,
-      "image": "/img/kopken/Dutch Chocholate.jpeg",
+      "image": "/img/kopken/Dutch Chocholate.jpg",
       "category": "Chocolate",
       "variants": {
         "temperature": ["Ice", "Hot"],
