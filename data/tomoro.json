@@ -1,11 +1,7 @@
 {
   "version": 2,
   "brand": "Tomoro Coffee",
-  "outlets": [
-    "Tomoro Coffee - Cilegon",
-    "Tomoro Coffee - Summarecon Bekasi",
-    "Tomoro Coffee - Lippo Cikarang"
-  ],
+  "outlets": "manual"
   "products": [
     {
       "id": "tom-001",
