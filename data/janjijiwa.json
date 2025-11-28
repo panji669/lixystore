@@ -37,16 +37,16 @@
     },
     {
       "id": "jj-005",
-      "name": "Iced Double Shaken Ekspresso",
+      "name": "Iced Double Shaken Espresso",
       "price": 19000,
-      "image": "/img/janjijiwa/Iced Double Shaken Ekspresso.jpg",
+      "image": "/img/janjijiwa/Iced Double Shaken Espresso.jpg",
       "category": "Coffee"
     },
     {
       "id": "jj-006",
-      "name": "Capuccino",
+      "name": "Cappucino",
       "price": 18000,
-      "image": "/img/janjijiwa/Capuccino.jpg",
+      "image": "/img/janjijiwa/Cappucino.jpg",
       "category": "Coffee"
     },
     {
@@ -191,9 +191,9 @@
     },
     {
       "id": "jj-027",
-      "name": "Milo Machiato",
+      "name": "Milo Macchiato",
       "price": 19000,
-      "image": "/img/janjijiwa/Milo Machiato.jpg",
+      "image": "/img/janjijiwa/Milo Macchiato.jpg",
       "category": "Chocolate"
     },
     {
@@ -254,9 +254,9 @@
     },
     {
       "id": "jj-036",
-      "name": "Beef Terivaki - Lite Toast",
+      "name": "Beef Teriyaki - Lite Toast",
       "price": 18000,
-      "image": "/img/janjijiwa/Beef Terivaki - Lite Toast.jpg",
+      "image": "/img/janjijiwa/Beef Teriyaki - Lite Toast.jpg",
       "category": "Toast"
     },
     {
@@ -317,9 +317,9 @@
     },
     {
       "id": "jj-045",
-      "name": "Cheezy Cripsy Chicken Mentai",
+      "name": "Cheezy Crispy Chicken Mentai",
       "price": 25000,
-      "image": "/img/janjijiwa/Cheezy Cripsy Chicken Mentai.jpg",
+      "image": "/img/janjijiwa/Cheezy Crispy Chicken Mentai.jpg",
       "category": "Toast"
     },
     {
