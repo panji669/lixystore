@@ -1,11 +1,7 @@
 {
   "brand": "Janji Jiwa",
   "version": 2,
-  "outlets": [
-    "Janji Jiwa - Cilegon",
-    "Janji Jiwa - Modernland",
-    "Janji Jiwa - Summarecon Bekasi"
-  ],
+  "outlets": "manual"
   "products": [
     {
       "id": "jj-001",
