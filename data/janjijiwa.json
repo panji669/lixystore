@@ -1,7 +1,7 @@
 {
   "brand": "Janji Jiwa",
   "version": 2,
-  "outlets": "manual"
+  "outlets": "manual",
   "products": [
     {
       "id": "jj-001",
