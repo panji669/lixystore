@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "brand": "Tomoro Coffee",
   "outlets": [
     "Tomoro Coffee - Cilegon",
@@ -425,6 +425,116 @@
         "temperature": ["Ice", "Hot"],
         "sugar": ["Normal", "Less Sugar", "No Sugar"],
         "size": ["Reguler", "Large"]
+      }
+    },
+    {
+      "id": "tom-036",
+      "name": "Pink Pop Lemon Tea",
+      "price": 19000,
+      "image": "img/tomoro/Pink Pop Lemon Tea.jpg",
+      "description": "",
+      "category": "Tea",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "tom-037",
+      "name": "Pistachio Latte",
+      "price": 19000,
+      "image": "img/tomoro/Pistachio Latte.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "tom-038",
+      "name": "Jasmine Americano",
+      "price": 19000,
+      "image": "img/tomoro/Jasmine Americano.jpg",
+      "description": "",
+      "category": "Coffee",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "tom-039",
+      "name": "Pistachio Chocolate",
+      "price": 19000,
+      "image": "img/tomoro/Pistachio Chocolate.jpg",
+      "description": "",
+      "category": "Chocolate",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
+      }
+    },
+    {
+      "id": "tom-040",
+      "name": "Pistachio Matcha Latte",
+      "price": 19000,
+      "image": "img/tomoro/Pistachio Matcha Latte.jpg",
+      "description": "",
+      "category": "Matcha",
+      "variants": {
+        "temperature": [
+          "Iced",
+          "Hot"
+        ],
+        "sugar": [
+          "Normal",
+          "Less Sugar"
+        ],
+        "size": [
+          "Small",
+          "Large"
+        ]
       }
     }
   ]
