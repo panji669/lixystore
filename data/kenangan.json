@@ -59,7 +59,7 @@
       "id": "ken-005",
       "name": "Pandan Aren Thai Tea",
       "price": 15000,
-      "image": "/img/kopken/Pandan Aren Thai Tea.jpg",
+      "image": "/img/kopken/Pandan Aren Thai Tea.jpeg",
       "category": "Milk Tea",
       "variants": {
         "temperature": ["Ice", "Hot"],
@@ -167,7 +167,7 @@
       "id": "ken-014",
       "name": "Pandan Aren Latte",
       "price": 17000,
-      "image": "/img/kopken/Pandan Aren Latte.jpg",
+      "image": "/img/kopken/Pandan Aren Latte.jpeg",
       "category": "Coffee",
       "variants": {
         "temperature": ["Ice"],
@@ -216,7 +216,7 @@
       "id": "ken-018",
       "name": "Honey Lemonade",
       "price": 15000,
-      "image": "/img/kopken/Honey Lemonade.jpg",
+      "image": "/img/kopken/Honey Lemonade.jpeg",
       "category": "Lemonade",
       "variants": {
         "temperature": ["Ice"],
@@ -229,7 +229,7 @@
       "id": "ken-019",
       "name": "Fresh Lemonade",
       "price": 13000,
-      "image": "/img/kopken/Fresh Lemonade.jpg",
+      "image": "/img/kopken/Fresh Lemonade.jpeg",
       "category": "Lemonade",
       "variants": {
         "temperature": ["Ice"],
@@ -268,7 +268,7 @@
       "id": "ken-022",
       "name": "Honey Latte",
       "price": 15000,
-      "image": "/img/kopken/Honey Latte.jpg",
+      "image": "/img/kopken/Honey Latte.jpeg",
       "category": "Coffee",
       "variants": {
         "temperature": ["Ice", "Hot"],
@@ -335,7 +335,7 @@
       "id": "ken-027",
       "name": "Honey Americano",
       "price": 13000,
-      "image": "/img/kopken/Honey Americano.jpg",
+      "image": "/img/kopken/Honey Americano.jpeg",
       "category": "Coffee",
       "variants": {
         "temperature": ["Ice", "Hot"],
@@ -461,7 +461,7 @@
       "id": "ken-036",
       "name": "Dutch Chocolate",
       "price": 16000,
-      "image": "/img/kopken/Dutch Chocolate.jpg",
+      "image": "/img/kopken/Dutch Chocolate.jpeg",
       "category": "Chocolate",
       "variants": {
         "temperature": ["Ice", "Hot"],
@@ -573,7 +573,7 @@
       "id": "ken-044",
       "name": "Butterscotch Kenangan Frappe",
       "price": 20000,
-      "image": "/img/kopken/Butterscotch Kenangan Frappe.jpg",
+      "image": "/img/kopken/Butterscotch Kenangan Frappe.jpeg",
       "category": "Frappe",
       "variants": {
         "temperature": ["Ice"],
@@ -699,7 +699,7 @@
       "id": "ken-053",
       "name": "Strawberry Cromboloni",
       "price": 17000,
-      "image": "/img/kopken/Strawberry Cromboloni.jpg",
+      "image": "/img/kopken/Strawberry Cromboloni.jpeg",
       "category": "Food Pastry",
       "variants": {
         "temperature": ["Normal"],
@@ -713,7 +713,7 @@
       "id": "ken-054",
       "name": "Pizza Cakalang",
       "price": 17000,
-      "image": "/img/kopken/Pizza Cakalang.jpg",
+      "image": "/img/kopken/Pizza Cakalang.jpeg",
       "category": "Food Pizza",
       "variants": {
         "temperature": ["Normal"],
@@ -727,7 +727,7 @@
       "id": "ken-055",
       "name": "Pizza Cheeseburger",
       "price": 15000,
-      "image": "/img/kopken/Pizza Cheeseburger.jpg",
+      "image": "/img/kopken/Pizza Cheeseburger.jpeg",
       "category": "Food Pizza",
       "variants": {
         "temperature": ["Normal"],
@@ -753,7 +753,7 @@
       "id": "ken-057",
       "name": "Chicken Curry Pastry",
       "price": 15000,
-      "image": "/img/kopken/Chicken Curry Pastry.jpg",
+      "image": "/img/kopken/Chicken Curry Pastry.jpeg",
       "category": "Food Pastry",
       "variants": {
         "temperature": ["Normal"],
@@ -779,7 +779,7 @@
       "id": "ken-059",
       "name": "Milky Caramel Danish",
       "price": 13000,
-      "image": "/img/kopken/Milky Caramel Danish.jpg",
+      "image": "/img/kopken/Milky Caramel Danish.jpeg",
       "category": "Food Pastry",
       "variants": {
         "temperature": ["Normal"],
@@ -831,7 +831,7 @@
       "id": "ken-063",
       "name": "Cheese Donut",
       "price": 11000,
-      "image": "/img/kopken/Cheese Donut.jpg",
+      "image": "/img/kopken/Cheese Donut.jpeg",
       "category": "Food Donut",
       "variants": {
         "temperature": ["Normal"],
@@ -845,7 +845,7 @@
       "id": "ken-064",
       "name": "Chocolate Donut",
       "price": 10000,
-      "image": "/img/kopken/Chocolate Donut.jpg",
+      "image": "/img/kopken/Chocolate Donut.jpeg",
       "category": "Food Donut",
       "variants": {
         "temperature": ["Normal"],
@@ -859,7 +859,7 @@
       "id": "ken-065",
       "name": "Sugar Donut",
       "price": 8000,
-      "image": "/img/kopken/Sugar Donut.jpg",
+      "image": "/img/kopken/Sugar Donut.jpeg",
       "category": "Food Donut",
       "variants": {
         "temperature": ["Normal"],
@@ -886,7 +886,7 @@
       "id": "ken-067",
       "name": "Roti Sisir Coklat",
       "price": 12000,
-      "image": "/img/kopken/Roti Sisir Coklat.jpg",
+      "image": "/img/kopken/Roti Sisir Coklat.jpeg",
       "category": "Food Bread",
       "variants": {
         "temperature": ["Normal"],
@@ -927,7 +927,7 @@
       "id": "ken-070",
       "name": "Roti Keju Manis",
       "price": 9000,
-      "image": "/img/kopken/Roti Keju Manis.jpg",
+      "image": "/img/kopken/Roti Keju Manis.jpeg",
       "category": "Food Bread",
       "variants": {
         "temperature": ["Normal"],
