@@ -24,6 +24,24 @@
     button{font-family:inherit;cursor:pointer;}
     .hidden{display:none!important}
 
+            /* Biar popup checkout bisa discroll di HP */
+    #popup .inner{
+      max-height: 85vh;          /* batas tinggi popup */
+      overflow: auto;            /* scroll di dalam popup */
+      -webkit-overflow-scrolling: touch; /* scroll lebih halus di iOS */
+    }
+
+    /* Biar teks ordernya juga bisa discroll dan nggak kepanjangan */
+    #popupText{
+      max-height: 60vh;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #popup{
+      touch-action: pan-y;
+    }
+
     /* Splash */
     #splash{
       height:100vh;display:flex;justify-content:center;align-items:center;
