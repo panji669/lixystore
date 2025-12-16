@@ -209,6 +209,7 @@ header img{
 @keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
+
 <body>
 
 <!-- Splash -->
@@ -298,8 +299,8 @@ header img{
     <div id="outletSelectWrap">
       <label style="font-size:13px;color:var(--muted)">Outlet</label>
       <div id="outletWrapper">
-          <select id="outletSelect" class="input-box"></select>
-      </div>      
+        <select id="outletSelect" class="input-box"></select>
+      </div>
     </div>
 
     <div id="manualOutletWrap" style="display:none;">
@@ -332,10 +333,7 @@ header img{
 <div id="optionPopup">
   <div class="inner-opt">
     <h3 id="optTitle" style="margin-top:0;">Pilih Opsi</h3>
-    <div id="popupPrice" 
-     style="font-size:18px;font-weight:600;margin-top:10px;color:var(--accent);">
-     Rp 0
-</div>
+    <div id="popupPrice" style="font-size:18px;font-weight:600;margin-top:10px;color:var(--accent);">Rp 0</div>
 
     <label style="font-size:13px;color:var(--muted);">Ice / Hot</label>
     <select id="optTemp"></select>
@@ -455,7 +453,7 @@ async function loadBrand(brand,force=false){
       CURRENT_OUTLETS=norm.outlets||[];
       buildCategories(CURRENT_PRODUCTS);
       renderProducts(CURRENT_PRODUCTS);
-      setupOutletUI();
+      setupOutletUI(); // toggle tampilan outlet (dropdown/manual)
     }
     startPolling(brand);
   }catch(e){
@@ -465,14 +463,13 @@ async function loadBrand(brand,force=false){
     showLoading(false);
   }
 }
+
 function normalizeBrand(d){
   const arr=Array.isArray(d.products)?d.products:(d.items||[]);
   return{
     version:d.version||1,
     brand:d.brand||"",
-    outlets: Array.isArray(d.outlets)
-  ? d.outlets
-  : (d.outlets === "manual" ? "manual" : []),
+    outlets: Array.isArray(d.outlets) ? d.outlets : (d.outlets==="manual" ? "manual" : []),
     products:arr.map((p,i)=>({
       id:p.id||("prd-"+i),
       name:p.name||"Unnamed",
@@ -483,14 +480,18 @@ function normalizeBrand(d){
         temperature:["Iced","Hot"],
         sugar:["Normal","Less Sugar"],
         size:["Small","Large"]
-      }
+      },
+      // biar aman kalau ada schema variantPricing (mis. chagee)
+      variantPricing: p.variantPricing || null
     }))
   };
 }
+
 function startPolling(brand){
   if(POLL)clearInterval(POLL);
   POLL=setInterval(()=>loadBrand(brand,false),20000);
 }
+
 function guessCategory(n){
   n=n.toLowerCase();
   if(n.includes("latte")||n.includes("kopi")||n.includes("americano"))return"Coffee";
@@ -570,79 +571,68 @@ function openOptionPopup(p){
   optTemp.innerHTML=p.variants.temperature.map(v=>`<option>${v}</option>`).join("");
   optSugar.innerHTML=p.variants.sugar.map(v=>`<option>${v}</option>`).join("");
   optSize.innerHTML=p.variants.size.map(v=>`<option>${v}</option>`).join("");
-  // LISTENER REALTIME HARGA SAAT SIZE DIGANTI
-optSize.onchange = () => {
-    updatePopupPrice();
-};
-  setTimeout(() => {
-    updatePopupPrice();
-  }, 10);
+
+  optSize.onchange=()=>updatePopupPrice();
+  setTimeout(()=>updatePopupPrice(),10);
+
   optionPopup.style.display="flex";
 }
 function closeOptionPopup(){
   optionPopup.style.display="none";OPT_PRODUCT=null;
 }
+
 function calculateFinalPrice(product, selectedSize) {
-    const basePrice = Number(product.price) || 0;
+  const basePrice = Number(product.price) || 0;
 
-    // BRAND CHAGEE → gunakan harga variantPricing
-    if (CURRENT_BRAND === "chagee") {
-        if (
-            product.variantPricing &&
-            product.variantPricing.Size &&
-            product.variantPricing.Size[selectedSize]
-        ) {
-            return product.variantPricing.Size[selectedSize];
-        }
-        return basePrice;
+  // BRAND CHAGEE → gunakan harga variantPricing
+  if (CURRENT_BRAND === "chagee") {
+    if (product.variantPricing && product.variantPricing.Size && product.variantPricing.Size[selectedSize]) {
+      return product.variantPricing.Size[selectedSize];
     }
-
-    // BRAND LAIN → aturan umum Large +5000
-    if (selectedSize === "Large") {
-        return basePrice + 5000;
-    }
-
     return basePrice;
+  }
+
+  // BRAND LAIN → aturan umum Large +5000
+  if (selectedSize === "Large") return basePrice + 5000;
+  return basePrice;
 }
+
 function updatePopupPrice() {
-    if (!OPT_PRODUCT || !optSize) return;
+  if (!OPT_PRODUCT || !optSize) return;
 
-    const size = optSize.value;
-    const price = calculateFinalPrice(OPT_PRODUCT, size);
+  const size = optSize.value;
+  const price = calculateFinalPrice(OPT_PRODUCT, size);
 
-    const priceBox = document.getElementById("popupPrice");
-    if (priceBox) {
-        priceBox.innerText = "Rp " + price.toLocaleString("id-ID");
-    }
+  const priceBox = document.getElementById("popupPrice");
+  if (priceBox) priceBox.innerText = "Rp " + price.toLocaleString("id-ID");
 }
+
 function confirmOptions() {
-    if (!OPT_PRODUCT) return;
+  if (!OPT_PRODUCT) return;
 
-    const selectedSize = optSize ? optSize.value : "Regular";
+  const selectedSize = optSize ? optSize.value : "Regular";
+  const finalPrice = calculateFinalPrice(OPT_PRODUCT, selectedSize);
 
-    // Gunakan sistem harga realtime
-    const finalPrice = calculateFinalPrice(OPT_PRODUCT, selectedSize);
+  let item = {
+    id: OPT_PRODUCT.id + "-" + Date.now(),
+    name: OPT_PRODUCT.name,
+    basePrice: OPT_PRODUCT.price,
+    finalPrice: finalPrice,
+    price: finalPrice,
+    size: selectedSize,
+    temp: optTemp ? optTemp.value : "",
+    sugar: optSugar ? optSugar.value : "",
+    image: OPT_PRODUCT.image,
+    qty: 1,
+    brand: CURRENT_BRAND
+  };
 
-    let item = {
-        id: OPT_PRODUCT.id + "-" + Date.now(),
-        name: OPT_PRODUCT.name,
-        basePrice: OPT_PRODUCT.price,
-        finalPrice: finalPrice,
-        price: finalPrice,       // dipakai cart & WA
-        size: selectedSize,
-        temp: optTemp ? optTemp.value : "",
-        sugar: optSugar ? optSugar.value : "",
-        image: OPT_PRODUCT.image,
-        qty: 1,
-        brand: CURRENT_BRAND
-    };
+  CART.push(item);
+  save("cart", CART);
 
-    CART.push(item);
-    save("cart", CART);
-
-    closeOptionPopup();
-    updateBadge();
-    updateFloatingCart();
+  closeOptionPopup();
+  updateBadge();
+  updateFloatingCart();
 }
 
 // Cart helpers
@@ -662,31 +652,21 @@ function updateFloatingCart(){
   floatTotal.textContent=rupiah(CART.reduce((a,b)=>a+b.price*b.qty,0));
 }
 
-// Outlet UI (dropdown vs manual)
+// Outlet UI (dropdown vs manual) — hanya toggle tampilan (biar tidak merusak UI search)
 function setupOutletUI(){
   const selectWrap=document.getElementById("outletSelectWrap");
   const manualWrap=document.getElementById("manualOutletWrap");
-  const selectEl=document.getElementById("outletSelect");
-  const manualEl=document.getElementById("manualOutlet");
-  if(!selectWrap||!manualWrap||!selectEl||!manualEl)return;
+  if(!selectWrap||!manualWrap) return;
 
   const outlets=(CURRENT_BRAND_DATA && Array.isArray(CURRENT_BRAND_DATA.outlets))
     ? CURRENT_BRAND_DATA.outlets : [];
 
-  selectEl.innerHTML="";
-
   if(outlets.length>0){
     selectWrap.style.display="block";
     manualWrap.style.display="none";
-    outlets.forEach(o=>{
-      const opt=document.createElement("option");
-      opt.value=o;opt.textContent=o;
-      selectEl.appendChild(opt);
-    });
   }else{
     selectWrap.style.display="none";
     manualWrap.style.display="block";
-    manualEl.value="";
   }
 }
 
@@ -697,7 +677,7 @@ function renderCart(){
   if (CART.length === 0) {
     cartItems.innerHTML = `<p style='color:var(--muted);padding:12px;'>Keranjang masih kosong.</p>`;
     totalPrice.innerText = "Rp 0";
-    buildOutletControl();   // <-- handle manual/dropdown
+    buildOutletControl();
     return;
   }
 
@@ -722,55 +702,72 @@ function renderCart(){
     cartItems.appendChild(row);
   });
 
-  // hitung total pakai harga final
-  totalPrice.innerText = rupiah(
-    CART.reduce((a, b) => a + (b.price * b.qty), 0)
-  );
-
-  buildOutletControl();    // <-- update outlet setiap render
+  totalPrice.innerText = rupiah(CART.reduce((a, b) => a + (b.price * b.qty), 0));
+  buildOutletControl();
 }
+
+/* =========================================================
+   Outlet control (UPDATE)
+   - Kalau outlets array: SORT A-Z + menu cari outlet
+   - Output UI ada di #outletWrapper
+========================================================= */
 function buildOutletControl() {
-  const el = document.getElementById("outletSelect");
-  if (!el) return;
+  const wrap = document.getElementById("outletWrapper");
+  if (!wrap) return;
 
   const key = "outlet_" + (CURRENT_BRAND || "default");
 
-  // CASE 1: manual
+  // CASE 1: manual (pakai input)
   if (CURRENT_OUTLETS === "manual") {
-    // ubah select jadi input kalau belum
-    if (el.tagName.toLowerCase() !== "input") {
-      el.outerHTML = `<input id="outletSelect" class="search" placeholder="Ketik outlet manual..." style="width:100%;">`;
-    }
+    wrap.innerHTML = `<input id="outletSelect" class="search" placeholder="Ketik outlet manual..." style="width:100%;">`;
     const input = document.getElementById("outletSelect");
     const saved = localStorage.getItem(key);
     if (saved) input.value = saved;
-    input.oninput = (e) => {
-      localStorage.setItem(key, e.target.value);
-    };
-  }
-  // CASE 2: list outlet array
-  else if (Array.isArray(CURRENT_OUTLETS)) {
-    // pastikan bentuknya select
-    if (el.tagName.toLowerCase() !== "select") {
-      el.outerHTML = `<select id="outletSelect" class="search" style="width:100%;"></select>`;
-    }
-    const select = document.getElementById("outletSelect");
-    select.innerHTML = CURRENT_OUTLETS.map(o => `<option>${o}</option>`).join("");
 
-    const saved = localStorage.getItem(key);
-    if (saved) select.value = saved;
+    input.oninput = (e) => localStorage.setItem(key, e.target.value);
+    return;
+  }
 
-    select.onchange = (e) => {
-      localStorage.setItem(key, e.target.value);
-    };
-  }
-  // CASE 3: tidak ada info outlet
-  else {
-    // kosong tapi tetap bisa diisi manual
-    if (el.tagName.toLowerCase() !== "input") {
-      el.outerHTML = `<input id="outletSelect" class="search" placeholder="Outlet (opsional)..." style="width:100%;">`;
+  // CASE 2: list outlet array (A-Z + search)
+  if (Array.isArray(CURRENT_OUTLETS) && CURRENT_OUTLETS.length > 0) {
+    wrap.innerHTML = `
+      <input id="outletSearch" class="search" placeholder="Cari outlet..." style="width:100%;margin-bottom:8px;">
+      <select id="outletSelect" class="search" style="width:100%;"></select>
+    `;
+
+    const searchEl = document.getElementById("outletSearch");
+    const selectEl = document.getElementById("outletSelect");
+
+    // SORT A-Z (case-insensitive, locale Indonesia)
+    const ALL = [...CURRENT_OUTLETS].sort((a, b) =>
+      String(a).localeCompare(String(b), "id", { sensitivity: "base" })
+    );
+
+    function renderOptions(list) {
+      const saved = localStorage.getItem(key) || "";
+      selectEl.innerHTML = list.map(o => `<option value="${o}">${o}</option>`).join("");
+
+      if (saved && list.includes(saved)) selectEl.value = saved;
+      else if (list.length) selectEl.value = list[0];
+
+      localStorage.setItem(key, selectEl.value || "");
     }
+
+    renderOptions(ALL);
+
+    selectEl.onchange = (e) => localStorage.setItem(key, e.target.value);
+
+    searchEl.oninput = () => {
+      const q = (searchEl.value || "").trim().toLowerCase();
+      const filtered = !q ? ALL : ALL.filter(o => String(o).toLowerCase().includes(q));
+      renderOptions(filtered);
+    };
+
+    return;
   }
+
+  // CASE 3: tidak ada info outlet → input opsional
+  wrap.innerHTML = `<input id="outletSelect" class="search" placeholder="Outlet (opsional)..." style="width:100%;">`;
 }
 
 // Cart actions
@@ -791,14 +788,18 @@ function removeItem(id){
 function openPopup(){
   if(CART.length===0)return alert("Keranjang kosong!");
   const name=USERNAME||"";
+
   let outlet="";
   const outlets=(CURRENT_BRAND_DATA && Array.isArray(CURRENT_BRAND_DATA.outlets))
     ? CURRENT_BRAND_DATA.outlets : [];
+
   if(outlets.length>0){
-    outlet=outletSelect.value||"";
+    const sel=document.getElementById("outletSelect");
+    outlet=(sel && sel.value) ? sel.value : "";
   }else{
     outlet=manualOutlet.value.trim();
   }
+
   if(!outlet)return alert("Outlet harus diisi.");
 
   let txt=`Pesanan untuk: ${name}\nBrand: ${(CURRENT_BRAND_DATA && CURRENT_BRAND_DATA.brand)||CURRENT_BRAND||"-"}\nOutlet: ${outlet}\n\n`;
