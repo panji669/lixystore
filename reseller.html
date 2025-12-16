@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIXY Store – Premium Minimalist</title>
+<title>LIXY Store – Premium Minimalist (Reseller)</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -151,9 +151,10 @@ header img{
   background:transparent;border:none;color:#ff5555;font-weight:700;cursor:pointer;
 }
 .summary{padding:16px;}
-.summary textarea,.summary select,.summary input{
+.summary textarea,.summary input{
   width:100%;background:var(--card);border:1px solid var(--line);
   color:#fff;padding:10px;border-radius:10px;margin-top:8px;
+  font-family:inherit;
 }
 
 /* Float cart */
@@ -174,9 +175,14 @@ header img{
 #popup{
   display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);
   justify-content:center;align-items:center;padding:20px;z-index:100;
+  touch-action: pan-y;
 }
 #popup .inner{
   background:var(--card2);padding:20px;border-radius:14px;width:min(420px,100%);
+  max-height:85vh; overflow:auto; -webkit-overflow-scrolling:touch;
+}
+#popupText{
+  max-height:60vh; overflow:auto; -webkit-overflow-scrolling:touch;
 }
 
 /* Option popup */
@@ -190,6 +196,7 @@ header img{
 .inner-opt select{
   width:100%;padding:10px;margin:6px 0;border-radius:10px;
   border:1px solid var(--line);background:var(--card);color:#fff;
+  font-family:inherit;
 }
 
 /* Loading overlay for menu */
@@ -207,8 +214,59 @@ header img{
   color:var(--muted);font-weight:600;font-size:14px;letter-spacing:.3px;
 }
 @keyframes spin{to{transform:rotate(360deg);}}
+
+/* ===== Custom Outlet Dropdown (Search always visible + selected bold) ===== */
+.outlet-box{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+}
+.outlet-selected{
+  padding:12px 14px;
+  font-weight:800;
+  cursor:pointer;
+  user-select:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.outlet-selected span{
+  font-weight:600;
+  color:var(--muted);
+  margin-left:12px;
+}
+.outlet-panel{
+  border-top:1px solid var(--line);
+  max-height:260px;
+  overflow:auto;
+  display:block; /* search & list selalu terlihat */
+}
+.outlet-search{
+  width:100%;
+  padding:10px 12px;
+  border:none;
+  border-bottom:1px solid var(--line);
+  outline:none;
+  background:var(--bg2);
+  color:#fff;
+  font-family:inherit;
+}
+.outlet-item{
+  padding:10px 14px;
+  cursor:pointer;
+}
+.outlet-item:hover{
+  background:rgba(255,255,255,.06);
+}
+.outlet-item.active{
+  font-weight:800;
+  background:rgba(57,255,180,.15);
+}
 </style>
 </head>
+
 <body>
 
 <!-- Splash -->
@@ -294,18 +352,8 @@ header img{
   <div id="cartItems" style="padding:16px;"></div>
 
   <div class="summary">
-    <!-- Outlet: auto / manual -->
-    <div id="outletSelectWrap">
-      <label style="font-size:13px;color:var(--muted)">Outlet</label>
-      <div id="outletWrapper">
-          <select id="outletSelect" class="input-box"></select>
-      </div>      
-    </div>
-
-    <div id="manualOutletWrap" style="display:none;">
-      <label style="font-size:13px;color:var(--muted);">Outlet</label>
-      <input id="manualOutlet" type="text" placeholder="Tulis outlet (mis. Fore Cilegon)">
-    </div>
+    <label style="font-size:13px;color:var(--muted)">Outlet</label>
+    <div id="outletWrapper" style="margin-top:8px;"></div>
 
     <label style="font-size:13px;color:var(--muted);margin-top:10px;display:block;">Catatan</label>
     <textarea id="cartNotes" rows="3" placeholder="Opsional..."></textarea>
@@ -332,10 +380,7 @@ header img{
 <div id="optionPopup">
   <div class="inner-opt">
     <h3 id="optTitle" style="margin-top:0;">Pilih Opsi</h3>
-    <div id="popupPrice" 
-     style="font-size:18px;font-weight:600;margin-top:10px;color:var(--accent);">
-     Rp 0
-</div>
+    <div id="popupPrice" style="font-size:18px;font-weight:700;margin-top:10px;color:var(--accent);">Rp 0</div>
 
     <label style="font-size:13px;color:var(--muted);">Ice / Hot</label>
     <select id="optTemp"></select>
@@ -372,115 +417,141 @@ header img{
 const IS_RESELLER = true;      // ubah ke false jika tidak ingin mode reseller
 const RESELLER_PLUS = 4000;    // semua harga +4000 di mode reseller
 
-// Utils
-function rupiah(n){return "Rp "+Number(n||0).toLocaleString("id-ID");}
+/* =========================
+   Utils
+========================= */
+function rupiah(n){ return "Rp " + Number(n||0).toLocaleString("id-ID"); }
 function applyReseller(price){
-  return IS_RESELLER ? Number(price||0) + RESELLER_PLUS : Number(price||0);
+  return IS_RESELLER ? (Number(price||0) + RESELLER_PLUS) : Number(price||0);
 }
-function hashJSON(obj){try{return JSON.stringify(obj).split("").reduce((a,b)=>((a<<5)-a)+b.charCodeAt(0),0);}catch(e){return Math.random();}}
-function save(k,v){localStorage.setItem(k,JSON.stringify(v));}
-function load(k,d=null){let v=localStorage.getItem(k);return v?JSON.parse(v):d;}
-function showLoading(on){const ol=document.getElementById("loadingOverlay");if(!ol)return;ol.style.display=on?"flex":"none";}
+function hashJSON(obj){
+  try{
+    return JSON.stringify(obj).split("").reduce((a,b)=>((a<<5)-a)+b.charCodeAt(0),0);
+  }catch(e){ return Math.random(); }
+}
+function save(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
+function load(k,d=null){ const v=localStorage.getItem(k); return v ? JSON.parse(v) : d; }
+function showLoading(on){
+  const ol=document.getElementById("loadingOverlay");
+  if(!ol) return;
+  ol.style.display = on ? "flex" : "none";
+}
 
-// State
+/* =========================
+   State
+========================= */
 let CURRENT_BRAND=null;
 let CURRENT_BRAND_DATA=null;
 let CURRENT_PRODUCTS=[];
 let CURRENT_OUTLETS=[];
 let CART=load("cart",[]);
 let USERNAME=load("username","");
-let LIVE_VERSION=null,LIVE_HASH=null,POLL=null;
-let ACTIVE_CATEGORY="All",SEARCH_TEXT="";
+let LIVE_VERSION=null, LIVE_HASH=null, POLL=null;
+let ACTIVE_CATEGORY="All", SEARCH_TEXT="";
 let OPT_PRODUCT=null;
 
-// Navigation
-function goName(){
-  splash.classList.add("hidden");
-  namePage.classList.remove("hidden");
-}
+/* =========================
+   Navigation
+========================= */
 function saveName(){
   const v=buyerName.value.trim();
-  if(!v)return alert("Nama tidak boleh kosong.");
-  USERNAME=v;save("username",v);
+  if(!v) return alert("Nama tidak boleh kosong.");
+  USERNAME=v; save("username", v);
+
   namePage.classList.add("hidden");
   brandPage.classList.remove("hidden");
-  helloUser.innerText=v;helloUser2.innerText=v;
+  helloUser.innerText=v;
+  helloUser2.innerText=v;
 }
+
 function goChangeName(){
-  if(POLL)clearInterval(POLL);
+  if(POLL) clearInterval(POLL);
+
   brandPage.classList.add("hidden");
   productPage.classList.add("hidden");
   cartPage.classList.add("hidden");
+
   namePage.classList.remove("hidden");
   buyerName.value=USERNAME||"";
   buyerName.focus();
 }
+
 function reloadBrand(){
   brandPage.classList.remove("hidden");
   productPage.classList.add("hidden");
   cartPage.classList.add("hidden");
   floatCart.style.display="none";
 }
+
 function openBrand(key){
   CURRENT_BRAND=key;
   brandPage.classList.add("hidden");
   productPage.classList.remove("hidden");
+
   helloUser2.innerText=USERNAME;
   brandTitle.innerText=key.toUpperCase();
+
   loadBrand(key,true);
 }
+
 function backBrand(){
   productPage.classList.add("hidden");
   brandPage.classList.remove("hidden");
   floatCart.style.display="none";
 }
+
 function openCart(){
   productPage.classList.add("hidden");
   cartPage.classList.remove("hidden");
   renderCart();
 }
+
 function backProduct(){
   cartPage.classList.add("hidden");
   productPage.classList.remove("hidden");
 }
 
-// Load brand JSON
-async function loadBrand(brand,force=false){
+/* =========================
+   Brand JSON
+========================= */
+async function loadBrand(brand, force=false){
   showLoading(true);
   try{
-    const res=await fetch(`data/${brand}.json?ts=`+Date.now(),{cache:"no-store"});
-    if(!res.ok)throw new Error("HTTP "+res.status);
-    const data=await res.json();
-    const norm=normalizeBrand(data);
-    const v=norm.version||1;
-    const h=hashJSON(norm.products);
+    // pakai path relatif agar aman di subfolder hosting
+    const res = await fetch(`./data/${brand}.json?ts=`+Date.now(), { cache:"no-store" });
+    if(!res.ok) throw new Error("HTTP "+res.status);
 
-    if(force||v!==LIVE_VERSION||h!==LIVE_HASH){
-      LIVE_VERSION=v;LIVE_HASH=h;
+    const data = await res.json();
+    const norm = normalizeBrand(data);
+    const v = norm.version || 1;
+    const h = hashJSON(norm.products);
+
+    if(force || v!==LIVE_VERSION || h!==LIVE_HASH){
+      LIVE_VERSION=v; LIVE_HASH=h;
       CURRENT_BRAND_DATA=norm;
       CURRENT_PRODUCTS=norm.products;
-      CURRENT_OUTLETS=norm.outlets||[];
+      CURRENT_OUTLETS=norm.outlets || [];
+
       buildCategories(CURRENT_PRODUCTS);
       renderProducts(CURRENT_PRODUCTS);
-      setupOutletUI();
     }
+
     startPolling(brand);
   }catch(e){
     console.error(e);
-    productList.innerHTML=`<p style="color:var(--muted);padding:20px;">Gagal memuat menu brand ini.</p>`;
+    productList.innerHTML = `<p style="color:var(--muted);padding:20px;">Gagal memuat menu brand ini.</p>`;
   }finally{
     showLoading(false);
   }
 }
+
 function normalizeBrand(d){
-  const arr=Array.isArray(d.products)?d.products:(d.items||[]);
+  const arr = Array.isArray(d.products) ? d.products : (d.items || []);
   return{
     version:d.version||1,
     brand:d.brand||"",
-    outlets: Array.isArray(d.outlets)
-  ? d.outlets
-  : (d.outlets === "manual" ? "manual" : []),
-    products:arr.map((p,i)=>({
+    outlets: Array.isArray(d.outlets) ? d.outlets : (d.outlets === "manual" ? "manual" : []),
+    products: arr.map((p,i)=>({
       id:p.id||("prd-"+i),
       name:p.name||"Unnamed",
       price:Number(p.price)||0,
@@ -490,32 +561,38 @@ function normalizeBrand(d){
         temperature:["Iced","Hot"],
         sugar:["Normal","Less Sugar"],
         size:["Small","Large"]
-      }
+      },
+      // penting: agar calculateFinalPrice chagee bisa jalan
+      variantPricing: p.variantPricing || null
     }))
   };
 }
+
 function startPolling(brand){
-  if(POLL)clearInterval(POLL);
-  POLL=setInterval(()=>loadBrand(brand,false),20000);
-}
-function guessCategory(n){
-  n=n.toLowerCase();
-  if(n.includes("latte")||n.includes("kopi")||n.includes("americano"))return"Coffee";
-  if(n.includes("matcha")||n.includes("green"))return"Matcha";
-  if(n.includes("tea"))return"Tea";
-  if(n.includes("blend")||n.includes("frappe"))return"Frappe";
-  if(n.includes("cake")||n.includes("croissant")||n.includes("sandwich"))return"Food";
-  return"Other";
+  if(POLL) clearInterval(POLL);
+  POLL = setInterval(()=>loadBrand(brand,false), 20000);
 }
 
-// Category & search
+function guessCategory(n){
+  n=n.toLowerCase();
+  if(n.includes("latte")||n.includes("kopi")||n.includes("americano")) return "Coffee";
+  if(n.includes("matcha")||n.includes("green")) return "Matcha";
+  if(n.includes("tea")) return "Tea";
+  if(n.includes("blend")||n.includes("frappe")) return "Frappe";
+  if(n.includes("cake")||n.includes("croissant")||n.includes("sandwich")) return "Food";
+  return "Other";
+}
+
+/* =========================
+   Category & search
+========================= */
 function buildCategories(list){
   const cats=["All",...new Set(list.map(p=>p.category))];
   categoryChips.innerHTML="";
   cats.forEach(cat=>{
     const el=document.createElement("div");
     el.className="chip";
-    if(cat==="All")el.classList.add("active");
+    if(cat==="All") el.classList.add("active");
     el.textContent=cat;
     el.onclick=()=>setCategory(cat);
     categoryChips.appendChild(el);
@@ -533,32 +610,40 @@ function onSearch(v){
 }
 function filterAndRender(){
   let list=[...CURRENT_PRODUCTS];
-  if(ACTIVE_CATEGORY!=="All")list=list.filter(p=>p.category===ACTIVE_CATEGORY);
-  if(SEARCH_TEXT)list=list.filter(p=>p.name.toLowerCase().includes(SEARCH_TEXT));
+  if(ACTIVE_CATEGORY!=="All") list=list.filter(p=>p.category===ACTIVE_CATEGORY);
+  if(SEARCH_TEXT) list=list.filter(p=>p.name.toLowerCase().includes(SEARCH_TEXT));
   renderProducts(list);
 }
 
-// Render products
+/* =========================
+   Render products
+========================= */
 function renderProducts(list){
   productList.innerHTML="";
   if(list.length===0){
     productList.innerHTML=`<p style="color:var(--muted);padding:20px;">Tidak ada produk.</p>`;
     return;
   }
+
   list.forEach(p=>{
     const card=document.createElement("div");
     card.className="product-card";
+
     const img=document.createElement("img");
-    img.src=p.image;img.onerror=()=>img.src="img/error.png";
+    img.src=p.image;
+    img.onerror=()=>img.src="img/error.png";
+
     const info=document.createElement("div");
     info.className="product-info";
+
     const h3=document.createElement("h3");
     h3.textContent=p.name;
+
     const cat=document.createElement("small");
     cat.textContent=p.category;
+
     const price=document.createElement("div");
     price.style.marginTop="4px";
-
     const displayPrice = applyReseller(p.price);
     price.innerHTML=`<b>${rupiah(displayPrice)}</b>`;
 
@@ -566,157 +651,136 @@ function renderProducts(list){
     btn.className="add-btn";
     btn.textContent="+ Keranjang";
     btn.onclick=()=>openOptionPopup(p);
+
     info.append(h3,cat,price,btn);
     card.append(img,info);
     productList.appendChild(card);
   });
+
   updateFloatingCart();
 }
 
-// Variant popup
+/* =========================
+   Variant popup + pricing
+========================= */
 function openOptionPopup(p){
   OPT_PRODUCT=p;
+
   optTitle.textContent=p.name;
   optTemp.innerHTML=p.variants.temperature.map(v=>`<option>${v}</option>`).join("");
   optSugar.innerHTML=p.variants.sugar.map(v=>`<option>${v}</option>`).join("");
   optSize.innerHTML=p.variants.size.map(v=>`<option>${v}</option>`).join("");
-  // LISTENER REALTIME HARGA SAAT SIZE DIGANTI
-  optSize.onchange = () => {
-    updatePopupPrice();
-  };
-  setTimeout(() => {
-    updatePopupPrice();
-  }, 10);
+
+  optSize.onchange=()=>updatePopupPrice();
+  setTimeout(updatePopupPrice, 10);
+
   optionPopup.style.display="flex";
 }
+
 function closeOptionPopup(){
-  optionPopup.style.display="none";OPT_PRODUCT=null;
+  optionPopup.style.display="none";
+  OPT_PRODUCT=null;
 }
-function calculateFinalPrice(product, selectedSize) {
-    const basePrice = Number(product.price) || 0;
 
-    // BRAND CHAGEE → gunakan harga variantPricing
-    if (CURRENT_BRAND === "chagee") {
-        if (
-            product.variantPricing &&
-            product.variantPricing.Size &&
-            product.variantPricing.Size[selectedSize]
-        ) {
-            return product.variantPricing.Size[selectedSize];
-        }
-        return basePrice;
+function calculateFinalPrice(product, selectedSize){
+  const basePrice = Number(product.price) || 0;
+
+  // CHAGEE: pakai variantPricing jika tersedia
+  if(CURRENT_BRAND === "chagee"){
+    if(product.variantPricing && product.variantPricing.Size && product.variantPricing.Size[selectedSize]){
+      return product.variantPricing.Size[selectedSize];
     }
-
-    // BRAND LAIN → aturan umum Large +5000
-    if (selectedSize === "Large") {
-        return basePrice + 5000;
-    }
-
     return basePrice;
-}
-function updatePopupPrice() {
-    if (!OPT_PRODUCT || !optSize) return;
+  }
 
-    const size = optSize.value;
-    let price = calculateFinalPrice(OPT_PRODUCT, size);
-    price = applyReseller(price);
-
-    const priceBox = document.getElementById("popupPrice");
-    if (priceBox) {
-        priceBox.innerText = "Rp " + price.toLocaleString("id-ID");
-    }
-}
-function confirmOptions() {
-    if (!OPT_PRODUCT) return;
-
-    const selectedSize = optSize ? optSize.value : "Regular";
-
-    // Gunakan sistem harga realtime
-    let finalPrice = calculateFinalPrice(OPT_PRODUCT, selectedSize);
-    finalPrice = applyReseller(finalPrice);
-
-    let item = {
-        id: OPT_PRODUCT.id + "-" + Date.now(),
-        name: OPT_PRODUCT.name,
-        basePrice: OPT_PRODUCT.price,
-        finalPrice: finalPrice,
-        price: finalPrice,       // dipakai cart & WA
-        size: selectedSize,
-        temp: optTemp ? optTemp.value : "",
-        sugar: optSugar ? optSugar.value : "",
-        image: OPT_PRODUCT.image,
-        qty: 1,
-        brand: CURRENT_BRAND
-    };
-
-    CART.push(item);
-    save("cart", CART);
-
-    closeOptionPopup();
-    updateBadge();
-    updateFloatingCart();
+  // Default: Large +5000
+  if(selectedSize === "Large") return basePrice + 5000;
+  return basePrice;
 }
 
-// Cart helpers
+function updatePopupPrice(){
+  if(!OPT_PRODUCT || !optSize) return;
+
+  const size = optSize.value;
+  let price = calculateFinalPrice(OPT_PRODUCT, size);
+  price = applyReseller(price);
+
+  const priceBox=document.getElementById("popupPrice");
+  if(priceBox) priceBox.innerText = "Rp " + price.toLocaleString("id-ID");
+}
+
+function confirmOptions(){
+  if(!OPT_PRODUCT) return;
+
+  const selectedSize = optSize ? optSize.value : "Regular";
+  let finalPrice = calculateFinalPrice(OPT_PRODUCT, selectedSize);
+  finalPrice = applyReseller(finalPrice);
+
+  const item={
+    id: OPT_PRODUCT.id + "-" + Date.now(),
+    name: OPT_PRODUCT.name,
+    basePrice: OPT_PRODUCT.price,
+    finalPrice: finalPrice,
+    price: finalPrice,
+    size: selectedSize,
+    temp: optTemp ? optTemp.value : "",
+    sugar: optSugar ? optSugar.value : "",
+    image: OPT_PRODUCT.image,
+    qty: 1,
+    brand: CURRENT_BRAND
+  };
+
+  CART.push(item);
+  save("cart", CART);
+
+  closeOptionPopup();
+  updateBadge();
+  updateFloatingCart();
+}
+
+/* =========================
+   Cart helpers
+========================= */
 function updateBadge(){
   const count=CART.reduce((a,b)=>a+b.qty,0);
   if(count===0){
-    badge.classList.add("hidden");badge2.classList.add("hidden");
+    badge.classList.add("hidden");
+    badge2.classList.add("hidden");
   }else{
-    badge.classList.remove("hidden");badge2.classList.remove("hidden");
-    badge.textContent=count;badge2.textContent=count;
+    badge.classList.remove("hidden");
+    badge2.classList.remove("hidden");
+    badge.textContent=count;
+    badge2.textContent=count;
   }
 }
+
 function updateFloatingCart(){
-  if(CART.length===0){floatCart.style.display="none";return;}
+  if(CART.length===0){
+    floatCart.style.display="none";
+    return;
+  }
   floatCart.style.display="block";
   floatCount.textContent=CART.reduce((a,b)=>a+b.qty,0);
   floatTotal.textContent=rupiah(CART.reduce((a,b)=>a+b.price*b.qty,0));
 }
 
-// Outlet UI (dropdown vs manual)
-function setupOutletUI(){
-  const selectWrap=document.getElementById("outletSelectWrap");
-  const manualWrap=document.getElementById("manualOutletWrap");
-  const selectEl=document.getElementById("outletSelect");
-  const manualEl=document.getElementById("manualOutlet");
-  if(!selectWrap||!manualWrap||!selectEl||!manualEl)return;
-
-  const outlets=(CURRENT_BRAND_DATA && Array.isArray(CURRENT_BRAND_DATA.outlets))
-    ? CURRENT_BRAND_DATA.outlets : [];
-
-  selectEl.innerHTML="";
-
-  if(outlets.length>0){
-    selectWrap.style.display="block";
-    manualWrap.style.display="none";
-    outlets.forEach(o=>{
-      const opt=document.createElement("option");
-      opt.value=o;opt.textContent=o;
-      selectEl.appendChild(opt);
-    });
-  }else{
-    selectWrap.style.display="none";
-    manualWrap.style.display="block";
-    manualEl.value="";
-  }
-}
-
-// Render cart page
+/* =========================
+   Render cart page
+========================= */
 function renderCart(){
-  cartItems.innerHTML = "";
+  cartItems.innerHTML="";
 
-  if (CART.length === 0) {
-    cartItems.innerHTML = `<p style='color:var(--muted);padding:12px;'>Keranjang masih kosong.</p>`;
-    totalPrice.innerText = "Rp 0";
-    buildOutletControl();   // <-- handle manual/dropdown
+  if(CART.length===0){
+    cartItems.innerHTML=`<p style='color:var(--muted);padding:12px;'>Keranjang masih kosong.</p>`;
+    totalPrice.innerText="Rp 0";
+    buildOutletControl();
     return;
   }
 
-  CART.forEach(item => {
-    let row = document.createElement("div");
-    row.className = "cart-item";
-    row.innerHTML = `
+  CART.forEach(item=>{
+    const row=document.createElement("div");
+    row.className="cart-item";
+    row.innerHTML=`
       <div style='flex:1;'>
         <b>${item.name}</b><br>
         <small style="color:var(--muted)">${item.temp} • ${item.sugar} • ${item.size}</small><br>
@@ -734,114 +798,174 @@ function renderCart(){
     cartItems.appendChild(row);
   });
 
-  // hitung total pakai harga final (sudah termasuk reseller jika aktif)
-  totalPrice.innerText = rupiah(
-    CART.reduce((a, b) => a + (b.price * b.qty), 0)
-  );
-
-  buildOutletControl();    // <-- update outlet setiap render
+  totalPrice.innerText = rupiah(CART.reduce((a,b)=>a+(b.price*b.qty),0));
+  buildOutletControl();
 }
-function buildOutletControl() {
-  const el = document.getElementById("outletSelect");
-  if (!el) return;
+
+/* =========================
+   Outlet Control (Custom)
+   - Search selalu terlihat
+   - A–Z
+   - Selected bold + highlight
+   - Sumber outlet disimpan di localStorage
+========================= */
+function buildOutletControl(){
+  const wrap=document.getElementById("outletWrapper");
+  if(!wrap) return;
 
   const key = "outlet_" + (CURRENT_BRAND || "default");
 
-  // CASE 1: manual
-  if (CURRENT_OUTLETS === "manual") {
-    // ubah select jadi input kalau belum
-    if (el.tagName.toLowerCase() !== "input") {
-      el.outerHTML = `<input id="outletSelect" class="search" placeholder="Ketik outlet manual..." style="width:100%;">`;
-    }
-    const input = document.getElementById("outletSelect");
-    const saved = localStorage.getItem(key);
-    if (saved) input.value = saved;
-    input.oninput = (e) => {
-      localStorage.setItem(key, e.target.value);
-    };
+  // Manual outlet (input)
+  if(CURRENT_OUTLETS === "manual"){
+    wrap.innerHTML = `<input id="outletManualInput" class="search" placeholder="Ketik outlet manual...">`;
+    const input=document.getElementById("outletManualInput");
+    input.value = localStorage.getItem(key) || "";
+    input.oninput = (e)=> localStorage.setItem(key, e.target.value || "");
+    return;
   }
-  // CASE 2: list outlet array
-  else if (Array.isArray(CURRENT_OUTLETS)) {
-    // pastikan bentuknya select
-    if (el.tagName.toLowerCase() !== "select") {
-      el.outerHTML = `<select id="outletSelect" class="search" style="width:100%;"></select>`;
-    }
-    const select = document.getElementById("outletSelect");
-    select.innerHTML = CURRENT_OUTLETS.map(o => `<option>${o}</option>`).join("");
 
-    const saved = localStorage.getItem(key);
-    if (saved) select.value = saved;
+  // Outlet list (custom dropdown + search)
+  if(Array.isArray(CURRENT_OUTLETS) && CURRENT_OUTLETS.length){
+    const ALL = [...CURRENT_OUTLETS].sort((a,b)=>
+      String(a).localeCompare(String(b), "id", { sensitivity:"base" })
+    );
 
-    select.onchange = (e) => {
-      localStorage.setItem(key, e.target.value);
-    };
-  }
-  // CASE 3: tidak ada info outlet
-  else {
-    // kosong tapi tetap bisa diisi manual
-    if (el.tagName.toLowerCase() !== "input") {
-      el.outerHTML = `<input id="outletSelect" class="search" placeholder="Outlet (opsional)..." style="width:100%;">`;
+    let selected = localStorage.getItem(key) || ALL[0] || "";
+    localStorage.setItem(key, selected);
+
+    wrap.innerHTML = `
+      <div class="outlet-box">
+        <div class="outlet-selected" id="outletSelected">
+          ${selected || "-"} <span>▼</span>
+        </div>
+        <div class="outlet-panel">
+          <input id="outletSearch" class="outlet-search" placeholder="Cari outlet...">
+          <div id="outletList"></div>
+        </div>
+      </div>
+    `;
+
+    const selectedEl=document.getElementById("outletSelected");
+    const searchEl=document.getElementById("outletSearch");
+    const listEl=document.getElementById("outletList");
+
+    function render(list){
+      listEl.innerHTML="";
+      list.forEach(o=>{
+        const div=document.createElement("div");
+        div.className="outlet-item" + (o===selected ? " active" : "");
+        div.textContent=o;
+        div.onclick=()=>{
+          selected=o;
+          localStorage.setItem(key, o);
+          selectedEl.innerHTML = `${o} <span>▼</span>`;
+          render(list);
+        };
+        listEl.appendChild(div);
+      });
     }
+
+    render(ALL);
+
+    searchEl.oninput=()=>{
+      const q=(searchEl.value||"").trim().toLowerCase();
+      const filtered = !q ? ALL : ALL.filter(o=>String(o).toLowerCase().includes(q));
+      render(filtered);
+    };
+
+    return;
   }
+
+  // Fallback outlet kosong
+  wrap.innerHTML = `<input id="outletFallback" class="search" placeholder="Outlet...">`;
+  const fb=document.getElementById("outletFallback");
+  fb.value = localStorage.getItem(key) || "";
+  fb.oninput = (e)=> localStorage.setItem(key, e.target.value || "");
 }
 
-// Cart actions
+/* =========================
+   Cart actions
+========================= */
 function incQty(id){
-  CART=CART.map(x=>{if(x.id===id)x.qty++;return x;});
-  save("cart",CART);renderCart();updateBadge();updateFloatingCart();
+  CART=CART.map(x=>{ if(x.id===id) x.qty++; return x; });
+  save("cart", CART);
+  renderCart(); updateBadge(); updateFloatingCart();
 }
 function decQty(id){
-  CART=CART.map(x=>{if(x.id===id && x.qty>1)x.qty--;return x;});
-  save("cart",CART);renderCart();updateBadge();updateFloatingCart();
+  CART=CART.map(x=>{ if(x.id===id && x.qty>1) x.qty--; return x; });
+  save("cart", CART);
+  renderCart(); updateBadge(); updateFloatingCart();
 }
 function removeItem(id){
   CART=CART.filter(x=>x.id!==id);
-  save("cart",CART);renderCart();updateBadge();updateFloatingCart();
+  save("cart", CART);
+  renderCart(); updateBadge(); updateFloatingCart();
 }
 
-// Checkout popup
+/* =========================
+   Checkout popup (Outlet dari localStorage)
+========================= */
 function openPopup(){
-  if(CART.length===0)return alert("Keranjang kosong!");
+  if(CART.length===0) return alert("Keranjang kosong!");
   const name=USERNAME||"";
-  let outlet="";
-  const outlets=(CURRENT_BRAND_DATA && Array.isArray(CURRENT_BRAND_DATA.outlets))
-    ? CURRENT_BRAND_DATA.outlets : [];
-  if(outlets.length>0){
-    outlet=outletSelect.value||"";
-  }else{
-    outlet=manualOutlet.value.trim();
-  }
-  if(!outlet)return alert("Outlet harus diisi.");
 
-  let txt=`Pesanan untuk: ${name}\nBrand: ${(CURRENT_BRAND_DATA && CURRENT_BRAND_DATA.brand)||CURRENT_BRAND||"-"}\nOutlet: ${outlet}\n\n`;
+  const outletKey = "outlet_" + (CURRENT_BRAND || "default");
+  const outlet = (localStorage.getItem(outletKey) || "").trim();
+  if(!outlet) return alert("Outlet harus diisi.");
+
+  let txt =
+    `Pesanan untuk: ${name}\n` +
+    `Brand: ${(CURRENT_BRAND_DATA && CURRENT_BRAND_DATA.brand) || CURRENT_BRAND || "-"}\n` +
+    `Outlet: ${outlet}\n\n`;
+
   CART.forEach((it,i)=>{
-    txt+=`${i+1}. ${it.name}\n   ${it.temp} • ${it.sugar} • ${it.size}\n   Qty: ${it.qty} x ${rupiah(it.price)}\n   Total: ${rupiah(it.qty*it.price)}\n\n`;
+    txt +=
+      `${i+1}. ${it.name}\n` +
+      `   ${it.temp} • ${it.sugar} • ${it.size}\n` +
+      `   Qty: ${it.qty} x ${rupiah(it.price)}\n` +
+      `   Total: ${rupiah(it.qty * it.price)}\n\n`;
   });
+
   const grand=CART.reduce((a,b)=>a+b.price*b.qty,0);
-  txt+=`Total: ${rupiah(grand)}\n\n`;
-  const notes=cartNotes.value.trim();
-  if(notes)txt+=`Catatan:\n${notes}\n`;
+  txt += `Total: ${rupiah(grand)}\n\n`;
+
+  const notes=(cartNotes.value||"").trim();
+  if(notes) txt += `Catatan:\n${notes}\n`;
+
   popupText.textContent=txt;
   popup.style.display="flex";
 }
-function closePopup(){popup.style.display="none";}
+
+function closePopup(){ popup.style.display="none"; }
+
 function sendWA(){
   const msg=popupText.textContent;
-  const nomor="6285219203294"; // ganti ke nomor WA reseller jika perlu
+  const nomor="6281294944774"; // nomor WA reseller
   const url="https://wa.me/"+nomor+"?text="+encodeURIComponent(msg);
+
   window.open(url,"_blank");
-  CART=[];save("cart",CART);
-  closePopup();renderCart();updateBadge();updateFloatingCart();
+
+  CART=[];
+  save("cart", CART);
+
+  closePopup();
+  renderCart();
+  updateBadge();
+  updateFloatingCart();
 }
 
-// Init: splash progress then route
+/* =========================
+   Init
+========================= */
 window.addEventListener("load",()=>{
   splash.classList.remove("hidden");
   namePage.classList.add("hidden");
   brandPage.classList.add("hidden");
   productPage.classList.add("hidden");
   cartPage.classList.add("hidden");
-  updateBadge();updateFloatingCart();
+
+  updateBadge();
+  updateFloatingCart();
 
   setTimeout(()=>{
     if(USERNAME){
@@ -859,4 +983,3 @@ window.addEventListener("load",()=>{
 
 </body>
 </html>
-
